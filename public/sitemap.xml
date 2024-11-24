@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/my-first-post/</loc>
+    <lastmod>2024-11-24T11:00:37+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/</loc>
+    <lastmod>2024-11-24T11:00:37+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/</loc>
+    <lastmod>2024-11-24T11:00:37+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/</loc>
+  </url>
+</urlset>
