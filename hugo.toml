@@ -1,4 +1,4 @@
 baseURL = 'https://github.com/lioouzzz/sleepblog.git'
 languageCode = 'en-us'
-title = 'Elazzzzy's coooode'
+title = 'My New Hugo Site'
 theme = 'ananke'
