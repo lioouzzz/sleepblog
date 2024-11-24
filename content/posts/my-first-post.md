@@ -6,6 +6,6 @@ title = 'My First Post'
 
 ## Introduction
 
-This is **bold** text, and this is _emphasized_ text.
+哈囉 我是奕伶
 
 Visit the [Hugo](https://gohugo.io) website!
