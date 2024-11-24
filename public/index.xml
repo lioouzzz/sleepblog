@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>Elazzy</title>
     <link>http://localhost:1313/lioouzzz/sleepblog.git/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <description>Recent content on Elazzy</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Nov 2024 11:00:37 +0800</lastBuildDate>
@@ -13,7 +13,14 @@
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/my-first-post/</link>
       <pubDate>Sun, 24 Nov 2024 11:00:37 +0800</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/my-first-post/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;&#xA;&lt;p&gt;Visit the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; website!&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;哈囉 我是奕伶&lt;/p&gt;&#xA;&lt;p&gt;Visit the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; website!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>函數</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1119fn_note/</link>
+      <pubDate>Sun, 24 Nov 2024 11:00:37 +0800</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1119fn_note/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;&#xA;&lt;p&gt;參數 參數預設值&#xA;引數 關鍵字引數、位置引數&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;在函數的參數裡打 / ，代表在 / 之前的參數，都要用位置引數&#xA;在函數的參數裡打 _ ，代表在 _ 之後的參數，都要用關鍵字引數&#xA;夾在/ *之間的參數都可以用&#xA;python 的參數預設值，在函數定義的時候就決定好了。&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;如果在參數的預設值放入可變動物件，[]、{}，可能不會得到想要的答案&#xA;如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷&#xA;不要急著把可變動物件在參數預設值時就直接定義。&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;想讓函數的在操作參數更加彈性的話，可以在參數前面加上 * 標記&#xA;這代表他們會吃下所有的 &amp;ldquo;位置引數(Positional Arguments)&amp;rdquo;&#xA;在執行函數時，會蒐集成 Tuple。&lt;/p&gt;&#xA;&lt;p&gt;為什麼蒐集成 Tuple？&#xA;1.Tuple 有不可變的特性。 2.效能好。&lt;/p&gt;&#xA;&lt;p&gt;這裡要注意:不會吃關鍵字引數！會報錯 (TypeError: fn got an unexpected keyword arguent &amp;quot; &amp;ldquo;)&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;*&lt;/code&gt;負責吃位置引數，會蒐集成 Tuple&#xA;&lt;code&gt;**&lt;/code&gt;負責吃關鍵字引數，會蒐集成{}&lt;/p&gt;&#xA;&lt;p&gt;如果你之後的參數就是想接關鍵字引數，遇到這種情形怎麼辦?&#xA;登登登! 那就使用兩個&lt;code&gt;**&lt;/code&gt;&#xA;&lt;code&gt;**&lt;/code&gt;負責吃關鍵字引數，會自動蒐集成{}&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
