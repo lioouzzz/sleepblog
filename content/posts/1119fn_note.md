@@ -2,9 +2,12 @@
 date = '2024-11-24T11:00:37+08:00'
 draft = false
 title = '函數'
+show_reading_time=true
+featured_image = '/images/S__20463625.jpg'
 +++
 
 <!-- 參數、引數 -->
+
 
 ### 參數、引數
 
@@ -147,3 +150,4 @@ def hi():
 hi()
 print(a)
 ```
+
