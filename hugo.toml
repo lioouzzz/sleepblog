@@ -1,10 +1,5 @@
 baseURL = 'https://github.com/lioouzzz/sleepblog.git'
-<<<<<<< HEAD
-languageCode = 'en-us'
-title = 'Elazzy'
-theme = 'ananke'
-=======
-languageCode ="zh-TW"
+languageCode ="en-us"
 title = '🍀🍀🍀'
 theme = 'ananke'
 
@@ -22,4 +17,3 @@ background_color_class = "bg-washed-green"
 featured_image_class = "cover bg-top"
 # choose a color dimming class for the page or site header from any on this page: https://tachyons.io/docs/themes/skins/, preface it with "bg-" and add the value such as "-X0" where X is in [1,9]
 cover_dimming_class = "bg-washed-green-60"
->>>>>>> a7ac107 (update style)
