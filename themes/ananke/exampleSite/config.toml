@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 title = "Notre-Dame de Paris"
 baseURL = "https://gohugo-theme-ananke.pages.dev"
 theme = ["github.com/theNewDynamic/gohugo-theme-ananke"]
@@ -142,6 +141,3 @@ username = "patrickkollitsch"
 
 [params.ananke.social.bluesky]
 username = "kollitsch.dev"
-
-
->>>>>>> a7ac107 (update style)
