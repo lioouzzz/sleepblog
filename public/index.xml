@@ -6,8 +6,15 @@
     <description>Recent content on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Nov 2024 11:00:37 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 05 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>關於Git</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/gitinit/</link>
+      <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/gitinit/</guid>
+      <description>&lt;h3 id=&#34;git-優點&#34;&gt;git 優點&lt;/h3&gt;&#xA;&lt;p&gt;速度小、檔案小&#xA;同時支援本地及遠端操作 (不需要網路)&lt;/p&gt;</description>
+    </item>
     <item>
       <title>My First Post</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/my-first-post/</link>
@@ -21,13 +28,6 @@
       <pubDate>Sun, 24 Nov 2024 11:00:37 +0800</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1119fn_note/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h3 id=&#34;參數引數&#34;&gt;參數、引數&lt;/h3&gt;&#xA;&lt;p&gt;參數 參數預設值&#xA;引數 關鍵字引數、位置引數&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;在函數的參數裡打 / ，代表在 / 之前的參數，都要用位置引數&#xA;在函數的參數裡打 _ ，代表在 _ 之後的參數，都要用關鍵字引數&#xA;夾在/ *之間的參數都可以用&#xA;python 的參數預設值，在函數定義的時候就決定好了。&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;如果在參數的預設值放入可變動物件，[]、{}，可能不會得到想要的答案&#xA;如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷&#xA;不要急著把可變動物件在參數預設值時就直接定義。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>關於Git</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/gitinit/</link>
-      <pubDate>Sun, 24 Nov 2024 11:00:37 +0800</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/gitinit/</guid>
-      <description>&lt;h3 id=&#34;git優點&#34;&gt;git優點&lt;/h3&gt;&#xA;&lt;p&gt;速度小、檔案小&#xA;同時支援本地及遠端操作 (不需要網路)&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

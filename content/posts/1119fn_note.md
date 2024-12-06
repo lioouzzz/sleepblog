@@ -3,12 +3,11 @@ date = '2024-11-24T11:00:37+08:00'
 draft = false
 title = 'Python 函數'
 show_reading_time=true
-featured_image = '/images/S__20463625.jpg'
+featured_image = '/static/images/ribbon candle.jpg'
 
 +++
 
 <!-- 參數、引數 -->
-
 
 ### 參數、引數
 
@@ -22,12 +21,12 @@ featured_image = '/images/S__20463625.jpg'
 夾在/ \*之間的參數都可以用
 python 的參數預設值，在函數定義的時候就決定好了。
 
-
 <!-- 參數預設值 -->
 
 如果在參數的預設值放入可變動物件，[]、{}，可能不會得到想要的答案
 如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷
 不要急著把可變動物件在參數預設值時就直接定義。
+
 <!--more-->
 
 <!-- 不定數量參數-->
@@ -153,4 +152,3 @@ def hi():
 hi()
 print(a)
 ```
-
