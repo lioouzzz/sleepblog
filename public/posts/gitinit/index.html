@@ -49,7 +49,7 @@
   <meta itemprop="description" content="git 優點 速度小、檔案小 同時支援本地及遠端操作 (不需要網路)">
   <meta itemprop="datePublished" content="2024-12-05T00:00:00+00:00">
   <meta itemprop="dateModified" content="2024-12-05T00:00:00+00:00">
-  <meta itemprop="wordCount" content="301">
+  <meta itemprop="wordCount" content="302">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="關於Git">
   <meta name="twitter:description" content="git 優點 速度小、檔案小 同時支援本地及遠端操作 (不需要網路)">
@@ -113,7 +113,7 @@
       
       
         <span class="f6 mv4 dib tracked"> - 2 minutes read </span>
-        <span class="f6 mv4 dib tracked"> - 301 words </span>
+        <span class="f6 mv4 dib tracked"> - 302 words </span>
       
     </header>
     <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="git-優點">git 優點</h3>
@@ -183,13 +183,29 @@
   </tbody>
 </table>
 <h3 id="git-執行流程">git 執行流程</h3>
-<p>工作目錄 Working <!-- raw HTML omitted -->
-暫存區域 Staging <!-- raw HTML omitted -->
-儲存庫 Repository <!-- raw HTML omitted --></p>
-<p>staging area <!-- raw HTML omitted -->
-commit -m &ldquo;init commit&rdquo; <!-- raw HTML omitted -->
-git help<!-- raw HTML omitted -->
-git status<!-- raw HTML omitted --></p>
+<ul>
+<li>
+<p>工作目錄 Working <!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>暫存區域 Staging <!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>儲存庫 Repository <!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>staging area <!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>commit -m &ldquo;init commit&rdquo; <!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>git help<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>git status<!-- raw HTML omitted --></p>
+</li>
+</ul>
 <h3 id="git-command-指令">git Command 指令</h3>
 <ul>
 <li>
@@ -272,7 +288,8 @@ git log &ndash;oneline
 <p>假設 dog 分支要合併到 cat 分支，那就要先切換成 dog 分支，再進行 git rebase cat
 要注意，末端支點沒有人管，就會暫時隱藏，會改變歷史紀錄，節點相對單純</p>
 <h4 id="要用哪個合併">要用哪個合併</h4>
-<p>merge 會保留歷史紀錄、rebase 不會改變歷史紀錄
+<p>merge 會保留歷史紀錄<br>
+rebase 不會改變歷史紀錄<br>
 要用哪個合併，決定你要不要修改歷史紀錄</p>
 <h4 id="conflict-發生衝突">conflict 發生衝突</h4>
 <p>更改的檔案跟原本太相近，就會發生衝突，Git 會分辨不出來，
@@ -290,7 +307,7 @@ reset 之後的參數<br>
 <p>SSH 要設定金鑰</p>
 <h4 id="git-pull">Git pull</h4>
 <ul>
-<li><code> git fetch</code> 這個指令在做的事情，這個專案線上有的，但本地機沒有，就會拉回來</li>
+<li><code>git fetch</code> 這個指令在做的事情，這個專案線上有的，但本地機沒有，就會拉回來</li>
 <li><code>git fetch</code> 之後的遠端節點貼紙就是 origin/master</li>
 <li><code>git pull</code> = git fetch + git merge</li>
 <li><code>git pull</code> &ndash;rebase = git fetch+auto git rebase</li>

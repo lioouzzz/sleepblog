@@ -8,6 +8,4 @@ featured_image = 'images/ribbon candle.jpg'
 
 ## Introduction
 
-哈囉 我是奕伶
-
 Visit the [Hugo](https://gohugo.io) website!

@@ -3,7 +3,7 @@ date = '2024-11-24T11:00:37+08:00'
 draft = false
 title = 'Python 函數'
 show_reading_time=true
-featured_image = '/static/images/ribbon candle.jpg'
+featured_image = 'images/ribbon candle.jpg'
 
 +++
 

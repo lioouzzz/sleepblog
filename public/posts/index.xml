@@ -6,8 +6,22 @@
     <description>Recent content in Posts on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JS-Getter &amp; Setter</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207gettersetter/</link>
+      <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207gettersetter/</guid>
+      <description>&lt;h3 id=&#34;什麼是-getter-和-setter&#34;&gt;什麼是 Getter 和 Setter？&lt;/h3&gt;&#xA;&lt;p&gt;是 JS 中用來&lt;strong&gt;操作物件屬性的方法&lt;/strong&gt;，他們可以讓我們像存取普通屬性一樣簡單地取值、或設定值，但其實背後可以執行更多的程式邏輯。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stack &amp; Queqe</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207stackqueqe/</link>
+      <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207stackqueqe/</guid>
+      <description>&lt;h3 id=&#34;stack堆疊-和-queue佇列&#34;&gt;Stack(堆疊) 和 Queue(佇列)&lt;/h3&gt;&#xA;&lt;h4 id=&#34;stack-lifo&#34;&gt;Stack (LIFO)&lt;/h4&gt;&#xA;&lt;p&gt;是電腦科學中的一種抽象資料型別，按照後進先出(LIFO，Last In First Out)的原理運作，堆疊常用一維陣列或連結串列來實現。常與另一種有序的線性資料及和佇列相提並論。&lt;/p&gt;&#xA;&lt;p&gt;是一種資料結構，遵循著&lt;strong&gt;後進先出&lt;/strong&gt;的原則，最晚放進堆疊的資料會被最先取出(LIFO Last-In-First-Out)，最早放入堆疊的資料會被最後取出&lt;/p&gt;</description>
+    </item>
     <item>
       <title>關於Git</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/gitinit/</link>
@@ -20,7 +34,7 @@
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/my-first-post/</link>
       <pubDate>Sun, 24 Nov 2024 11:00:37 +0800</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/my-first-post/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;哈囉 我是奕伶&lt;/p&gt;&#xA;&lt;p&gt;Visit the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; website!&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Visit the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; website!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python 函數</title>

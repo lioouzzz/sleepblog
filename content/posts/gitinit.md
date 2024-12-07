@@ -38,14 +38,14 @@ git config --global user.email "lioou.work@gmail.com"
 
 ### git 執行流程
 
-工作目錄 Working <br>
-暫存區域 Staging <br>
-儲存庫 Repository <br>
+- 工作目錄 Working <br>
+- 暫存區域 Staging <br>
+- 儲存庫 Repository <br>
 
-staging area <br>
-commit -m "init commit" <br>
-git help<br>
-git status<br>
+- staging area <br>
+- commit -m "init commit" <br>
+- git help<br>
+- git status<br>
 
 ### git Command 指令
 
@@ -99,7 +99,8 @@ git status<br>
 
 #### 要用哪個合併
 
-merge 會保留歷史紀錄、rebase 不會改變歷史紀錄
+merge 會保留歷史紀錄  
+rebase 不會改變歷史紀錄  
 要用哪個合併，決定你要不要修改歷史紀錄
 
 #### conflict 發生衝突
@@ -125,7 +126,7 @@ SSH 要設定金鑰
 
 #### Git pull
 
-- ` git fetch` 這個指令在做的事情，這個專案線上有的，但本地機沒有，就會拉回來
+- `git fetch` 這個指令在做的事情，這個專案線上有的，但本地機沒有，就會拉回來
 - `git fetch` 之後的遠端節點貼紙就是 origin/master
 - `git pull` = git fetch + git merge
 - `git pull` --rebase = git fetch+auto git rebase
