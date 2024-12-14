@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>django串接google第三方登入 | 🍀🍀🍀</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="詳細的參考文件(Document)可以前往 Django Package 官網
+django-allauth
+首先先安裝套件
+pip install django-allauth
+">
+    <meta name="generator" content="Hugo 0.138.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/lioouzzz/sleepblog.git/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/">
+  <meta property="og:site_name" content="🍀🍀🍀">
+  <meta property="og:title" content="django串接google第三方登入">
+  <meta property="og:description" content="詳細的參考文件(Document)可以前往 Django Package 官網 django-allauth
+首先先安裝套件
+pip install django-allauth">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-12-14T00:00:00+00:00">
+
+  <meta itemprop="name" content="django串接google第三方登入">
+  <meta itemprop="description" content="詳細的參考文件(Document)可以前往 Django Package 官網 django-allauth
+首先先安裝套件
+pip install django-allauth">
+  <meta itemprop="datePublished" content="2024-12-14T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-12-14T00:00:00+00:00">
+  <meta itemprop="wordCount" content="192">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="django串接google第三方登入">
+  <meta name="twitter:description" content="詳細的參考文件(Document)可以前往 Django Package 官網 django-allauth
+首先先安裝套件
+pip install django-allauth">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  
+  
+  
+  <header class="cover bg-center" style="background-image: url('http://localhost:1313/lioouzzz/sleepblog.git/images/ribbon%20candle.jpg');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/lioouzzz/sleepblog.git/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        <img src="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" class="w100 mw5-ns" alt="🍀🍀🍀" />
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">django串接google第三方登入</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">django串接google第三方登入</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-12-14T00:00:00Z">December 14, 2024</time>
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - One minute read </span>
+        <span class="f6 mv4 dib tracked"> - 192 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>詳細的參考文件(Document)可以前往 Django Package 官網
+<a href="https://docs.allauth.org/en/dev/socialaccount/providers/google.html">django-allauth</a></p>
+<p>首先先安裝套件</p>
+<pre tabindex="0"><code class="language-terminal" data-lang="terminal">pip install django-allauth
+</code></pre><p>安裝完成後，開啟 Django 專案的 settings.py，在 INSTALL_APPS 中，加入 allauth 套件及所需的第三方登入驗證提供者(provider)，其中的 SITE_ID 為網站 ID，自行定義即可。
+如下範例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>INSTALLED_APPS <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.admin&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.auth&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.contenttypes&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.sessions&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.messages&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.staticfiles&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.sites&#34;</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#allauth</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;allauth&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;allauth.account&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;allauth.socialaccount&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># google provider</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;allauth.socialaccount.providers.google&#34;</span>,
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e">#settings.py</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SITE_ID <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e">#settings.py</span>
+</span></span><span style="display:flex;"><span>MIDDLEWARE <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.middleware.security.SecurityMiddleware&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.sessions.middleware.SessionMiddleware&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.middleware.common.CommonMiddleware&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.middleware.csrf.CsrfViewMiddleware&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.auth.middleware.AuthenticationMiddleware&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.messages.middleware.MessageMiddleware&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.middleware.clickjacking.XFrameOptionsMiddleware&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;allauth.account.middleware.AccountMiddleware&#34;</span>,  <span style="color:#75715e"># allauth</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#多站點應用、單站點應用、測試跳轉功能</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>SOCIALACCOUNT_PROVIDERS <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;google&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;APPS&#34;</span>: [
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;client_id&#34;</span>: env(<span style="color:#e6db74">&#34;GMAIL_CLIENT_ID&#34;</span>),  <span style="color:#75715e">#api獲得的cliend_id使用env保管</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;secret&#34;</span>: env(<span style="color:#e6db74">&#34;GMAIL_API_SECRET&#34;</span>), <span style="color:#75715e">#api獲得的secret使用env保管</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;settings&#34;</span>: {
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;scope&#34;</span>: [   <span style="color:#75715e">#請求的權限範圍</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#e6db74">&#34;profile&#34;</span>,
+</span></span><span style="display:flex;"><span>                        <span style="color:#e6db74">&#34;email&#34;</span>,
+</span></span><span style="display:flex;"><span>                    ],
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;auth_params&#34;</span>: {
+</span></span><span style="display:flex;"><span>                        <span style="color:#e6db74">&#34;access_type&#34;</span>: <span style="color:#e6db74">&#34;online&#34;</span>,  <span style="color:#75715e">#指定使用在線授權模式，不涉及離線（即不需要刷新令牌）。</span>
+</span></span><span style="display:flex;"><span>                    },
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;redirect_uri&#34;</span>: <span style="color:#e6db74">&#34;http://127.0.0.1:8000/accounts/google/login/callback/&#34;</span>,  <span style="color:#75715e">#當 Google 完成驗證後，重定向回應用的 URL。</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e">#settings.py</span>
+</span></span><span style="display:flex;"><span>AUTHENTICATION_BACKENDS <span style="color:#f92672">=</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.auth.backends.ModelBackend&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;allauth.account.auth_backends.AuthenticationBackend&#34;</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p><code>AUTHENTICATION_BACKENDS</code> 是用來配置驗證後端的設置，定義了 Django 如何處理用戶的身份驗證請求。</p>
+<ul>
+<li>
+<p><code>ModelBackend</code> 是 Django 的默認驗證後端，負責處理基於用戶模型（User 模型）的基本身份驗證邏輯。</p>
+</li>
+<li>
+<p><code>allauth.account.auth_backends.AuthenticationBackend</code> 提供的驗證後端，用於處理社交帳號登錄（例如 Google、Facebook 等第三方登錄）和基於電子郵件的
+驗證邏輯。</p>
+<p>1.社交帳號支持<br>
+2.電子郵件認證<br>
+3.自動創建用戶(當使用社交帳號登錄且用戶不存在時，allauth 會自動創建一個新的用戶。)</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e">#settings.py</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Allauth 設置</span>
+</span></span><span style="display:flex;"><span>SOCIALACCOUNT_LOGIN_ON_GET <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>  <span style="color:#75715e">#用戶完成社交帳號認證後，直接登錄，省略確認頁面。</span>
+</span></span><span style="display:flex;"><span>ACCOUNT_EMAIL_REQUIRED <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>  <span style="color:#75715e">#註冊時必須提供電子郵件。</span>
+</span></span><span style="display:flex;"><span>ACCOUNT_UNIQUE_EMAIL <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>  <span style="color:#75715e">#每個電子郵件地址必須唯一。</span>
+</span></span><span style="display:flex;"><span>ACCOUNT_AUTHENTICATION_METHOD <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;email&#34;</span>  <span style="color:#75715e">#用戶只能通過電子郵件登錄，禁用用戶名登錄。</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>LOGIN_REDIRECT_URL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/&#34;</span>  <span style="color:#75715e"># 登入後的首頁網址</span>
+</span></span></code></pre></div><p>urls.py 新增 path
+<img src="path.png" alt="path"></p>
+<h4 id="google-api">Google api</h4>
+<p>首先到 google cloud<br>
+建立專案</p>
+<p>搜尋 gmail&ndash;&gt;啟用 &ndash;&gt;建立憑證
+之後開始填寫憑證資訊</p>
+<p>把憑證 Oauth Client IDS 裡面的資料，把這些資料放 <code>settings.py</code>的 SOCIALACCOUNT_PROVIDERS 的 client_ID、secret 欄位，要記得在.env 加密保管</p>
+<p>詳細步驟請看影片
+<a href="https://youtu.be/LyDdfO6o_G4?si=y9YVgIeLSSSvmHab"><img src="https://img.youtube.com/vi/LyDdfO6o_G4/0.jpg" alt="googleapi影片"></a></p>
+<p>要注意的是，重新導向 url
+<img src="%E7%B7%A8%E8%BC%AFurl.png" alt="導回路徑"></p>
+<p>接著，回到 Django Administration(管理員後台)首頁，選擇「Sites」資料模型，將 example.com 修改為自己的網站，由於本文以本地端伺服器來執行，所以修改的內容如下：</p>
+<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYforCKVncIh1L6Ijb0ilz36FdGE9TMTITktDwnT5Yl-Hos5xkKr_RB-Wzmyei-kbLOowApc1xA8h49yAEMTr0vj59nK8u5QD0ASf8_RPYgfzUXkZ2cNaB4HnyBEPdLDhzS_LjUmU3bJre/s1600/django_allauth.PNG" alt="django 後台 site "></p>
+<p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhu9EImEGa2sd8ovon2FP9MxKKqW8rjsqd0gQZYgsupHWgXPfJ3JlJwmyCzuHkDf2YG_3YYcGY46o19L33kE89Lbf-9RAutOpAnlGZgkLXBTXd0p0jwK6d6qbERk4Akr1fYDm1_CCGFNnRJ/s1600/django_allauth_google.PNG" alt="django 後台 social application google login"></p>
+<p>Client id、Secret key 都可以在 google cloud 剛剛輸入的憑證得到。</p>
+<p>回到 templates 樣板 修改
+<img src="templates.png" alt="templates"></p><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-washed-green bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/lioouzzz/sleepblog.git/" >
+    &copy;  🍀🍀🍀 2024 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

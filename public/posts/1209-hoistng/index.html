@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Js-什麼是Hoisting | 🍀🍀🍀</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="什麼是 提升(Hoisting)？
+在宣告變數、函數前，就使用程式碼，稱為 Hoisting。
+Js 的兩階端運作，宣告期和執行期。">
+    <meta name="generator" content="Hugo 0.138.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/lioouzzz/sleepblog.git/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/1209-hoistng/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/1209-hoistng/">
+  <meta property="og:site_name" content="🍀🍀🍀">
+  <meta property="og:title" content="Js-什麼是Hoisting">
+  <meta property="og:description" content="什麼是 提升(Hoisting)？ 在宣告變數、函數前，就使用程式碼，稱為 Hoisting。
+Js 的兩階端運作，宣告期和執行期。">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-12-09T00:00:00+00:00">
+
+  <meta itemprop="name" content="Js-什麼是Hoisting">
+  <meta itemprop="description" content="什麼是 提升(Hoisting)？ 在宣告變數、函數前，就使用程式碼，稱為 Hoisting。
+Js 的兩階端運作，宣告期和執行期。">
+  <meta itemprop="datePublished" content="2024-12-09T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-12-09T00:00:00+00:00">
+  <meta itemprop="wordCount" content="95">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Js-什麼是Hoisting">
+  <meta name="twitter:description" content="什麼是 提升(Hoisting)？ 在宣告變數、函數前，就使用程式碼，稱為 Hoisting。
+Js 的兩階端運作，宣告期和執行期。">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  
+  
+  
+  <header class="cover bg-center" style="background-image: url('http://localhost:1313/lioouzzz/sleepblog.git/images/ribbon%20candle.jpg');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/lioouzzz/sleepblog.git/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        <img src="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" class="w100 mw5-ns" alt="🍀🍀🍀" />
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">Js-什麼是Hoisting</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Js-什麼是Hoisting</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-12-09T00:00:00Z">December 9, 2024</time>
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - One minute read </span>
+        <span class="f6 mv4 dib tracked"> - 95 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="什麼是-提升hoisting">什麼是 提升(Hoisting)？</h3>
+<p>在宣告變數、函數前，就使用程式碼，稱為 Hoisting。<br>
+Js 的兩階端運作，宣告期和執行期。</p>
+<p>提升，<strong>用來形容 JavaScript 編譯階段將變數和函式的宣告存入記憶體的概念</strong>。</p>
+<h4 id="var提升"><code>var</code>提升</h4>
+<p>第一階段宣告期，會給名稱，初始化<code>undefined</code>，第二階段執行期才會進行賦值。
+<code>var</code> 的提升(hoisting)，就是變數宣告被提升了，提早呼叫，但是並不會被賦值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">name</span>) <span style="color:#75715e">//undefined
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Elaine&#39;</span>
+</span></span></code></pre></div><h4 id="let提升--const提升"><code>let</code>提升 &amp; <code>const</code>提升</h4>
+<p>不會初始化，沒有初始值(undefined)，<code>let</code> 和 <code>const</code>在第一階段是 <strong>TDZ 暫時死區</strong>，第二階段執行期會重生。因為 ES6 的關係，<code>let</code>、<code>const</code>提升，會出現錯誤。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">greeting</span>) <span style="color:#75715e">//Uncaught ReferenceError: Cannot access &#39;greeting&#39; before initialization
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">greeting</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello!&#39;</span>
+</span></span></code></pre></div><h4 id="letconstvar-提升差異">let、const、var 提升差異</h4>
+<p><code>var</code>會提升到函示作用域(function Scope)<br>
+<code>let</code>跟<code>const</code>只會提升到區塊作用域(block Scope)</p>
+<h4 id="函示提升">函示提升</h4>
+<p>函式宣告也有提升，<strong>與變數宣告的差異在於，可以在宣告前呼叫。</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">water</span>() <span style="color:#75715e">//1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">water</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>不過函式提升要注意的是，宣告方式不同，會得到不同的結果
+使用函示聲明，可以成立運算。</p>
+<p>如果用變數宣告(函式表達式)，就會報錯</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">water</span>() <span style="color:#75715e">//water is not a function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">water</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">water</span>() <span style="color:#75715e">///Uncaught ReferenceError: Cannot access &#39;greeting&#39; before initialization
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">water</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {}
+</span></span></code></pre></div><h4 id="為什麼有暫時死區tdz">為什麼有暫時死區(TDZ)</h4>
+<p>暫時死區的好處<br>
+1.可以避免我們在變數還沒有宣告之前就被拿來使用<br>
+2.為了<code>const</code>設計，const 是常數，不可重新賦值。如果和 var 一樣，宣告前訪問到 undefined，就不符合規範。</p>
+<h4 id="es6constlet">ES6(const、let)</h4>
+<p>解決了變數提升、重複宣告、全局污染的問題</p><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-washed-green bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/lioouzzz/sleepblog.git/" >
+    &copy;  🍀🍀🍀 2024 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

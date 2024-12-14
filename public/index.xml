@@ -6,8 +6,36 @@
     <description>Recent content on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>django串接google第三方登入</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/</link>
+      <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/</guid>
+      <description>&lt;p&gt;詳細的參考文件(Document)可以前往 Django Package 官網&#xA;&lt;a href=&#34;https://docs.allauth.org/en/dev/socialaccount/providers/google.html&#34;&gt;django-allauth&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;首先先安裝套件&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-terminal&#34; data-lang=&#34;terminal&#34;&gt;pip install django-allauth&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>Js-var、let、const</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209var_let/</link>
+      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209var_let/</guid>
+      <description>&lt;h3 id=&#34;letvarconst-有什麼差別&#34;&gt;let，var，const 有什麼差別？&lt;/h3&gt;&#xA;&lt;p&gt;1.早期 Js 只有&lt;code&gt;var&lt;/code&gt;，只到 ES6(ES2015)時，才加入了 &lt;code&gt;let&lt;/code&gt;跟 &lt;code&gt;const&lt;/code&gt;&lt;br&gt;&#xA;2.在作用域上，&lt;code&gt;var&lt;/code&gt;可以是&lt;strong&gt;全域&lt;/strong&gt;，也可以是&lt;strong&gt;函式&lt;/strong&gt;做為範圍。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Js-什麼是Hoisting</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209-hoistng/</link>
+      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209-hoistng/</guid>
+      <description>&lt;h3 id=&#34;什麼是-提升hoisting&#34;&gt;什麼是 提升(Hoisting)？&lt;/h3&gt;&#xA;&lt;p&gt;在宣告變數、函數前，就使用程式碼，稱為 Hoisting。&lt;br&gt;&#xA;Js 的兩階端運作，宣告期和執行期。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Js-閉包(Closure)</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209closure/</link>
+      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209closure/</guid>
+      <description>&lt;h3 id=&#34;什麼是閉包&#34;&gt;什麼是閉包？&lt;/h3&gt;&#xA;&lt;p&gt;閉包被定義為函式被宣告時所在的作用域環境(lexical environment)，簡單來說，內部函式能夠取得外部函式的變數，並且記住這個變數，閉包很常被用來作為狀態保存。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>JS-Getter &amp; Setter</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207gettersetter/</link>
@@ -20,7 +48,7 @@
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207stackqueqe/</link>
       <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207stackqueqe/</guid>
-      <description>&lt;h3 id=&#34;stack堆疊-和-queue佇列&#34;&gt;Stack(堆疊) 和 Queue(佇列)&lt;/h3&gt;&#xA;&lt;h4 id=&#34;stack-lifo&#34;&gt;Stack (LIFO)&lt;/h4&gt;&#xA;&lt;p&gt;是電腦科學中的一種抽象資料型別，按照後進先出(LIFO，Last In First Out)的原理運作，堆疊常用一維陣列或連結串列來實現。常與另一種有序的線性資料及和佇列相提並論。&lt;/p&gt;&#xA;&lt;p&gt;是一種資料結構，遵循著&lt;strong&gt;後進先出&lt;/strong&gt;的原則，最晚放進堆疊的資料會被最先取出(LIFO Last-In-First-Out)，最早放入堆疊的資料會被最後取出&lt;/p&gt;</description>
+      <description>&lt;h3 id=&#34;stack堆疊-和-queue佇列&#34;&gt;Stack(堆疊) 和 Queue(佇列)&lt;/h3&gt;&#xA;&lt;h4 id=&#34;stack-堆疊lifo&#34;&gt;Stack 堆疊(LIFO)&lt;/h4&gt;&#xA;&lt;p&gt;是電腦科學中的一種抽象資料型別，按照後進先出(LIFO，Last In First Out)的原理運作，堆疊常用一維陣列或連結串列來實現。常與另一種有序的線性資料及和佇列相提並論。&lt;/p&gt;&#xA;&lt;p&gt;是一種資料結構，遵循著&lt;strong&gt;後進先出&lt;/strong&gt;的原則，最晚放進堆疊的資料會被最先取出(LIFO Last-In-First-Out)，最早放入堆疊的資料會被最後取出&lt;/p&gt;</description>
     </item>
     <item>
       <title>關於Git</title>

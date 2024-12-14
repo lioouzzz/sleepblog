@@ -3,9 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/</loc>
-    <lastmod>2024-12-07T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/</loc>
+    <lastmod>2024-12-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/</loc>
+    <lastmod>2024-12-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209var_let/</loc>
+    <lastmod>2024-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209-hoistng/</loc>
+    <lastmod>2024-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209closure/</loc>
+    <lastmod>2024-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207gettersetter/</loc>
     <lastmod>2024-12-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207stackqueqe/</loc>
