@@ -143,3 +143,11 @@ code span {
 .flex-none {
   display: none;
 }
+
+
+.bg-custom-image {
+  background-image: url('/images/cover_image.png'); /* 設定背景圖片 */
+  background-size: cover; /* 確保背景圖片覆蓋整個容器 */
+  background-position: center; /* 設定背景圖片居中 */
+  background-repeat: no-repeat; /* 設定背景圖片不重複 */
+}
