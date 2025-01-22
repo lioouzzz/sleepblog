@@ -1,5 +1,40 @@
 /* Put your custom styles here and run `npm start` from the "src" directory on */
 
+/* Put your custom styles here and run `npm start` from the "src" directory on */
+
+body {
+  font-family: 'Arial', 'Helvetica', sans-serif; /* 設定字體為通用字體 */
+  font-weight: 300; /* 設定字體粗細為 300 */
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arial', 'Helvetica', sans-serif; /* 設定字體為通用字體 */
+  font-weight: bold; /* 設定標題字體粗細為粗體 */
+  font-weight: 600;
+  color: #404741; /* 設定內聯程式碼的文字顏色 */
+}
+
+.athelas {
+  font-family: 'Arial', 'Helvetica', sans-serif; /* 設定字體為通用字體 */
+  font-weight: 700;
+}
+
+p {
+  
+  font-family: 'Arial', 'Helvetica', sans-serif; /* 設定字體為通用字體 */
+  font-weight: 300; /* 設定字體粗細為 300 */
+  
+  margin-bottom: 1.5em;
+}
+
+a {
+  color: #374d63;
+  text-decoration: none;
+}
+
 #TableOfContents ul li {
   margin-bottom: 1em;
 }
@@ -12,9 +47,99 @@
   margin-bottom: 2rem;
   border-left: 4px solid #ccc;
   padding-left: 1rem;
-
 }
 
-.nested-links a{
+.nested-links a {
   overflow-wrap: break-word;
+}
+
+/* Additional styles to match the target website */
+
+code {
+  font-family: 'Roboto', sans-serif; /* 設定字體為 Roboto */
+  background-color: #ebe6e6; /* 設定內聯程式碼的背景顏色 */
+  color: #6786ad; /* 設定內聯程式碼的文字顏色 */
+  border: #6786ad;
+  padding: 0.2em 0.4em; /* 設定內邊距 */
+  border-radius: 4px; /* 設定邊框圓角為 4px */
+  font-size: 0.9em; /* 設定字體大小為 0.9em */
+}
+
+pre {
+  font-family: 'Roboto', sans-serif; /* 設定字體為 Roboto */
+  background-color: #242425; /* 設定程式碼區塊的背景顏色 */
+  color: #d79508; /* 設定程式碼區塊的文字顏色 */
+  padding: 0.5em; /* 設定內邊距為 0.5em */
+  border: #6786ad;
+  border-radius: 2px; /* 設定邊框圓角為 4px */
+}
+
+pre code {
+  font-family: 'Roboto', sans-serif; /* 設定字體為 Roboto */
+  background-color: transparent; /* 設定程式碼區塊內的背景顏色為透明 */
+  color: inherit; /* 繼承程式碼區塊的文字顏色 */
+  padding: 0; /* 移除內邊距 */
+}
+
+
+code span {
+  color: #d4a64b; /* 設定內聯程式碼中 span 元素的文字顏色 */
+}
+
+
+/* 修改按鈕樣式 */
+.ba {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.b--moon-gray {
+  border-color: #ccc; /* 設定邊框顏色 */
+}
+
+.bg-light-gray {
+  background-color: #f0f0f0; /* 設定背景顏色 */
+}
+
+.br2 {
+  border-radius: 8px; /* 設定邊框圓角 */
+}
+
+.color-inherit {
+  color: inherit; /* 繼承文字顏色 */
+}
+
+.dib {
+  display: inline-block; /* 設定為行內塊元素 */
+}
+
+.f7 {
+  font-size: 0.875rem; /* 設定字體大小 */
+  color: #738ca4;
+}
+
+.hover-bg-moon-gray:hover {
+  background-color: #e0e0e0; /* 設定懸停時的背景顏色 */
+}
+
+.link {
+  text-decoration: none; /* 移除文字裝飾 */
+}
+
+.mt2 {
+  margin-top: 0.5rem; /* 設定上邊距 */
+}
+
+.ph2 {
+  padding-left: 0.5rem; /* 設定左內邊距 */
+  padding-right: 0.5rem; /* 設定右內邊距 */
+}
+
+.pv1 {
+  padding-top: 0.25rem; /* 設定上內邊距 */
+  padding-bottom: 0.25rem; /* 設定下內邊距 */
+}
+
+.flex-none {
+  display: none;
 }

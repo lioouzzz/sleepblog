@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clipboard API 非同步剪貼簿API</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250104-clipboard-api/0104-clipboard-api-/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250104-clipboard-api/0104-clipboard-api-/</guid>
+      <description>&lt;h3 id=&#34;clipboard-api&#34;&gt;Clipboard API&lt;/h3&gt;&#xA;&lt;p&gt;Clipboard API提供回應剪貼簿命令(剪下、複製、貼上)，以及&lt;!-- raw HTML omitted --&gt;非同步讀取&lt;!-- raw HTML omitted --&gt;和寫入系統剪貼簿的功能，支援一組有限的 MIME(媒體)類型，可從系統剪貼簿複製及貼上，具體來說是 &lt;code&gt;text/plain&lt;/code&gt;、&lt;code&gt;text/html&lt;/code&gt; 和 &lt;code&gt;image/png&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>django串接google第三方登入</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/</link>
@@ -56,13 +63,6 @@
       <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/gitinit/</guid>
       <description>&lt;h3 id=&#34;git-優點&#34;&gt;git 優點&lt;/h3&gt;&#xA;&lt;p&gt;速度小、檔案小&#xA;同時支援本地及遠端操作 (不需要網路)&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>My First Post</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/my-first-post/</link>
-      <pubDate>Sun, 24 Nov 2024 11:00:37 +0800</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/my-first-post/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Visit the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; website!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python 函數</title>
