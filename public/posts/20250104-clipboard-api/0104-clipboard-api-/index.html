@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
+  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=54493&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
@@ -31,10 +31,10 @@ Clipboard API提供回應剪貼簿命令(剪下、複製、貼上)，以及非�
     
 
     
-      <link rel="canonical" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250104-clipboard-api/0104-clipboard-api-/">
+      <link rel="canonical" href="http://localhost:54493/lioouzzz/sleepblog.git/posts/20250104-clipboard-api/0104-clipboard-api-/">
     
 
-    <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250104-clipboard-api/0104-clipboard-api-/">
+    <meta property="og:url" content="http://localhost:54493/lioouzzz/sleepblog.git/posts/20250104-clipboard-api/0104-clipboard-api-/">
   <meta property="og:site_name" content="🍀🍀🍀">
   <meta property="og:title" content="Clipboard API 非同步剪貼簿API">
   <meta property="og:description" content="Clipboard API Clipboard API提供回應剪貼簿命令(剪下、複製、貼上)，以及非同步讀取和寫入系統剪貼簿的功能，支援一組有限的 MIME(媒體)類型，可從系統剪貼簿複製及貼上，具體來說是 text/plain、text/html 和 image/png">
@@ -63,7 +63,7 @@ Clipboard API提供回應剪貼簿命令(剪下、複製、貼上)，以及非�
   
   
   
-  <header class="cover bg-center" style="background-image: url('http://localhost:1313/lioouzzz/sleepblog.git/images/ribbon%20candle.jpg');">
+  <header class="cover bg-center" style="background-image: url('http://localhost:54493/lioouzzz/sleepblog.git/images/ribbon%20candle.jpg');">
     <div class="bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
@@ -95,6 +95,8 @@ Clipboard API提供回應剪貼簿命令(剪下、複製、貼上)，以及非�
 
     <main class="pb7" role="main">
       
+
+
   
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
     <header class="mt4 w-100">
@@ -139,7 +141,7 @@ Clipboard API提供回應剪貼簿命令(剪下、複製、貼上)，以及非�
 <li>舊式的 <code>document.execCommand()</code> 指令雖然權限比較寬鬆，但每個瀏覽器的做法都不太相同</li>
 </ol>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API">非同步剪貼簿 API</a>可解決這些問題，提供明確的權限模型，不會封鎖網頁。Async Clipboard API 僅限於在大多數瀏覽器上處理文字和圖片，但支援程度各有不同。</p>
-<h4 id="使用clipboard-api-動態寫入內容實現一鍵貼上">使用Clipboard API 動態寫入內容，實現一鍵貼上</h4>
+<h3 id="使用clipboard-api-動態寫入內容實現一鍵貼上">使用Clipboard API 動態寫入內容，實現一鍵貼上</h3>
 <p>先來看最簡單的 <code>navigator.clipboard.writeText</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JS" data-lang="JS"><span style="display:flex;"><span><span style="color:#a6e22e">copyBtn</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, () =&gt; {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">clipboard</span>.<span style="color:#a6e22e">writeText</span>(<span style="color:#e6db74">&#39;這是寫入剪貼簿的內容&#39;</span>);
@@ -171,7 +173,7 @@ Clipboard API提供回應剪貼簿命令(剪下、複製、貼上)，以及非�
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;複製失敗，請重試&#34;</span>);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>});
-</span></span></code></pre></div><h4 id="其他媒體類別的內容">其他媒體類別的內容</h4>
+</span></span></code></pre></div><h3 id="其他媒體類別的內容">其他媒體類別的內容</h3>
 <p>要把其他媒體類別的內容放入剪貼簿相對較複雜，首先要使用的方法為<code>navigator.clipboard.write()</code>，該方法接受一個只有 <code>ClipboardItem</code> 項目的陣列（但直到目前為止各大瀏覽器的寫入剪貼簿實作 <code>navigator.clipboard.write()</code> ，只能帶入單個 ClipboardItem 至陣列中，接受一個物件作為參數，屬性是對應檔案大一月金型只接受 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blob</a> 實例，假如要塞入 HTML 內容，就要建立對應的 text/html 媒體類別的 Blob 實例</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">copyBtn</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#66d9ef">async</span> () =&gt; {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">clipboardItem</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ClipboardItem</span>({
@@ -183,7 +185,7 @@ Clipboard API提供回應剪貼簿命令(剪下、複製、貼上)，以及非�
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">clipboard</span>.<span style="color:#a6e22e">write</span>([<span style="color:#a6e22e">clipboardItem</span>]);
 </span></span><span style="display:flex;"><span>})
-</span></span></code></pre></div><h4 id="clipboardevent">ClipboardEvent</h4>
+</span></span></code></pre></div><h3 id="clipboardevent">ClipboardEvent</h3>
 <p>如果使用者在網頁中使用系統原生的複製、貼上功能，則可以使用 ClipboardEvent 中的copy 、paste 事件來進行監聽，例如有一些討論區會在你複製內容時，在結尾加入 來源於 xxx 的字句，這時就可以用 copy 事件：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;copy&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">selectedText</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">getSelection</span>().<span style="color:#a6e22e">toString</span>();
@@ -209,7 +211,21 @@ Clipboard API提供回應剪貼簿命令(剪下、複製、貼上)，以及非�
       </div>
     </div>
 
-    <aside class="w-30-l mt6-l">
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">What&#39;s in this posts</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#clipboard-api">Clipboard API</a></li>
+        <li><a href="#使用clipboard-api-動態寫入內容實現一鍵貼上">使用Clipboard API 動態寫入內容，實現一鍵貼上</a></li>
+        <li><a href="#其他媒體類別的內容">其他媒體類別的內容</a></li>
+        <li><a href="#clipboardevent">ClipboardEvent</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
 
 
 
@@ -221,7 +237,7 @@ Clipboard API提供回應剪貼簿命令(剪下、複製、貼上)，以及非�
     </main>
     <footer class="bg-washed-green bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/lioouzzz/sleepblog.git/" >
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:54493/lioouzzz/sleepblog.git/" >
     &copy;  🍀🍀🍀 2025 
   </a>
     <div><div class="ananke-socials"></div>

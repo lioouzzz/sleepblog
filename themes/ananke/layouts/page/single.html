@@ -1,5 +1,6 @@
 {{ define "header" }}{{ partial "page-header.html" . }}{{ end }}
 {{ define "main" }}
+
   <div class="flex-l mt2 mw8 center">
     <article class="center cf pv5 ph3 ph4-ns mw7">
       <header>
@@ -7,6 +8,13 @@
           {{ .Title }}
         </h1>
       </header>
+      {{ if .TableOfContents }}
+      <nav class="post-toc">
+        <p class="f5 b mb3">What's in this post</p> <!-- 添加這一行 -->
+        <h2>目錄</h2>
+        {{ .TableOfContents }}
+      </nav>
+      {{ end }}
       <div class="nested-copy-line-height lh-copy f4 nested-links {{ $.Param "text_color" | default "mid-gray" }}">
         {{ .Content }}
       </div>

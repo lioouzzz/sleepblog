@@ -4,6 +4,7 @@ draft = false
 title = 'Clipboard API 非同步剪貼簿API'
 show_reading_time=true
 featured_image = 'images/ribbon candle.jpg'
+toc=true
 +++
 
 
@@ -32,7 +33,7 @@ Clipboard API提供回應剪貼簿命令(剪下、複製、貼上)，以及<stro
 
 [非同步剪貼簿 API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)可解決這些問題，提供明確的權限模型，不會封鎖網頁。Async Clipboard API 僅限於在大多數瀏覽器上處理文字和圖片，但支援程度各有不同。
 
-#### 使用Clipboard API 動態寫入內容，實現一鍵貼上
+### 使用Clipboard API 動態寫入內容，實現一鍵貼上
 先來看最簡單的 `navigator.clipboard.writeText`
 
 ```JS
@@ -77,7 +78,7 @@ const copyInput = document.querySelector("#copyInput");
 ```
 
 
-#### 其他媒體類別的內容
+### 其他媒體類別的內容
 要把其他媒體類別的內容放入剪貼簿相對較複雜，首先要使用的方法為`navigator.clipboard.write()`，該方法接受一個只有 `ClipboardItem` 項目的陣列（但直到目前為止各大瀏覽器的寫入剪貼簿實作 `navigator.clipboard.write()` ，只能帶入單個 ClipboardItem 至陣列中，接受一個物件作為參數，屬性是對應檔案大一月金型只接受 [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) 實例，假如要塞入 HTML 內容，就要建立對應的 text/html 媒體類別的 Blob 實例
 
 ```js
@@ -93,7 +94,7 @@ copyBtn.addEventListener('click', async () => {
 })
 ```
 
-#### ClipboardEvent
+### ClipboardEvent
 如果使用者在網頁中使用系統原生的複製、貼上功能，則可以使用 ClipboardEvent 中的copy 、paste 事件來進行監聽，例如有一些討論區會在你複製內容時，在結尾加入 來源於 xxx 的字句，這時就可以用 copy 事件：
 
 ```js

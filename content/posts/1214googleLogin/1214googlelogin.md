@@ -4,6 +4,7 @@ draft = false
 title = 'django串接google第三方登入'
 show_reading_time=true
 featured_image = 'images/ribbon candle.jpg'
+toc=true
 +++
 
 詳細的參考文件(Document)可以前往 Django Package 官網

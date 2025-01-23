@@ -1,0 +1,62 @@
+/* 整體 TOC 容器樣式 */
+.post-toc {
+    background-color: #f9f9f9; /* 背景顏色 */
+    padding: 1.5rem;           /* 內邊距 */
+    border: 1px solid #e0e0e0; /* 邊框 */
+    border-radius: 8px;        /* 圓角 */
+    margin-bottom: 2rem;       /* 下邊距 */
+  }
+  
+  /* TOC 標題樣式 */
+  .post-toc h2 {
+    font-size: 1.5rem;         /* 字體大小 */
+    margin-bottom: 1rem;       /* 下邊距 */
+    color: #333333;            /* 字體顏色 */
+    border-bottom: 2px solid #e0e0e0; /* 下邊框 */
+    padding-bottom: 0.5rem;    /* 內邊距 */
+  }
+  
+  /* TOC 列表樣式 */
+  .post-toc ul {
+    list-style: none;           /* 去除預設列表樣式 */
+    padding-left: 0;            /* 左內邊距 */
+  }
+  
+  /* TOC 列表項目樣式 */
+  .post-toc li {
+    margin-bottom: 0.5rem;      /* 下邊距 */
+  }
+  
+  /* TOC 鏈接樣式 */
+  .post-toc a {
+    text-decoration: none;      /* 去除下劃線 */
+    color: #007acc;             /* 鏈接顏色 */
+    transition: color 0.3s ease; /* 平滑過渡效果 */
+  }
+  
+  /* TOC 鏈接懸停樣式 */
+  .post-toc a:hover {
+    color: #005fa3;             /* 懸停時的顏色 */
+    text-decoration: underline; /* 懸停時添加下劃線 */
+  }
+  
+  /* TOC 層級縮進樣式 */
+  .post-toc ul ul {
+    padding-left: 1rem;         /* 子列表的左內邊距 */
+  }
+  
+  /* 響應式設計 */
+  @media (max-width: 768px) {
+    .post-toc {
+      padding: 1rem;
+    }
+  
+    .post-toc h2 {
+      font-size: 1.25rem;
+    }
+  
+    .post-toc a {
+      font-size: 0.9rem;
+    }
+  }
+  

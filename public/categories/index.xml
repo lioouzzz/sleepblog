@@ -2,10 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 🍀🍀🍀</title>
-    <link>http://localhost:1313/lioouzzz/sleepblog.git/categories/</link>
+    <link>http://localhost:54493/lioouzzz/sleepblog.git/categories/</link>
     <description>Recent content in Categories on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:54493/lioouzzz/sleepblog.git/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Javascripts</title>
+      <link>http://localhost:54493/lioouzzz/sleepblog.git/categories/javascripts/</link>
+      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:54493/lioouzzz/sleepblog.git/categories/javascripts/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

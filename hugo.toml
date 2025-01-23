@@ -20,5 +20,9 @@ featured_image_class = "cover bg-center"
 cover_dimming_class = "bg-washed-green-60"
 recent_posts_number = 20
 
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
 [pagination]
 pagerSize = 20

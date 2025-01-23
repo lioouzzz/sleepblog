@@ -115,11 +115,13 @@ code span {
 
 .f7 {
   font-size: 0.875rem; /* 設定字體大小 */
-  color: #738ca4;
+  background-color: #7ba6bf;
+  color: #f0f1f1;
 }
 
 .hover-bg-moon-gray:hover {
-  background-color: #e0e0e0; /* 設定懸停時的背景顏色 */
+  background-color: #c7d5d1; /* 設定懸停時的背景顏色 */
+  color: #445263;
 }
 
 .link {

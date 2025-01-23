@@ -2,73 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 🍀🍀🍀</title>
-    <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/</link>
+    <link>http://localhost:54493/lioouzzz/sleepblog.git/posts/</link>
     <description>Recent content in Posts on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Jan 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:54493/lioouzzz/sleepblog.git/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Clipboard API 非同步剪貼簿API</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250104-clipboard-api/0104-clipboard-api-/</link>
+      <link>http://localhost:54493/lioouzzz/sleepblog.git/posts/20250104-clipboard-api/0104-clipboard-api-/</link>
       <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250104-clipboard-api/0104-clipboard-api-/</guid>
+      <guid>http://localhost:54493/lioouzzz/sleepblog.git/posts/20250104-clipboard-api/0104-clipboard-api-/</guid>
       <description>&lt;h3 id=&#34;clipboard-api&#34;&gt;Clipboard API&lt;/h3&gt;&#xA;&lt;p&gt;Clipboard API提供回應剪貼簿命令(剪下、複製、貼上)，以及&lt;!-- raw HTML omitted --&gt;非同步讀取&lt;!-- raw HTML omitted --&gt;和寫入系統剪貼簿的功能，支援一組有限的 MIME(媒體)類型，可從系統剪貼簿複製及貼上，具體來說是 &lt;code&gt;text/plain&lt;/code&gt;、&lt;code&gt;text/html&lt;/code&gt; 和 &lt;code&gt;image/png&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>django串接google第三方登入</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/</link>
+      <link>http://localhost:54493/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/</link>
       <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/</guid>
+      <guid>http://localhost:54493/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/</guid>
       <description>&lt;p&gt;詳細的參考文件(Document)可以前往 Django Package 官網&#xA;&lt;a href=&#34;https://docs.allauth.org/en/dev/socialaccount/providers/google.html&#34;&gt;django-allauth&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;首先先安裝套件&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-terminal&#34; data-lang=&#34;terminal&#34;&gt;pip install django-allauth&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
+      <title>資料庫</title>
+      <link>http://localhost:54493/lioouzzz/sleepblog.git/posts/1211database/</link>
+      <pubDate>Wed, 11 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:54493/lioouzzz/sleepblog.git/posts/1211database/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Js-var、let、const</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209var_let/</link>
+      <link>http://localhost:54493/lioouzzz/sleepblog.git/posts/1209var_let/</link>
       <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209var_let/</guid>
+      <guid>http://localhost:54493/lioouzzz/sleepblog.git/posts/1209var_let/</guid>
       <description>&lt;h3 id=&#34;letvarconst-有什麼差別&#34;&gt;let，var，const 有什麼差別？&lt;/h3&gt;&#xA;&lt;p&gt;1.早期 Js 只有&lt;code&gt;var&lt;/code&gt;，只到 ES6(ES2015)時，才加入了 &lt;code&gt;let&lt;/code&gt;跟 &lt;code&gt;const&lt;/code&gt;&lt;br&gt;&#xA;2.在作用域上，&lt;code&gt;var&lt;/code&gt;可以是&lt;strong&gt;全域&lt;/strong&gt;，也可以是&lt;strong&gt;函式&lt;/strong&gt;做為範圍。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Js-什麼是Hoisting</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209-hoistng/</link>
+      <link>http://localhost:54493/lioouzzz/sleepblog.git/posts/1209-hoistng/</link>
       <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209-hoistng/</guid>
+      <guid>http://localhost:54493/lioouzzz/sleepblog.git/posts/1209-hoistng/</guid>
       <description>&lt;h3 id=&#34;什麼是-提升hoisting&#34;&gt;什麼是 提升(Hoisting)？&lt;/h3&gt;&#xA;&lt;p&gt;在宣告變數、函數前，就使用程式碼，稱為 Hoisting。&lt;br&gt;&#xA;Js 的兩階端運作，宣告期和執行期。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Js-閉包(Closure)</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209closure/</link>
+      <link>http://localhost:54493/lioouzzz/sleepblog.git/posts/1209closure/</link>
       <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209closure/</guid>
+      <guid>http://localhost:54493/lioouzzz/sleepblog.git/posts/1209closure/</guid>
       <description>&lt;h3 id=&#34;什麼是閉包&#34;&gt;什麼是閉包？&lt;/h3&gt;&#xA;&lt;p&gt;閉包被定義為函式被宣告時所在的作用域環境(lexical environment)，簡單來說，內部函式能夠取得外部函式的變數，並且記住這個變數，閉包很常被用來作為狀態保存。&lt;/p&gt;</description>
     </item>
     <item>
       <title>JS-Getter &amp; Setter</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207gettersetter/</link>
+      <link>http://localhost:54493/lioouzzz/sleepblog.git/posts/1207gettersetter/</link>
       <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207gettersetter/</guid>
+      <guid>http://localhost:54493/lioouzzz/sleepblog.git/posts/1207gettersetter/</guid>
       <description>&lt;h3 id=&#34;什麼是-getter-和-setter&#34;&gt;什麼是 Getter 和 Setter？&lt;/h3&gt;&#xA;&lt;p&gt;是 JS 中用來&lt;strong&gt;操作物件屬性的方法&lt;/strong&gt;，他們可以讓我們像存取普通屬性一樣簡單地取值、或設定值，但其實背後可以執行更多的程式邏輯。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Stack &amp; Queqe</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207stackqueqe/</link>
+      <link>http://localhost:54493/lioouzzz/sleepblog.git/posts/1207stackqueqe/</link>
       <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207stackqueqe/</guid>
+      <guid>http://localhost:54493/lioouzzz/sleepblog.git/posts/1207stackqueqe/</guid>
       <description>&lt;h3 id=&#34;stack堆疊-和-queue佇列&#34;&gt;Stack(堆疊) 和 Queue(佇列)&lt;/h3&gt;&#xA;&lt;h4 id=&#34;stack-堆疊lifo&#34;&gt;Stack 堆疊(LIFO)&lt;/h4&gt;&#xA;&lt;p&gt;是電腦科學中的一種抽象資料型別，按照後進先出(LIFO，Last In First Out)的原理運作，堆疊常用一維陣列或連結串列來實現。常與另一種有序的線性資料及和佇列相提並論。&lt;/p&gt;&#xA;&lt;p&gt;是一種資料結構，遵循著&lt;strong&gt;後進先出&lt;/strong&gt;的原則，最晚放進堆疊的資料會被最先取出(LIFO Last-In-First-Out)，最早放入堆疊的資料會被最後取出&lt;/p&gt;</description>
     </item>
     <item>
       <title>關於Git</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/gitinit/</link>
+      <link>http://localhost:54493/lioouzzz/sleepblog.git/posts/gitinit/</link>
       <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/gitinit/</guid>
+      <guid>http://localhost:54493/lioouzzz/sleepblog.git/posts/gitinit/</guid>
       <description>&lt;h3 id=&#34;git-優點&#34;&gt;git 優點&lt;/h3&gt;&#xA;&lt;p&gt;速度小、檔案小&#xA;同時支援本地及遠端操作 (不需要網路)&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python 函數</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1119fn_note/</link>
+      <link>http://localhost:54493/lioouzzz/sleepblog.git/posts/1119fn_note/</link>
       <pubDate>Sun, 24 Nov 2024 11:00:37 +0800</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1119fn_note/</guid>
+      <guid>http://localhost:54493/lioouzzz/sleepblog.git/posts/1119fn_note/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h3 id=&#34;參數引數&#34;&gt;參數、引數&lt;/h3&gt;&#xA;&lt;p&gt;參數 參數預設值&#xA;引數 關鍵字引數、位置引數&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;在函數的參數裡打 / ，代表在 / 之前的參數，都要用位置引數&#xA;在函數的參數裡打 _ ，代表在 _ 之後的參數，都要用關鍵字引數&#xA;夾在/ *之間的參數都可以用&#xA;python 的參數預設值，在函數定義的時候就決定好了。&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;如果在參數的預設值放入可變動物件，[]、{}，可能不會得到想要的答案&#xA;如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷&#xA;不要急著把可變動物件在參數預設值時就直接定義。&lt;/p&gt;</description>
     </item>
   </channel>

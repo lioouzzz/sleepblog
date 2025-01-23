@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Structures on 🍀🍀🍀</title>
+    <link>http://localhost:1313/lioouzzz/sleepblog.git/categories/data-structures/</link>
+    <description>Recent content in Data Structures on 🍀🍀🍀</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/categories/data-structures/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Js-var、let、const</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209var_let/</link>
+      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209var_let/</guid>
+      <description>&lt;h3 id=&#34;letvarconst-有什麼差別&#34;&gt;let，var，const 有什麼差別？&lt;/h3&gt;&#xA;&lt;p&gt;1.早期 Js 只有&lt;code&gt;var&lt;/code&gt;，只到 ES6(ES2015)時，才加入了 &lt;code&gt;let&lt;/code&gt;跟 &lt;code&gt;const&lt;/code&gt;&lt;br&gt;&#xA;2.在作用域上，&lt;code&gt;var&lt;/code&gt;可以是&lt;strong&gt;全域&lt;/strong&gt;，也可以是&lt;strong&gt;函式&lt;/strong&gt;做為範圍。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

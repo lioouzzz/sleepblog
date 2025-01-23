@@ -4,6 +4,9 @@ draft = false
 title = 'Js-var、let、const'
 show_reading_time=true
 featured_image = 'images/ribbon candle.jpg'
+categories = ["javascripts"]
+tags = ["技巧", "前端"]
+toc = true
 +++
 
 ### let，var，const 有什麼差別？
@@ -46,7 +49,7 @@ greeting = 'byebye'
 
 5.`let`可以重新賦值，但是`const`是常數，不能重新賦值。
 
-#### 賦值差異
+### 賦值差異
 
 如果變數是原生值，例如字串、數字.....，則不可改變。
 如果變數是**物件(objects)**，則不論 `let` 和 `const` 都可以改變該物件。

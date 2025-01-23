@@ -44,6 +44,7 @@ featured_image_class = "cover bg-top"
 # choose a color dimming class for the page or site header from any on this page: https://tachyons.io/docs/themes/skins/, preface it with "bg-" and add the value such as "-X0" where X is in [1,9]
 cover_dimming_class = "bg-washed-green-60"
 recent_posts_number = 3
+customCSS = ["css/custom.css"]
 
 [params.ananke.social.share]
 networks = [
@@ -141,3 +142,36 @@ username = "patrickkollitsch"
 
 [params.ananke.social.bluesky]
 username = "kollitsch.dev"
+
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[menu.main]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "categories"
+    name = "Categories"
+    url = "#"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2        # 從 <h2> 開始
+    endLevel = 6          # 到 <h6> 結束
+    ordered = false       # 無序列表
+    wrap = "nav"          # 包裹 TOC 的 HTML 標籤
+    anchorClass = "toc-anchor"  # 錨點鏈接的 CSS 類別
+    noClasses = false     # 允許添加 CSS 類別
