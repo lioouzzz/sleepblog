@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Django on 🍀🍀🍀</title>
+    <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/django/</link>
+    <description>Recent content in Django on 🍀🍀🍀</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/django/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>函數是一等公民</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250124-first_class_citizen/</link>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250124-first_class_citizen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Django N&#43;1 查詢問題</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250123-n&#43;1/20250123-n&#43;1_query/</link>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250123-n&#43;1/20250123-n&#43;1_query/</guid>
+      <description>&lt;h3 id=&#34;n1查詢問題&#34;&gt;N+1查詢問題&lt;/h3&gt;&#xA;&lt;p&gt;N+1 問題是在 ORM（包括 Django ORM）中常見的效能問題&#xA;指的是在處理關聯資料時，除了要執行一次主查詢外，還要為每個結果執行而外查詢&lt;/p&gt;&#xA;&lt;p&gt;來舉個例子 !&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>django串接google第三方登入</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/</link>
+      <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/</guid>
+      <description>&lt;p&gt;詳細的參考文件(Document)可以前往 Django Package 官網&#xA;&lt;a href=&#34;https://docs.allauth.org/en/dev/socialaccount/providers/google.html&#34;&gt;django-allauth&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;首先先安裝套件&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-terminal&#34; data-lang=&#34;terminal&#34;&gt;pip install django-allauth&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+  </channel>
+</rss>

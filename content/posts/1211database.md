@@ -1,9 +1,12 @@
 +++
 date = '2024-12-11'
-draft = true
+draft = false
 title = '資料庫'
 show_reading_time=true
 featured_image = '/images/S__20463625.jpg'
+categories = ["database"]
+tags = ["database","後端"]
+toc=true
 +++
 
 <!--more-->

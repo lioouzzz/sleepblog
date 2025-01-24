@@ -4,7 +4,9 @@ draft = false
 title = 'Clipboard API 非同步剪貼簿API'
 show_reading_time=true
 featured_image = 'images/ribbon candle.jpg'
-toc=true
+categories = ["javascripts"]
+tags = ["Js","前端"]
+toc = true
 +++
 
 

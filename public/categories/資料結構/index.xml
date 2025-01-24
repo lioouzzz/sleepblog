@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>資料結構 on 🍀🍀🍀</title>
+    <link>http://localhost:1313/lioouzzz/sleepblog.git/categories/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/</link>
+    <description>Recent content in 資料結構 on 🍀🍀🍀</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stack &amp; Queqe</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207stackqueqe/</link>
+      <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207stackqueqe/</guid>
+      <description>&lt;h3 id=&#34;stack堆疊-和-queue佇列&#34;&gt;Stack(堆疊) 和 Queue(佇列)&lt;/h3&gt;&#xA;&lt;h3 id=&#34;stack-堆疊lifo&#34;&gt;Stack 堆疊(LIFO)&lt;/h3&gt;&#xA;&lt;p&gt;是電腦科學中的一種抽象資料型別，按照後進先出(LIFO，Last In First Out)的原理運作，堆疊常用一維陣列或連結串列來實現。常與另一種有序的線性資料及和佇列相提並論。&lt;/p&gt;&#xA;&lt;p&gt;是一種資料結構，遵循著&lt;strong&gt;後進先出&lt;/strong&gt;的原則，最晚放進堆疊的資料會被最先取出(LIFO Last-In-First-Out)，最早放入堆疊的資料會被最後取出&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

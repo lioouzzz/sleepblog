@@ -15,6 +15,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold; /* 設定標題字體粗細為粗體 */
   font-weight: 600;
   color: #404741; /* 設定內聯程式碼的文字顏色 */
+  margin-bottom: 0.25rem; /* 減少標題和段落之間的距離 */
+
 }
 
 .athelas {
@@ -23,11 +25,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  
+
   font-family: 'Arial', 'Helvetica', sans-serif; /* 設定字體為通用字體 */
   font-weight: 300; /* 設定字體粗細為 300 */
-  
-  margin-bottom: 1.5em;
+  margin-top: 0.1rem; /* 減少標題和段落之間的距離 */
+
+  margin-bottom: 0.8rem;
 }
 
 a {
@@ -42,9 +45,9 @@ a {
 .lh-copy blockquote {
   display: block;
   font-size: .875em;
-  margin-left: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   border-left: 4px solid #ccc;
   padding-left: 1rem;
 }
@@ -69,8 +72,9 @@ pre {
   font-family: 'Roboto', sans-serif; /* 設定字體為 Roboto */
   background-color: #242425; /* 設定程式碼區塊的背景顏色 */
   color: #d79508; /* 設定程式碼區塊的文字顏色 */
-  padding: 0.5em; /* 設定內邊距為 0.5em */
+  font-family: 'Roboto Mono', monospace; /* 設定字體為 Roboto Mono */
   border: #6786ad;
+  padding:1em; /* 設定內邊距 */
   border-radius: 2px; /* 設定邊框圓角為 4px */
 }
 
@@ -129,7 +133,7 @@ code span {
 }
 
 .mt2 {
-  margin-top: 0.5rem; /* 設定上邊距 */
+  margin-top: 0.2rem; /* 設定上邊距 */
 }
 
 .ph2 {
@@ -147,9 +151,10 @@ code span {
 }
 
 
-.bg-custom-image {
-  background-image: url('/images/cover_image.png'); /* 設定背景圖片 */
-  background-size: cover; /* 確保背景圖片覆蓋整個容器 */
-  background-position: center; /* 設定背景圖片居中 */
-  background-repeat: no-repeat; /* 設定背景圖片不重複 */
+.navbar-item {
+  color: #ff0000; /* 設置文字顏色為紅色 */
+}
+
+.navbar-item:hover {
+  color: #00ff00; /* 設置懸停時的文字顏色為綠色 */
 }

@@ -54,6 +54,7 @@
       {{ template "_internal/google_analytics.html" . }}
     {{ end }}
 	{{ block "head" . }}{{ partial "head-additions.html" . }}{{ end }}
+  <script src="{{ "js/search.js" | relURL }}"></script>
   </head>
 
   {{- $environment := hugo.Environment | default "production" -}}

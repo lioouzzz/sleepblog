@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=54493&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
+  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
@@ -15,6 +15,8 @@
       <meta name="robots" content="noindex, nofollow">
     
     
+      <meta name="author" content = "Elaine Liu">
+    
 
     
 <link rel="stylesheet" href="/lioouzzz/sleepblog.git/ananke/css/main.min.css" >
@@ -25,16 +27,18 @@
 
     
       
+<link rel="shortcut icon" href="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" type="image/x-icon" />
+
 
     
 
     
 
     
-      <link rel="canonical" href="http://localhost:54493/lioouzzz/sleepblog.git/posts/1207gettersetter/">
+      <link rel="canonical" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/1207gettersetter/">
     
 
-    <meta property="og:url" content="http://localhost:54493/lioouzzz/sleepblog.git/posts/1207gettersetter/">
+    <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/1207gettersetter/">
   <meta property="og:site_name" content="🍀🍀🍀">
   <meta property="og:title" content="JS-Getter & Setter">
   <meta property="og:description" content="什麼是 Getter 和 Setter？ 是 JS 中用來操作物件屬性的方法，他們可以讓我們像存取普通屬性一樣簡單地取值、或設定值，但其實背後可以執行更多的程式邏輯。">
@@ -43,17 +47,21 @@
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-12-07T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-12-07T00:00:00+00:00">
+    <meta property="article:tag" content="Js">
+    <meta property="article:tag" content="前端">
 
   <meta itemprop="name" content="JS-Getter & Setter">
   <meta itemprop="description" content="什麼是 Getter 和 Setter？ 是 JS 中用來操作物件屬性的方法，他們可以讓我們像存取普通屬性一樣簡單地取值、或設定值，但其實背後可以執行更多的程式邏輯。">
   <meta itemprop="datePublished" content="2024-12-07T00:00:00+00:00">
   <meta itemprop="dateModified" content="2024-12-07T00:00:00+00:00">
   <meta itemprop="wordCount" content="142">
+  <meta itemprop="keywords" content="Js,前端">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="JS-Getter & Setter">
   <meta name="twitter:description" content="什麼是 Getter 和 Setter？ 是 JS 中用來操作物件屬性的方法，他們可以讓我們像存取普通屬性一樣簡單地取值、或設定值，但其實背後可以執行更多的程式邏輯。">
 
 	
+  <script src="/lioouzzz/sleepblog.git/js/search.js"></script>
   </head><body class="ma0 avenir bg-near-white development">
 
     
@@ -63,25 +71,57 @@
   
   
   
-  <header class="cover bg-center" style="background-image: url('http://localhost:54493/lioouzzz/sleepblog.git/images/ribbon%20candle.jpg');">
+  <header class="cover bg-center" style="background-image: url('http://localhost:1313/lioouzzz/sleepblog.git/images/ribbon%20candle.jpg');">
     <div class="bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
-    <a href="/lioouzzz/sleepblog.git/" class="f3 fw2 hover-white no-underline white-90 dib">
+    
+    <a href="/lioouzzz/sleepblog.git/" class="f3 fw2 hover-blue no-underline custom-blue dib">
       
         <img src="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" class="w100 mw5-ns" alt="🍀🍀🍀" />
       
     </a>
+    
+    
     <div class="flex-l items-center">
       
-
+      <div class="relative mr2">
+    <input type="search" 
+      class="pa2 br2 ba b--custom-blue" 
+      placeholder="搜尋..." 
+      id="search-input"
+      onkeyup="search()">
+  </div>
+      
+      
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/" title="首頁 page">
+              首頁
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/posts/" title="全部文章 page">
+              全部文章
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/tags/" title="分類 page">
+              分類
+            </a>
+          </li>
+          
+        </ul>
       
       <div class="ananke-socials"></div>
 
     </div>
   </div>
-</nav>
-
+ </nav>
       <div class="tc-l pv6 ph3 ph4-ns">
         
           <div class="f2 f1-l fw2 white-90 mb0 lh-title">JS-Getter &amp; Setter</div>
@@ -106,9 +146,13 @@
       </aside><div id="sharing" class="mt3 ananke-socials"></div>
 <h1 class="f1 athelas mt3 mb1">JS-Getter &amp; Setter</h1>
       
+      <p class="tracked">
+        By <strong>Elaine Liu</strong>
+      </p>
       
       
-      <time class="f6 mv4 dib tracked" datetime="2024-12-07T00:00:00Z">December 7, 2024</time>
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-12-07T00:00:00Z">2024年12月7日</time>
       
 
       
@@ -143,7 +187,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Bob&#39;</span> <span style="color:#75715e">//改變屬性
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">name</span>) <span style="color:#75715e">//印出Bob
 </span></span></span></code></pre></div><p>任何人都可以直接修改 name，可能帶來不正確的結果。</p>
-<h4 id="使用-getter--setter">使用 getter &amp; setter</h4>
+<h3 id="使用-getter--setter">使用 getter &amp; setter</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">contructor</span>(<span style="color:#a6e22e">name</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span> <span style="color:#75715e">//私有屬性（用 `_` 表示內部使用）
@@ -172,7 +216,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>} <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>) <span style="color:#75715e">// 印出錯誤：Name cannot be empty!
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
-</span></span></code></pre></div><h4 id="為什麼要用-getter-和-setter">為什麼要用 getter 和 setter？</h4>
+</span></span></code></pre></div><h3 id="為什麼要用-getter-和-setter">為什麼要用 getter 和 setter？</h3>
 <ol>
 <li>
 <p>封裝邏輯<br>
@@ -189,6 +233,14 @@ javascript</p>
 </li>
 </ol><ul class="pa0">
   
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/js/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Js</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/%E5%89%8D%E7%AB%AF/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">前端</a>
+   </li>
+  
 </ul>
 <div class="mt6 instapaper_ignoref">
       
@@ -196,7 +248,24 @@ javascript</p>
       </div>
     </div>
 
-    <aside class="w-30-l mt6-l">
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">What&#39;s in this posts</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#什麼是-getter-和-setter">什麼是 Getter 和 Setter？</a>
+          <ul>
+            <li><a href="#如果不使用-getter--setter">如果不使用 getter &amp; setter</a></li>
+          </ul>
+        </li>
+        <li><a href="#使用-getter--setter">使用 getter &amp; setter</a></li>
+        <li><a href="#為什麼要用-getter-和-setter">為什麼要用 getter 和 setter？</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
 
 
 
@@ -208,7 +277,7 @@ javascript</p>
     </main>
     <footer class="bg-washed-green bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:54493/lioouzzz/sleepblog.git/" >
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/lioouzzz/sleepblog.git/" >
     &copy;  🍀🍀🍀 2025 
   </a>
     <div><div class="ananke-socials"></div>

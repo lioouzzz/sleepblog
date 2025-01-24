@@ -4,6 +4,8 @@ draft = false
 title = 'Js-什麼是Hoisting'
 show_reading_time=true
 featured_image = 'images/ribbon candle.jpg'
+categories = ["javascripts"]
+tags = ["Js","前端"]
 toc=true
 
 +++

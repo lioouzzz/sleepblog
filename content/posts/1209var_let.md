@@ -5,7 +5,7 @@ title = 'Js-var、let、const'
 show_reading_time=true
 featured_image = 'images/ribbon candle.jpg'
 categories = ["javascripts"]
-tags = ["技巧", "前端"]
+tags = ["Js","前端"]
 toc = true
 +++
 

@@ -2,18 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascripts on 🍀🍀🍀</title>
-    <link>http://localhost:54493/lioouzzz/sleepblog.git/categories/javascripts/</link>
+    <link>http://localhost:1313/lioouzzz/sleepblog.git/categories/javascripts/</link>
     <description>Recent content in Javascripts on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:54493/lioouzzz/sleepblog.git/categories/javascripts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/categories/javascripts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clipboard API 非同步剪貼簿API</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250104-clipboard-api/0104-clipboard-api-/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250104-clipboard-api/0104-clipboard-api-/</guid>
+      <description>&lt;h3 id=&#34;clipboard-api&#34;&gt;Clipboard API&lt;/h3&gt;&#xA;&lt;p&gt;Clipboard API提供回應剪貼簿命令(剪下、複製、貼上)，以及&lt;!-- raw HTML omitted --&gt;非同步讀取&lt;!-- raw HTML omitted --&gt;和寫入系統剪貼簿的功能，支援一組有限的 MIME(媒體)類型，可從系統剪貼簿複製及貼上，具體來說是 &lt;code&gt;text/plain&lt;/code&gt;、&lt;code&gt;text/html&lt;/code&gt; 和 &lt;code&gt;image/png&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Js-var、let、const</title>
-      <link>http://localhost:54493/lioouzzz/sleepblog.git/posts/1209var_let/</link>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209var_let/</link>
       <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:54493/lioouzzz/sleepblog.git/posts/1209var_let/</guid>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209var_let/</guid>
       <description>&lt;h3 id=&#34;letvarconst-有什麼差別&#34;&gt;let，var，const 有什麼差別？&lt;/h3&gt;&#xA;&lt;p&gt;1.早期 Js 只有&lt;code&gt;var&lt;/code&gt;，只到 ES6(ES2015)時，才加入了 &lt;code&gt;let&lt;/code&gt;跟 &lt;code&gt;const&lt;/code&gt;&lt;br&gt;&#xA;2.在作用域上，&lt;code&gt;var&lt;/code&gt;可以是&lt;strong&gt;全域&lt;/strong&gt;，也可以是&lt;strong&gt;函式&lt;/strong&gt;做為範圍。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Js-什麼是Hoisting</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209-hoistng/</link>
+      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209-hoistng/</guid>
+      <description>&lt;h3 id=&#34;什麼是-提升hoisting&#34;&gt;什麼是 提升(Hoisting)？&lt;/h3&gt;&#xA;&lt;p&gt;在宣告變數、函數前，就使用程式碼，稱為 Hoisting。&lt;br&gt;&#xA;Js 的兩階端運作，宣告期和執行期。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Js-閉包(Closure)</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209closure/</link>
+      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1209closure/</guid>
+      <description>&lt;h3 id=&#34;什麼是閉包&#34;&gt;什麼是閉包？&lt;/h3&gt;&#xA;&lt;p&gt;閉包被定義為函式被宣告時所在的作用域環境(lexical environment)，簡單來說，內部函式能夠取得外部函式的變數，並且記住這個變數，閉包很常被用來作為狀態保存。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JS-Getter &amp; Setter</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207gettersetter/</link>
+      <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207gettersetter/</guid>
+      <description>&lt;h3 id=&#34;什麼是-getter-和-setter&#34;&gt;什麼是 Getter 和 Setter？&lt;/h3&gt;&#xA;&lt;p&gt;是 JS 中用來&lt;strong&gt;操作物件屬性的方法&lt;/strong&gt;，他們可以讓我們像存取普通屬性一樣簡單地取值、或設定值，但其實背後可以執行更多的程式邏輯。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

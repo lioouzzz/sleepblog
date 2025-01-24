@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=54493&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
+  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
@@ -26,6 +26,8 @@ python 的參數預設值，在函數定義的時候就決定好了。
       <meta name="robots" content="noindex, nofollow">
     
     
+      <meta name="author" content = "Elaine Liu">
+    
 
     
 <link rel="stylesheet" href="/lioouzzz/sleepblog.git/ananke/css/main.min.css" >
@@ -36,16 +38,18 @@ python 的參數預設值，在函數定義的時候就決定好了。
 
     
       
+<link rel="shortcut icon" href="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" type="image/x-icon" />
+
 
     
 
     
 
     
-      <link rel="canonical" href="http://localhost:54493/lioouzzz/sleepblog.git/posts/1119fn_note/">
+      <link rel="canonical" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/1119fn_note/">
     
 
-    <meta property="og:url" content="http://localhost:54493/lioouzzz/sleepblog.git/posts/1119fn_note/">
+    <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/1119fn_note/">
   <meta property="og:site_name" content="🍀🍀🍀">
   <meta property="og:title" content="Python 函數">
   <meta property="og:description" content="參數、引數 參數 參數預設值 引數 關鍵字引數、位置引數
@@ -56,6 +60,8 @@ python 的參數預設值，在函數定義的時候就決定好了。
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-11-24T11:00:37+08:00">
     <meta property="article:modified_time" content="2024-11-24T11:00:37+08:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="後端">
 
   <meta itemprop="name" content="Python 函數">
   <meta itemprop="description" content="參數、引數 參數 參數預設值 引數 關鍵字引數、位置引數
@@ -64,6 +70,7 @@ python 的參數預設值，在函數定義的時候就決定好了。
   <meta itemprop="datePublished" content="2024-11-24T11:00:37+08:00">
   <meta itemprop="dateModified" content="2024-11-24T11:00:37+08:00">
   <meta itemprop="wordCount" content="160">
+  <meta itemprop="keywords" content="Python,後端">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Python 函數">
   <meta name="twitter:description" content="參數、引數 參數 參數預設值 引數 關鍵字引數、位置引數
@@ -71,6 +78,7 @@ python 的參數預設值，在函數定義的時候就決定好了。
 如果在參數的預設值放入可變動物件，[]、{}，可能不會得到想要的答案 如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷 不要急著把可變動物件在參數預設值時就直接定義。">
 
 	
+  <script src="/lioouzzz/sleepblog.git/js/search.js"></script>
   </head><body class="ma0 avenir bg-near-white development">
 
     
@@ -80,25 +88,57 @@ python 的參數預設值，在函數定義的時候就決定好了。
   
   
   
-  <header class="cover bg-center" style="background-image: url('http://localhost:54493/lioouzzz/sleepblog.git/images/ribbon%20candle.jpg');">
+  <header class="cover bg-center" style="background-image: url('http://localhost:1313/lioouzzz/sleepblog.git/images/ribbon%20candle.jpg');">
     <div class="bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
-    <a href="/lioouzzz/sleepblog.git/" class="f3 fw2 hover-white no-underline white-90 dib">
+    
+    <a href="/lioouzzz/sleepblog.git/" class="f3 fw2 hover-blue no-underline custom-blue dib">
       
         <img src="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" class="w100 mw5-ns" alt="🍀🍀🍀" />
       
     </a>
+    
+    
     <div class="flex-l items-center">
       
-
+      <div class="relative mr2">
+    <input type="search" 
+      class="pa2 br2 ba b--custom-blue" 
+      placeholder="搜尋..." 
+      id="search-input"
+      onkeyup="search()">
+  </div>
+      
+      
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/" title="首頁 page">
+              首頁
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/posts/" title="全部文章 page">
+              全部文章
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/tags/" title="分類 page">
+              分類
+            </a>
+          </li>
+          
+        </ul>
       
       <div class="ananke-socials"></div>
 
     </div>
   </div>
-</nav>
-
+ </nav>
       <div class="tc-l pv6 ph3 ph4-ns">
         
           <div class="f2 f1-l fw2 white-90 mb0 lh-title">Python 函數</div>
@@ -123,9 +163,13 @@ python 的參數預設值，在函數定義的時候就決定好了。
       </aside><div id="sharing" class="mt3 ananke-socials"></div>
 <h1 class="f1 athelas mt3 mb1">Python 函數</h1>
       
+      <p class="tracked">
+        By <strong>Elaine Liu</strong>
+      </p>
       
       
-      <time class="f6 mv4 dib tracked" datetime="2024-11-24T11:00:37+08:00">November 24, 2024</time>
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-11-24T11:00:37+08:00">2024年11月24日</time>
       
 
       
@@ -226,6 +270,14 @@ python 的參數預設值，在函數定義的時候就決定好了。</p>
 </span></span><span style="display:flex;"><span>print(a)
 </span></span></code></pre></div><ul class="pa0">
   
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/python/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Python</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">後端</a>
+   </li>
+  
 </ul>
 <div class="mt6 instapaper_ignoref">
       
@@ -233,7 +285,18 @@ python 的參數預設值，在函數定義的時候就決定好了。</p>
       </div>
     </div>
 
-    <aside class="w-30-l mt6-l">
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">What&#39;s in this posts</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#參數引數">參數、引數</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
 
 
 
@@ -245,7 +308,7 @@ python 的參數預設值，在函數定義的時候就決定好了。</p>
     </main>
     <footer class="bg-washed-green bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:54493/lioouzzz/sleepblog.git/" >
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/lioouzzz/sleepblog.git/" >
     &copy;  🍀🍀🍀 2025 
   </a>
     <div><div class="ananke-socials"></div>

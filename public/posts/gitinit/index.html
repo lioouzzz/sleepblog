@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=54493&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
+  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
@@ -16,6 +16,8 @@
       <meta name="robots" content="noindex, nofollow">
     
     
+      <meta name="author" content = "Elaine Liu">
+    
 
     
 <link rel="stylesheet" href="/lioouzzz/sleepblog.git/ananke/css/main.min.css" >
@@ -26,16 +28,18 @@
 
     
       
+<link rel="shortcut icon" href="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" type="image/x-icon" />
+
 
     
 
     
 
     
-      <link rel="canonical" href="http://localhost:54493/lioouzzz/sleepblog.git/posts/gitinit/">
+      <link rel="canonical" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/gitinit/">
     
 
-    <meta property="og:url" content="http://localhost:54493/lioouzzz/sleepblog.git/posts/gitinit/">
+    <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/gitinit/">
   <meta property="og:site_name" content="🍀🍀🍀">
   <meta property="og:title" content="關於Git">
   <meta property="og:description" content="git 優點 速度小、檔案小 同時支援本地及遠端操作 (不需要網路)">
@@ -55,6 +59,7 @@
   <meta name="twitter:description" content="git 優點 速度小、檔案小 同時支援本地及遠端操作 (不需要網路)">
 
 	
+  <script src="/lioouzzz/sleepblog.git/js/search.js"></script>
   </head><body class="ma0 avenir bg-near-white development">
 
     
@@ -64,25 +69,57 @@
   
   
   
-  <header class="cover bg-center" style="background-image: url('http://localhost:54493/lioouzzz/sleepblog.git/images/S__20463625.jpg');">
+  <header class="cover bg-center" style="background-image: url('http://localhost:1313/lioouzzz/sleepblog.git/images/S__20463625.jpg');">
     <div class="bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
-    <a href="/lioouzzz/sleepblog.git/" class="f3 fw2 hover-white no-underline white-90 dib">
+    
+    <a href="/lioouzzz/sleepblog.git/" class="f3 fw2 hover-blue no-underline custom-blue dib">
       
         <img src="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" class="w100 mw5-ns" alt="🍀🍀🍀" />
       
     </a>
+    
+    
     <div class="flex-l items-center">
       
-
+      <div class="relative mr2">
+    <input type="search" 
+      class="pa2 br2 ba b--custom-blue" 
+      placeholder="搜尋..." 
+      id="search-input"
+      onkeyup="search()">
+  </div>
+      
+      
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/" title="首頁 page">
+              首頁
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/posts/" title="全部文章 page">
+              全部文章
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/tags/" title="分類 page">
+              分類
+            </a>
+          </li>
+          
+        </ul>
       
       <div class="ananke-socials"></div>
 
     </div>
   </div>
-</nav>
-
+ </nav>
       <div class="tc-l pv6 ph3 ph4-ns">
         
           <div class="f2 f1-l fw2 white-90 mb0 lh-title">關於Git</div>
@@ -107,9 +144,13 @@
       </aside><div id="sharing" class="mt3 ananke-socials"></div>
 <h1 class="f1 athelas mt3 mb1">關於Git</h1>
       
+      <p class="tracked">
+        By <strong>Elaine Liu</strong>
+      </p>
       
       
-      <time class="f6 mv4 dib tracked" datetime="2024-12-05T00:00:00Z">December 5, 2024</time>
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-12-05T00:00:00Z">2024年12月5日</time>
       
 
       
@@ -326,7 +367,33 @@ reset 之後的參數<br>
       </div>
     </div>
 
-    <aside class="w-30-l mt6-l">
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">What&#39;s in this posts</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#git-優點">git 優點</a></li>
+        <li><a href="#終端指令">終端指令</a></li>
+        <li><a href="#git-執行流程">git 執行流程</a></li>
+        <li><a href="#git-command-指令">git Command 指令</a></li>
+        <li><a href="#branch-分支">branch 分支</a>
+          <ul>
+            <li><a href="#merge-合併">merge 合併</a></li>
+            <li><a href="#rebase-合併">rebase 合併</a></li>
+            <li><a href="#要用哪個合併">要用哪個合併</a></li>
+            <li><a href="#conflict-發生衝突">conflict 發生衝突</a></li>
+            <li><a href="#回到上一步">回到上一步</a></li>
+            <li><a href="#caret與--tilde">^(Caret)與 ~ (Tilde)</a></li>
+            <li><a href="#git-pull">Git pull</a></li>
+            <li><a href="#跳回當時的檔案">跳回當時的檔案</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
 
 
 
@@ -338,7 +405,7 @@ reset 之後的參數<br>
     </main>
     <footer class="bg-washed-green bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:54493/lioouzzz/sleepblog.git/" >
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/lioouzzz/sleepblog.git/" >
     &copy;  🍀🍀🍀 2025 
   </a>
     <div><div class="ananke-socials"></div>

@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="pa3">
+  <h1>搜索結果</h1>
+  <div id="search-results">
+    {{ range where .Site.RegularPages "Type" "post" }}
+      <div class="post-item mb3">
+        <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p>{{ .Summary }}</p>
+      </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

@@ -59,4 +59,19 @@
       font-size: 0.9rem;
     }
   }
+
+
+  .header div {
+    background-image: url('/images/cover_image.png');  /* 替換為您的 header 圖片路徑 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
   
+  footer {
+    background-image: url('/images/cover_image.png');  /* 替換為您的 footer 圖片路徑 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;  /* 根據需要調整文字顏色以確保可讀性 */
+  }

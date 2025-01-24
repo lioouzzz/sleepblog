@@ -6,19 +6,21 @@ theme = 'ananke'
 
 [params]
 text_color = ""
-author = ""
-favicon = ""
+author = "Elaine Liu"
+favicon = "images/20241130%20個人logo2.png"
 site_logo = "images/20241130%20個人logo2.png"
-
-description = "The last theme you'll ever need. Maybe."
+description = "程式學習筆記，一些lilicodecode><"
 
 # choose a background color from any on this page: https://tachyons.io/docs/themes/skins/ and preface it with "bg-"
-background_color_class = "bg-washed-green"
 # choose fitting and alignment styles for the featured image using Tachyons classes such as "cover|contain" for fitting and "bg-top|bg-center|bg-bottom" for alignment, or add any other class space-separated to customize further
+featured_image = "/images/cover_image.png" 
 featured_image_class = "cover bg-center"
 # choose a color dimming class for the page or site header from any on this page: https://tachyons.io/docs/themes/skins/, preface it with "bg-" and add the value such as "-X0" where X is in [1,9]
 cover_dimming_class = "bg-washed-green-60"
 recent_posts_number = 20
+date_format = "2006年1月2日"
+background_color_class = "bg-washed-green"
+
 
 [taxonomies]
   category = "categories"
@@ -26,3 +28,32 @@ recent_posts_number = 20
 
 [pagination]
 pagerSize = 20
+
+[[menu.main]]
+  identifier = "home"
+  name = "首頁"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  identifier = "tags"
+  name = "分類"
+  url = "/tags/"
+  weight = 3
+
+  [[menu.main]]
+  identifier = "post"
+  name = "全部文章"
+  url = "/posts/"
+  weight = 3
+
+[markup.tableOfContents]
+    startLevel = 2        # 從 <h2> 開始
+    endLevel = 6          # 到 <h6> 結束
+    ordered = false       # 無序列表
+    wrap = "nav"          # 包裹 TOC 的 HTML 標籤
+    anchorClass = "toc-anchor"  # 錨點鏈接的 CSS 類別
+    noClasses = false     # 允許添加 CSS 類別
+
+
+custom_css = ["custom.css"]

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Database on 🍀🍀🍀</title>
+    <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/database/</link>
+    <description>Recent content in Database on 🍀🍀🍀</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>資料庫</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1211database/</link>
+      <pubDate>Wed, 11 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1211database/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

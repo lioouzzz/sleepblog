@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=54493&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
+  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
@@ -15,6 +15,8 @@
       <meta name="robots" content="noindex, nofollow">
     
     
+      <meta name="author" content = "Elaine Liu">
+    
 
     
 <link rel="stylesheet" href="/lioouzzz/sleepblog.git/ananke/css/main.min.css" >
@@ -25,16 +27,18 @@
 
     
       
+<link rel="shortcut icon" href="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" type="image/x-icon" />
+
 
     
 
     
 
     
-      <link rel="canonical" href="http://localhost:54493/lioouzzz/sleepblog.git/posts/1209closure/">
+      <link rel="canonical" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/1209closure/">
     
 
-    <meta property="og:url" content="http://localhost:54493/lioouzzz/sleepblog.git/posts/1209closure/">
+    <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/1209closure/">
   <meta property="og:site_name" content="🍀🍀🍀">
   <meta property="og:title" content="Js-閉包(Closure)">
   <meta property="og:description" content="什麼是閉包？ 閉包被定義為函式被宣告時所在的作用域環境(lexical environment)，簡單來說，內部函式能夠取得外部函式的變數，並且記住這個變數，閉包很常被用來作為狀態保存。">
@@ -43,17 +47,21 @@
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-12-09T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-12-09T00:00:00+00:00">
+    <meta property="article:tag" content="Js">
+    <meta property="article:tag" content="前端">
 
   <meta itemprop="name" content="Js-閉包(Closure)">
   <meta itemprop="description" content="什麼是閉包？ 閉包被定義為函式被宣告時所在的作用域環境(lexical environment)，簡單來說，內部函式能夠取得外部函式的變數，並且記住這個變數，閉包很常被用來作為狀態保存。">
   <meta itemprop="datePublished" content="2024-12-09T00:00:00+00:00">
   <meta itemprop="dateModified" content="2024-12-09T00:00:00+00:00">
   <meta itemprop="wordCount" content="53">
+  <meta itemprop="keywords" content="Js,前端">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Js-閉包(Closure)">
   <meta name="twitter:description" content="什麼是閉包？ 閉包被定義為函式被宣告時所在的作用域環境(lexical environment)，簡單來說，內部函式能夠取得外部函式的變數，並且記住這個變數，閉包很常被用來作為狀態保存。">
 
 	
+  <script src="/lioouzzz/sleepblog.git/js/search.js"></script>
   </head><body class="ma0 avenir bg-near-white development">
 
     
@@ -63,25 +71,57 @@
   
   
   
-  <header class="cover bg-center" style="background-image: url('http://localhost:54493/lioouzzz/sleepblog.git/images/ribbon%20candle.jpg');">
+  <header class="cover bg-center" style="background-image: url('http://localhost:1313/lioouzzz/sleepblog.git/images/ribbon%20candle.jpg');">
     <div class="bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
-    <a href="/lioouzzz/sleepblog.git/" class="f3 fw2 hover-white no-underline white-90 dib">
+    
+    <a href="/lioouzzz/sleepblog.git/" class="f3 fw2 hover-blue no-underline custom-blue dib">
       
         <img src="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" class="w100 mw5-ns" alt="🍀🍀🍀" />
       
     </a>
+    
+    
     <div class="flex-l items-center">
       
-
+      <div class="relative mr2">
+    <input type="search" 
+      class="pa2 br2 ba b--custom-blue" 
+      placeholder="搜尋..." 
+      id="search-input"
+      onkeyup="search()">
+  </div>
+      
+      
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/" title="首頁 page">
+              首頁
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/posts/" title="全部文章 page">
+              全部文章
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/tags/" title="分類 page">
+              分類
+            </a>
+          </li>
+          
+        </ul>
       
       <div class="ananke-socials"></div>
 
     </div>
   </div>
-</nav>
-
+ </nav>
       <div class="tc-l pv6 ph3 ph4-ns">
         
           <div class="f2 f1-l fw2 white-90 mb0 lh-title">Js-閉包(Closure)</div>
@@ -106,9 +146,13 @@
       </aside><div id="sharing" class="mt3 ananke-socials"></div>
 <h1 class="f1 athelas mt3 mb1">Js-閉包(Closure)</h1>
       
+      <p class="tracked">
+        By <strong>Elaine Liu</strong>
+      </p>
       
       
-      <time class="f6 mv4 dib tracked" datetime="2024-12-09T00:00:00Z">December 9, 2024</time>
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-12-09T00:00:00Z">2024年12月9日</time>
       
 
       
@@ -143,6 +187,14 @@
 <h4 id="閉包缺點">閉包缺點</h4>
 <p>閉包會讓內部函式記得外部變數，可能會造成變數常駐在記憶體中，使用過多會造成內存洩漏(memory leak)，要小心使用。</p><ul class="pa0">
   
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/js/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Js</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/%E5%89%8D%E7%AB%AF/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">前端</a>
+   </li>
+  
 </ul>
 <div class="mt6 instapaper_ignoref">
       
@@ -150,10 +202,45 @@
       </div>
     </div>
 
-    <aside class="w-30-l mt6-l">
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">What&#39;s in this posts</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#什麼是閉包">什麼是閉包？</a>
+          <ul>
+            <li><a href="#閉包的應用">閉包的應用</a></li>
+            <li><a href="#閉包缺點">閉包缺點</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
 
 
 
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/lioouzzz/sleepblog.git/posts/1209var_let/">Js-var、let、const</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/lioouzzz/sleepblog.git/posts/1209-hoistng/">Js-什麼是Hoisting</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/lioouzzz/sleepblog.git/posts/1207gettersetter/">JS-Getter &amp; Setter</a>
+        </li>
+	    
+    </ul>
+</div>
 
 </aside>
 
@@ -162,7 +249,7 @@
     </main>
     <footer class="bg-washed-green bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:54493/lioouzzz/sleepblog.git/" >
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/lioouzzz/sleepblog.git/" >
     &copy;  🍀🍀🍀 2025 
   </a>
     <div><div class="ananke-socials"></div>

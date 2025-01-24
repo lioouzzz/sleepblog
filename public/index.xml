@@ -6,8 +6,29 @@
     <description>Recent content on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>函數是一等公民</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250124-first_class_citizen/</link>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250124-first_class_citizen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CSRF和XSS網路攻擊</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250123-csrf_xss/csrfxss/</link>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250123-csrf_xss/csrfxss/</guid>
+      <description>&lt;h3 id=&#34;csrfcross-site-request-forgery跨站請求偽造&#34;&gt;CSRF(Cross-Site Request Forgery)，跨站請求偽造&lt;/h3&gt;&#xA;&lt;p&gt;CSRF是一種網路安全攻擊，攻擊者利用&lt;!-- raw HTML omitted --&gt;網站和使用者之間的信任&lt;!-- raw HTML omitted --&gt;，&#xA;網站會信任自己登入用戶的請求，但攻擊者卻可以偽造請求，在使用者不知情的情況下，對網站發送未經授權的請求。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Django N&#43;1 查詢問題</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250123-n&#43;1/20250123-n&#43;1_query/</link>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250123-n&#43;1/20250123-n&#43;1_query/</guid>
+      <description>&lt;h3 id=&#34;n1查詢問題&#34;&gt;N+1查詢問題&lt;/h3&gt;&#xA;&lt;p&gt;N+1 問題是在 ORM（包括 Django ORM）中常見的效能問題&#xA;指的是在處理關聯資料時，除了要執行一次主查詢外，還要為每個結果執行而外查詢&lt;/p&gt;&#xA;&lt;p&gt;來舉個例子 !&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Clipboard API 非同步剪貼簿API</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250104-clipboard-api/0104-clipboard-api-/</link>
@@ -21,6 +42,13 @@
       <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/</guid>
       <description>&lt;p&gt;詳細的參考文件(Document)可以前往 Django Package 官網&#xA;&lt;a href=&#34;https://docs.allauth.org/en/dev/socialaccount/providers/google.html&#34;&gt;django-allauth&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;首先先安裝套件&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-terminal&#34; data-lang=&#34;terminal&#34;&gt;pip install django-allauth&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>資料庫</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1211database/</link>
+      <pubDate>Wed, 11 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1211database/</guid>
+      <description></description>
     </item>
     <item>
       <title>Js-var、let、const</title>
@@ -55,7 +83,7 @@
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207stackqueqe/</link>
       <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1207stackqueqe/</guid>
-      <description>&lt;h3 id=&#34;stack堆疊-和-queue佇列&#34;&gt;Stack(堆疊) 和 Queue(佇列)&lt;/h3&gt;&#xA;&lt;h4 id=&#34;stack-堆疊lifo&#34;&gt;Stack 堆疊(LIFO)&lt;/h4&gt;&#xA;&lt;p&gt;是電腦科學中的一種抽象資料型別，按照後進先出(LIFO，Last In First Out)的原理運作，堆疊常用一維陣列或連結串列來實現。常與另一種有序的線性資料及和佇列相提並論。&lt;/p&gt;&#xA;&lt;p&gt;是一種資料結構，遵循著&lt;strong&gt;後進先出&lt;/strong&gt;的原則，最晚放進堆疊的資料會被最先取出(LIFO Last-In-First-Out)，最早放入堆疊的資料會被最後取出&lt;/p&gt;</description>
+      <description>&lt;h3 id=&#34;stack堆疊-和-queue佇列&#34;&gt;Stack(堆疊) 和 Queue(佇列)&lt;/h3&gt;&#xA;&lt;h3 id=&#34;stack-堆疊lifo&#34;&gt;Stack 堆疊(LIFO)&lt;/h3&gt;&#xA;&lt;p&gt;是電腦科學中的一種抽象資料型別，按照後進先出(LIFO，Last In First Out)的原理運作，堆疊常用一維陣列或連結串列來實現。常與另一種有序的線性資料及和佇列相提並論。&lt;/p&gt;&#xA;&lt;p&gt;是一種資料結構，遵循著&lt;strong&gt;後進先出&lt;/strong&gt;的原則，最晚放進堆疊的資料會被最先取出(LIFO Last-In-First-Out)，最早放入堆疊的資料會被最後取出&lt;/p&gt;</description>
     </item>
     <item>
       <title>關於Git</title>

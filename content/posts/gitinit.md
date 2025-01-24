@@ -4,6 +4,7 @@ draft = false
 title = '關於Git'
 show_reading_time=true
 featured_image = '/images/S__20463625.jpg'
+toc=true
 +++
 
 ### git 優點

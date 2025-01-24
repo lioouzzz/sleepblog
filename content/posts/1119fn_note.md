@@ -4,7 +4,9 @@ draft = false
 title = 'Python 函數'
 show_reading_time=true
 featured_image = 'images/ribbon candle.jpg'
-
+categories = ["python"]
+tags = ["python","後端"]
+toc = true
 +++
 
 <!-- 參數、引數 -->

@@ -4,7 +4,9 @@ draft = false
 title = 'JS-Getter & Setter'
 show_reading_time=true
 featured_image = 'images/ribbon candle.jpg'
-
+categories = ["javascripts"]
+tags = ["Js","前端"]
+toc=true
 +++
 
 ### 什麼是 Getter 和 Setter？
@@ -38,7 +40,7 @@ console.log(person.name) //印出Bob
 
 任何人都可以直接修改 name，可能帶來不正確的結果。
 
-#### 使用 getter & setter
+### 使用 getter & setter
 
 ```js
 class Person {
@@ -71,7 +73,7 @@ try {
 }
 ```
 
-#### 為什麼要用 getter 和 setter？
+### 為什麼要用 getter 和 setter？
 
 1. 封裝邏輯  
    當存取或設定屬性時，可以在背後執行檢查或計算，例如 set name(value)可以檢查名稱是否有效，確保資料一致性

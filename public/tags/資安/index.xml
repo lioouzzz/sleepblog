@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>資安 on 🍀🍀🍀</title>
+    <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/%E8%B3%87%E5%AE%89/</link>
+    <description>Recent content in 資安 on 🍀🍀🍀</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E8%B3%87%E5%AE%89/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CSRF和XSS網路攻擊</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250123-csrf_xss/csrfxss/</link>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250123-csrf_xss/csrfxss/</guid>
+      <description>&lt;h3 id=&#34;csrfcross-site-request-forgery跨站請求偽造&#34;&gt;CSRF(Cross-Site Request Forgery)，跨站請求偽造&lt;/h3&gt;&#xA;&lt;p&gt;CSRF是一種網路安全攻擊，攻擊者利用&lt;!-- raw HTML omitted --&gt;網站和使用者之間的信任&lt;!-- raw HTML omitted --&gt;，&#xA;網站會信任自己登入用戶的請求，但攻擊者卻可以偽造請求，在使用者不知情的情況下，對網站發送未經授權的請求。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
