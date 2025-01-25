@@ -13,7 +13,7 @@
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250124-first_class_citizen/</link>
       <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250124-first_class_citizen/</guid>
-      <description></description>
+      <description>&lt;h3 id=&#34;python函數是一等公民first-class-citizen&#34;&gt;Python函數是一等公民(First-Class Citizen)&lt;/h3&gt;&#xA;&lt;p&gt;在Python中，函數是一等公民，有時也稱為一級物件(First-Class Object)，意思是函數、數字、字串、串列等資料型態，都是相同的地位。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Django N&#43;1 查詢問題</title>
@@ -34,7 +34,7 @@
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1119fn_note/</link>
       <pubDate>Sun, 24 Nov 2024 11:00:37 +0800</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1119fn_note/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h3 id=&#34;參數引數&#34;&gt;參數、引數&lt;/h3&gt;&#xA;&lt;p&gt;參數 參數預設值&#xA;引數 關鍵字引數、位置引數&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;在函數的參數裡打 / ，代表在 / 之前的參數，都要用位置引數&#xA;在函數的參數裡打 _ ，代表在 _ 之後的參數，都要用關鍵字引數&#xA;夾在/ *之間的參數都可以用&#xA;python 的參數預設值，在函數定義的時候就決定好了。&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;如果在參數的預設值放入可變動物件，[]、{}，可能不會得到想要的答案&#xA;如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷&#xA;不要急著把可變動物件在參數預設值時就直接定義。&lt;/p&gt;</description>
+      <description>&lt;h3 id=&#34;定義函數&#34;&gt;定義函數&lt;/h3&gt;&#xA;&lt;p&gt;寫函數的目的是為了把一段邏輯或程式碼抽象化，並且可以重複使用。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

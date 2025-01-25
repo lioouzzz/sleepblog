@@ -13,7 +13,7 @@
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250124-first_class_citizen/</link>
       <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250124-first_class_citizen/</guid>
-      <description></description>
+      <description>&lt;h3 id=&#34;python函數是一等公民first-class-citizen&#34;&gt;Python函數是一等公民(First-Class Citizen)&lt;/h3&gt;&#xA;&lt;p&gt;在Python中，函數是一等公民，有時也稱為一級物件(First-Class Object)，意思是函數、數字、字串、串列等資料型態，都是相同的地位。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Django N&#43;1 查詢問題</title>

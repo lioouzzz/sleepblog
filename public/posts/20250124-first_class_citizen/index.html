@@ -6,7 +6,8 @@
     
     <title>函數是一等公民 | 🍀🍀🍀</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Python函數是一等公民(First-Class Citizen)
+在Python中，函數是一等公民，有時也稱為一級物件(First-Class Object)，意思是函數、數字、字串、串列等資料型態，都是相同的地位。">
     <meta name="generator" content="Hugo 0.138.0">
     
     
@@ -40,7 +41,7 @@
     <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250124-first_class_citizen/">
   <meta property="og:site_name" content="🍀🍀🍀">
   <meta property="og:title" content="函數是一等公民">
-  <meta property="og:description" content="程式學習筆記，一些lilicodecode&gt;&lt;">
+  <meta property="og:description" content="Python函數是一等公民(First-Class Citizen) 在Python中，函數是一等公民，有時也稱為一級物件(First-Class Object)，意思是函數、數字、字串、串列等資料型態，都是相同的地位。">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -51,13 +52,14 @@
     <meta property="article:tag" content="後端">
 
   <meta itemprop="name" content="函數是一等公民">
-  <meta itemprop="description" content="程式學習筆記，一些lilicodecode&gt;&lt;">
+  <meta itemprop="description" content="Python函數是一等公民(First-Class Citizen) 在Python中，函數是一等公民，有時也稱為一級物件(First-Class Object)，意思是函數、數字、字串、串列等資料型態，都是相同的地位。">
   <meta itemprop="datePublished" content="2025-01-24T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-01-24T00:00:00+00:00">
+  <meta itemprop="wordCount" content="88">
   <meta itemprop="keywords" content="Python,Django,後端">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="函數是一等公民">
-  <meta name="twitter:description" content="程式學習筆記，一些lilicodecode&gt;&lt;">
+  <meta name="twitter:description" content="Python函數是一等公民(First-Class Citizen) 在Python中，函數是一等公民，有時也稱為一級物件(First-Class Object)，意思是函數、數字、字串、串列等資料型態，都是相同的地位。">
 
 	
   <script src="/lioouzzz/sleepblog.git/js/search.js"></script>
@@ -156,11 +158,42 @@
 
       
       
-        <span class="f6 mv4 dib tracked"> - 0 minutes read </span>
-        <span class="f6 mv4 dib tracked"> - 0 words </span>
+        <span class="f6 mv4 dib tracked"> - One minute read </span>
+        <span class="f6 mv4 dib tracked"> - 88 words </span>
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><ul class="pa0">
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="python函數是一等公民first-class-citizen">Python函數是一等公民(First-Class Citizen)</h3>
+<p>在Python中，函數是一等公民，有時也稱為一級物件(First-Class Object)，意思是函數、數字、字串、串列等資料型態，都是相同的地位。</p>
+<p>1.變數指定</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(a,b):
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e"># 變數指定</span>
+</span></span><span style="display:flex;"><span>   a<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>
+</span></span><span style="display:flex;"><span>   b<span style="color:#f92672">=</span>add
+</span></span></code></pre></div><p>2.像一般的值放在一起</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(a,b):
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   data<span style="color:#f92672">=</span>[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,add,<span style="color:#e6db74">&#34;hello kitty&#34;</span>]
+</span></span></code></pre></div><p>3.當作其他函數的參數</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(a,b):
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#ae81ff">123</span>)
+</span></span><span style="display:flex;"><span>print(add)
+</span></span></code></pre></div><p>4.被當作回傳值(因為函數就跟一般物件一樣)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_adder</span>(n):        <span style="color:#75715e"># n = 3 被存在閉包中</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">adder</span>(m):           <span style="color:#75715e"># 內部函數可以訪問外部的 n</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> n <span style="color:#f92672">+</span> m        <span style="color:#75715e"># 使用存在閉包中的 n=3 加上傳入的 m</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> adder
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add3 <span style="color:#f92672">=</span> create_adder(<span style="color:#ae81ff">3</span>)      <span style="color:#75715e"># add3 是一個新函數,預設加3</span>
+</span></span><span style="display:flex;"><span>print(add3(<span style="color:#ae81ff">4</span>))   <span style="color:#75715e"># 3 + 4 = 7</span>
+</span></span><span style="display:flex;"><span>print(add3(<span style="color:#ae81ff">10</span>))  <span style="color:#75715e"># 3 + 10 = 13</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#create_adder(3) 呼叫時傳入了 3 作為參數 n，所以閉包保存了 n=3。當後續呼叫 add3(4) 時，就會用保存的 3 加上傳入的 4。閉包讓內部函數能記住並訪問創建時的外部變數值。</span>
+</span></span></code></pre></div><ul class="pa0">
   
    <li class="list di">
      <a href="/lioouzzz/sleepblog.git/tags/python/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Python</a>
@@ -182,40 +215,17 @@
     </div>
 
     <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">What&#39;s in this posts</p>
-      <nav id="TableOfContents"></nav>
+    <p class="f5 b mb3">文章目錄</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#python函數是一等公民first-class-citizen">Python函數是一等公民(First-Class Citizen)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/lioouzzz/sleepblog.git/posts/20250123-n&#43;1/20250123-n&#43;1_query/">Django N&#43;1 查詢問題</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/">django串接google第三方登入</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/lioouzzz/sleepblog.git/posts/1119fn_note/">Python 函數</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/lioouzzz/sleepblog.git/posts/20250123-csrf_xss/csrfxss/">CSRF和XSS網路攻擊</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/lioouzzz/sleepblog.git/posts/1211database/">資料庫</a>
-        </li>
-	    
-    </ul>
-</div>
-
 </aside>
 
   </article>

@@ -5,12 +5,12 @@
 
 {{- if .Params.toc -}}
   <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">{{ i18n "whatsInThis" . }}</p>
+    <p class="f5 b mb3">文章目錄</p>
       {{ .TableOfContents }}
   </div>
 {{- end -}}
 
-{{/*
+<!-- {{/*
   Use Hugo's native related content feature to pull in content that may have similar parameters, like tags. etc.
   https://gohugo.io/content-management/related/
 */}}
@@ -30,4 +30,4 @@
 	    {{ end }}
     </ul>
 </div>
-{{ end }}
+{{ end }} -->

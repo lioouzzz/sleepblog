@@ -9,10 +9,11 @@ tags = ["database","後端"]
 toc=true
 +++
 
-<!--more-->
 
 建立資料庫: create database "ccc"
 刪除資料庫：drop database "ccc" 整個拔掉資料庫
+<!--more-->
+
 
 資料型態：
 CHAR/VARCHAR/TEXT

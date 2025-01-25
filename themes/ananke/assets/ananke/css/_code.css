@@ -5,20 +5,19 @@ pre, .pre  {
 }
 
 
-pre  code {
-  display: block;
-  padding: 1.5em 1.5em;
-  white-space: pre;
-  font-size: .875rem;
-  line-height: 2;
-
+pre code span {
+ margin: 0 2px;
 }
 
 pre {
-  background-color: #222;
-  color: #ddd;
-  white-space: pre;
-
-  hyphens: none;
-  position: relative;
-}
+  font-family: 'Roboto Mono', monospace;
+  padding: 1.5em;
+  margin: 1.5em 0;
+  border-radius: 6px;
+  line-height: 1.8;
+ }
+ 
+ pre code {
+  letter-spacing: 0.5px;
+ }
+ 

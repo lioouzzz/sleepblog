@@ -6,19 +6,8 @@
     
     <title>Python 函數 | 🍀🍀🍀</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="
-參數、引數
-參數 參數預設值
-引數 關鍵字引數、位置引數
-
-在函數的參數裡打 / ，代表在 / 之前的參數，都要用位置引數
-在函數的參數裡打 _ ，代表在 _ 之後的參數，都要用關鍵字引數
-夾在/ *之間的參數都可以用
-python 的參數預設值，在函數定義的時候就決定好了。
-
-如果在參數的預設值放入可變動物件，[]、{}，可能不會得到想要的答案
-如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷
-不要急著把可變動物件在參數預設值時就直接定義。">
+    <meta name="description" content="定義函數
+寫函數的目的是為了把一段邏輯或程式碼抽象化，並且可以重複使用。">
     <meta name="generator" content="Hugo 0.138.0">
     
     
@@ -52,9 +41,7 @@ python 的參數預設值，在函數定義的時候就決定好了。
     <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/1119fn_note/">
   <meta property="og:site_name" content="🍀🍀🍀">
   <meta property="og:title" content="Python 函數">
-  <meta property="og:description" content="參數、引數 參數 參數預設值 引數 關鍵字引數、位置引數
-在函數的參數裡打 / ，代表在 / 之前的參數，都要用位置引數 在函數的參數裡打 _ ，代表在 _ 之後的參數，都要用關鍵字引數 夾在/ *之間的參數都可以用 python 的參數預設值，在函數定義的時候就決定好了。
-如果在參數的預設值放入可變動物件，[]、{}，可能不會得到想要的答案 如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷 不要急著把可變動物件在參數預設值時就直接定義。">
+  <meta property="og:description" content="定義函數 寫函數的目的是為了把一段邏輯或程式碼抽象化，並且可以重複使用。">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -64,18 +51,14 @@ python 的參數預設值，在函數定義的時候就決定好了。
     <meta property="article:tag" content="後端">
 
   <meta itemprop="name" content="Python 函數">
-  <meta itemprop="description" content="參數、引數 參數 參數預設值 引數 關鍵字引數、位置引數
-在函數的參數裡打 / ，代表在 / 之前的參數，都要用位置引數 在函數的參數裡打 _ ，代表在 _ 之後的參數，都要用關鍵字引數 夾在/ *之間的參數都可以用 python 的參數預設值，在函數定義的時候就決定好了。
-如果在參數的預設值放入可變動物件，[]、{}，可能不會得到想要的答案 如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷 不要急著把可變動物件在參數預設值時就直接定義。">
+  <meta itemprop="description" content="定義函數 寫函數的目的是為了把一段邏輯或程式碼抽象化，並且可以重複使用。">
   <meta itemprop="datePublished" content="2024-11-24T11:00:37+08:00">
   <meta itemprop="dateModified" content="2024-11-24T11:00:37+08:00">
-  <meta itemprop="wordCount" content="160">
+  <meta itemprop="wordCount" content="430">
   <meta itemprop="keywords" content="Python,後端">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Python 函數">
-  <meta name="twitter:description" content="參數、引數 參數 參數預設值 引數 關鍵字引數、位置引數
-在函數的參數裡打 / ，代表在 / 之前的參數，都要用位置引數 在函數的參數裡打 _ ，代表在 _ 之後的參數，都要用關鍵字引數 夾在/ *之間的參數都可以用 python 的參數預設值，在函數定義的時候就決定好了。
-如果在參數的預設值放入可變動物件，[]、{}，可能不會得到想要的答案 如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷 不要急著把可變動物件在參數預設值時就直接定義。">
+  <meta name="twitter:description" content="定義函數 寫函數的目的是為了把一段邏輯或程式碼抽象化，並且可以重複使用。">
 
 	
   <script src="/lioouzzz/sleepblog.git/js/search.js"></script>
@@ -174,24 +157,133 @@ python 的參數預設值，在函數定義的時候就決定好了。
 
       
       
-        <span class="f6 mv4 dib tracked"> - One minute read </span>
-        <span class="f6 mv4 dib tracked"> - 160 words </span>
+        <span class="f6 mv4 dib tracked"> - 3 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 430 words </span>
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><!-- raw HTML omitted -->
-<h3 id="參數引數">參數、引數</h3>
-<p>參數 參數預設值
-引數 關鍵字引數、位置引數</p>
-<!-- raw HTML omitted -->
-<p>在函數的參數裡打 / ，代表在 / 之前的參數，都要用位置引數
-在函數的參數裡打 _ ，代表在 _ 之後的參數，都要用關鍵字引數
-夾在/ *之間的參數都可以用
-python 的參數預設值，在函數定義的時候就決定好了。</p>
-<!-- raw HTML omitted -->
-<p>如果在參數的預設值放入可變動物件，[]、{}，可能不會得到想要的答案
-如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷
-不要急著把可變動物件在參數預設值時就直接定義。</p>
-<!-- raw HTML omitted -->
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="定義函數">定義函數</h3>
+<p>寫函數的目的是為了把一段邏輯或程式碼抽象化，並且可以重複使用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">say_hello</span>():
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;hello!&#34;</span>)
+</span></span></code></pre></div><p>執行函數之後要縮排(Indentation)，如果沒縮排就會出現 <code>IndentationError</code>的錯誤訊息喔!</p>
+<p>或是也可以寫成一行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">say_hello</span>():print(<span style="color:#e6db74">&#34;hello&#34;</span>)
+</span></span></code></pre></div><h4 id="pass">pass</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">say_hello</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>還沒想到要寫什麼可以先用pass卡位，連編譯時都會被忽略，因此放上任何關鍵字都不會有問題。</p>
+<h4 id="參數">參數</h4>
+<p>在python中，函數的參數是放在 <code>( )</code> 裡面，如果裡面有好幾個參數，就用 <code>,</code> 隔開，例如我有一個把
+華氏溫度(Fahrenheit)轉換成攝氏溫度(Celsius)的計算函數:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fahrenheit_to_celsiue</span>(temperature):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (temperature<span style="color:#f92672">-</span><span style="color:#ae81ff">32</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">5</span><span style="color:#f92672">/</span><span style="color:#ae81ff">9</span>
+</span></span></code></pre></div><p>這裡的<code>temperature</code>就是這個函數的參數，也是這個函數的 <strong>區域變數</strong></p>
+<p>執行函數</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#無參數的</span>
+</span></span><span style="display:flex;"><span>say_hello() 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#有參數的</span>
+</span></span><span style="display:flex;"><span>fahrenheit_to_celsius(<span style="color:#ae81ff">95</span>) <span style="color:#75715e">#35.0</span>
+</span></span><span style="display:flex;"><span>fahrenheit_to_celsius(<span style="color:#ae81ff">27</span>) <span style="color:#75715e">#-2.7777777777777777</span>
+</span></span></code></pre></div><p>在上面看到的  <code>95</code> 跟  <code>27</code> ，稱做引數 (Argument)
+在定義函數的時候，放在小括號裡的是參數，在執行函數的時候，帶進小括號裡的是引數。</p>
+<p>原本的函數如果定義了參數，在執行函數時，引數數量要和參數數量一樣，<strong>不能多也不能少</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PYTHON" data-lang="PYTHON"><span style="display:flex;"><span><span style="color:#75715e"># 不需要帶參數但硬給它一個</span>
+</span></span><span style="display:flex;"><span>say_hello(<span style="color:#e6db74">&#34;小花&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">TypeError</span>: say_hello() takes <span style="color:#ae81ff">0</span> positional arguments but <span style="color:#ae81ff">1</span> was given
+</span></span></code></pre></div><h4 id="關鍵字引數">關鍵字引數</h4>
+<p>假設寫了一個身體質量指數(Body Mass Index,BMI)的函數，並定義了 <code>height</code> 和 <code>weight</code> 兩個參數，像這樣:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PYTHON" data-lang="PYTHON"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_bmi</span>(height,weight):
+</span></span><span style="display:flex;"><span>    print(height,weight)
+</span></span></code></pre></div><p>執行函數時可以指定參數的名稱，甚至跟 <strong>定義的參數位置不一樣也沒關係</strong>，「關鍵字引數（Keyword Argument）」，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PYTHON" data-lang="PYTHON"><span style="display:flex;"><span>calc_bmi(<span style="color:#ae81ff">170</span>, <span style="color:#ae81ff">60</span>)
+</span></span><span style="display:flex;"><span>calc_bmi(weight<span style="color:#f92672">=</span><span style="color:#ae81ff">60</span>, height<span style="color:#f92672">=</span><span style="color:#ae81ff">170</span>)
+</span></span><span style="display:flex;"><span>calc_bmi(height<span style="color:#f92672">=</span><span style="color:#ae81ff">170</span>, weight<span style="color:#f92672">=</span><span style="color:#ae81ff">60</span>)
+</span></span></code></pre></div><p>原本需要按照順序、逐個傳入引數的方式叫做「位置引數（Positional Argument）」</p>
+<h4 id="位置引數和關鍵字引數的規則">位置引數和關鍵字引數的規則</h4>
+<p>1.位置引數必須要在關鍵字引數之前</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PYTHON" data-lang="PYTHON"><span style="display:flex;"><span>calc_bmi(<span style="color:#ae81ff">170</span>, weight<span style="color:#f92672">=</span><span style="color:#ae81ff">60</span>) <span style="color:#75715e">#這可以</span>
+</span></span><span style="display:flex;"><span>calc_bmi(weight<span style="color:#f92672">=</span><span style="color:#ae81ff">60</span>, <span style="color:#ae81ff">170</span>) <span style="color:#75715e">#這不行</span>
+</span></span></code></pre></div><p>報錯內容 <code>SyntaxError: positional argument follows keyword argument</code></p>
+<p>2.一個參數不能重複傳兩次</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PYTHON" data-lang="PYTHON"><span style="display:flex;"><span>calc_bmi(<span style="color:#ae81ff">170</span>, height<span style="color:#f92672">=</span><span style="color:#ae81ff">60</span>) <span style="color:#75715e">#這不行</span>
+</span></span></code></pre></div><p>第一個參數是放height，第二個是weight，不能重複!<br>
+報錯內容 <code>TypeError: calc_bmi() got multiple values for argument 'height'</code></p>
+<p>如果在定義參數的時候加上 <code>/ </code> 標記，像這樣：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PYTHON" data-lang="PYTHON"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">print_something</span>(a, b, c, <span style="color:#f92672">/</span>, d, e):
+</span></span><span style="display:flex;"><span>    print(a, b, c, d, e)
+</span></span></code></pre></div><p>這表示，在 <code>/</code> 之前只能用位置引數，<code>/</code>之後都可以任意使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print_something(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>)        <span style="color:#75715e"># 全部都是位置引數，可以</span>
+</span></span><span style="display:flex;"><span>print_something(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, e<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, d<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)    <span style="color:#75715e"># 後面兩個是關鍵字引數，也行</span>
+</span></span><span style="display:flex;"><span>print_something(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, c<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, e<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, d<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)  <span style="color:#75715e"># 這樣不行！</span>
+</span></span></code></pre></div><p>第三種寫法的報錯內容：
+<code>TypeError: print_something() got some positional-only arguments passed as keyword arguments: 'c'</code></p>
+<p>如果在定義參數的時候加上 <code>* </code> 標記，像這樣：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">print_something</span>(a,b,c,<span style="color:#f92672">*</span>,d,e):
+</span></span><span style="display:flex;"><span>    print(a,b,c,d,e)
+</span></span></code></pre></div><p><code>*</code> 之後的參數都只能用<strong>關鍵字引數</strong>，不可以使用位置引數：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print_something(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, e<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, d<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)        <span style="color:#75715e"># 後面兩個是關鍵字引數</span>
+</span></span><span style="display:flex;"><span>print_something(a<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, b<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, c<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, e<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, d<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)  <span style="color:#75715e"># 全部都是關鍵字引數</span>
+</span></span><span style="display:flex;"><span>print_something(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>)            <span style="color:#75715e"># 全部都是位置引數，不行！</span>
+</span></span></code></pre></div><h4 id="參數預設值">參數預設值</h4>
+<p>有些程式語言，像JavaScript對函數定義的參數沒有強制都要傳，多了也不會錯，少了就是得到 <code>undefined</code><br>
+不過python可就不一樣，參數引數的數量要一致，數量不對就會有錯誤訊息，不過參數如果有設定預設值，有些參數
+不給也沒關係。例如:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello</span>(name,message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;哈囉&#34;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>message<span style="color:#e6db74">}</span><span style="color:#e6db74">!我是</span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>雖然有設定參數預設值，但如果我們有帶自己的值，就會用我們的值</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>hello(<span style="color:#e6db74">&#34;香香&#34;</span>) <span style="color:#75715e">#輸出哈囉!我是香香!</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#香香是我們家的小狗狗🤭</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>hello(<span style="color:#e6db74">&#34;歐嗨唷~&#34;</span>,<span style="color:#e6db74">&#34;劉同學&#34;</span>) <span style="color:#75715e">#輸出歐嗨唷~!我是劉同學</span>
+</span></span></code></pre></div><p>以下介紹一個有趣的參數定義random()例子</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> random <span style="color:#f92672">import</span> random 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_random_value</span>(number,value<span style="color:#f92672">=</span>random()):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>number<span style="color:#e6db74">=}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{</span>value<span style="color:#e6db74">=}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(add_random_value(<span style="color:#ae81ff">10</span>))  <span style="color:#75715e"># number=10 value=0.8444218515250481</span>
+</span></span><span style="display:flex;"><span>print(add_random_value(<span style="color:#ae81ff">20</span>))  <span style="color:#75715e"># number=20 value=0.8444218515250481</span>
+</span></span><span style="display:flex;"><span>print(add_random_value(<span style="color:#ae81ff">30</span>))  <span style="color:#75715e"># number=30 value=0.8444218515250481</span>
+</span></span></code></pre></div><p>為什麼三次獨立執行，得到的隨機數值是一樣的?<br>
+因為因為python在定義函數的時候，<strong>預設值是在定義的時候就計算好的，而不是在執行的時候才計算</strong></p>
+<p>如果想要有不同的隨機數值結果，要這樣寫</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> random <span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_random_value</span>(number,value<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> value <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        value<span style="color:#f92672">=</span>random()
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>number<span style="color:#e6db74">=}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{</span>value<span style="color:#e6db74">=}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>或是這種寫法也可以</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_random_value</span>(number,value<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>    value<span style="color:#f92672">=</span>value <span style="color:#f92672">or</span> random()
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>number<span style="color:#e6db74">=}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{</span>value<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>預設值先給個 <code>None</code> ，然後再函數裡面再進行檢查，如果是 <code>None</code>，表示這個函數在呼叫時沒有帶 <code>value</code>參數，
+所以這時候才用 <code>random()</code>函數產生隨機數值。這樣一來隨機函數在每次呼叫 <code>add_random_value()</code> 函數才被執行，
+所以每次執行的時候就會有不同的隨機數值。</p>
+<p>再舉一個類似的例子：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_to_box</span>(a,b,box<span style="color:#f92672">=</span>[])
+</span></span><span style="display:flex;"><span>    box<span style="color:#f92672">.</span>append(a)
+</span></span><span style="display:flex;"><span>    box<span style="color:#f92672">.</span>append(b)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> box
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    add_to_box(<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>) <span style="color:#75715e">#[1,4]</span>
+</span></span><span style="display:flex;"><span>    add_to_box(<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>) <span style="color:#75715e">#[1,4,7,8]</span>
+</span></span></code></pre></div><p>為什麼執行第二次的時候，為什麼這個 <code>box</code>會記得之前的結果？<br>
+因為函數在定義的階段就先幫我們定義了一個空串列<br>
+在執行階段<strong>只會判斷有沒有參數進來</strong>，有就用你的，沒有就用預設的，所以在上例中
+其實都是修改同一個串列，而不是新的串列，所以第二次執行會印出 <code>[1,4,7,8]</code></p>
+<p>解決方式:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_to_box</span>(a,b,box<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>    box<span style="color:#f92672">=</span>box <span style="color:#f92672">or</span> []
+</span></span><span style="display:flex;"><span>    box<span style="color:#f92672">.</span>append(a)
+</span></span><span style="display:flex;"><span>    box<span style="color:#f92672">.</span>append(b)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> box
+</span></span></code></pre></div><p>簡單的說，如果在參數預設值，放入可變動的資料結構，要特別注意，因為參數的預設值是在函數定義階段就決定的。
+如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷。</p>
+<h4 id="不定數量參數">不定數量參數</h4>
+<p>Python的函數定義了幾個參數，執行的時候，引數的數量就要按照參數定義的數量，不然就會有錯誤。
+如果我們不知道使用者會帶幾個參數進來，或想要讓函數使用起來更彈性，內鍵函數 <code>print()</code>就是個例子:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"></code></pre></div><!-- raw HTML omitted -->
 <p>想讓函數的在操作參數更加彈性的話，可以在參數前面加上 * 標記
 這代表他們會吃下所有的 &ldquo;位置引數(Positional Arguments)&rdquo;
 在執行函數時，會蒐集成 Tuple。</p>
@@ -286,21 +378,26 @@ python 的參數預設值，在函數定義的時候就決定好了。</p>
     </div>
 
     <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">What&#39;s in this posts</p>
+    <p class="f5 b mb3">文章目錄</p>
       <nav id="TableOfContents">
   <ul>
     <li>
       <ul>
-        <li><a href="#參數引數">參數、引數</a></li>
+        <li><a href="#定義函數">定義函數</a>
+          <ul>
+            <li><a href="#pass">pass</a></li>
+            <li><a href="#參數">參數</a></li>
+            <li><a href="#關鍵字引數">關鍵字引數</a></li>
+            <li><a href="#位置引數和關鍵字引數的規則">位置引數和關鍵字引數的規則</a></li>
+            <li><a href="#參數預設值">參數預設值</a></li>
+            <li><a href="#不定數量參數">不定數量參數</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
 </nav>
   </div>
-
-
-
-
 </aside>
 
   </article>

@@ -1,6 +1,3 @@
-/* Put your custom styles here and run `npm start` from the "src" directory on */
-
-/* Put your custom styles here and run `npm start` from the "src" directory on */
 
 body {
   font-family: 'Arial', 'Helvetica', sans-serif; /* 設定字體為通用字體 */
@@ -28,9 +25,9 @@ p {
 
   font-family: 'Arial', 'Helvetica', sans-serif; /* 設定字體為通用字體 */
   font-weight: 300; /* 設定字體粗細為 300 */
-  margin-top: 0.1rem; /* 減少標題和段落之間的距離 */
+  margin-top: 0.8rem; /* 減少標題和段落之間的距離 */
 
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 a {
@@ -58,37 +55,36 @@ a {
 
 /* Additional styles to match the target website */
 
+pre {
+  background-color: #e8e7e7e9 !important; /* 設定背景顏色 */
+  color: #333333 !important; /* 設定文字顏色 */
+  padding: 1rem !important; /* 設定內邊距 */
+  border-radius: 8px !important; /* 設定圓角 */
+  font-family: 'Roboto', sans-serif !important; /* 設定字體 */
+  font-size: 0.9em !important; /* 設定字體大小 */
+  overflow-x: auto; /* 防止水平滾動 */
+}
+
+pre code {
+  font-family: 'Roboto', sans-serif; /* 設定字體為 Roboto */
+  padding: 0; /* 移除內邊距 */
+  letter-spacing: 0.5px;  
+
+}
+
 code {
   font-family: 'Roboto', sans-serif; /* 設定字體為 Roboto */
   background-color: #ebe6e6; /* 設定內聯程式碼的背景顏色 */
-  color: #6786ad; /* 設定內聯程式碼的文字顏色 */
+  color: #7391b5; /* 設定內聯程式碼的文字顏色 */
   border: #6786ad;
   padding: 0.2em 0.4em; /* 設定內邊距 */
   border-radius: 4px; /* 設定邊框圓角為 4px */
   font-size: 0.9em; /* 設定字體大小為 0.9em */
 }
 
-pre {
-  font-family: 'Roboto', sans-serif; /* 設定字體為 Roboto */
-  background-color: #242425; /* 設定程式碼區塊的背景顏色 */
-  color: #d79508; /* 設定程式碼區塊的文字顏色 */
-  font-family: 'Roboto Mono', monospace; /* 設定字體為 Roboto Mono */
-  border: #6786ad;
-  padding:1em; /* 設定內邊距 */
-  border-radius: 2px; /* 設定邊框圓角為 4px */
-}
-
-pre code {
-  font-family: 'Roboto', sans-serif; /* 設定字體為 Roboto */
-  background-color: transparent; /* 設定程式碼區塊內的背景顏色為透明 */
-  color: inherit; /* 繼承程式碼區塊的文字顏色 */
-  padding: 0; /* 移除內邊距 */
-}
 
 
-code span {
-  color: #d4a64b; /* 設定內聯程式碼中 span 元素的文字顏色 */
-}
+
 
 
 /* 修改按鈕樣式 */
@@ -116,7 +112,6 @@ code span {
 .dib {
   display: inline-block; /* 設定為行內塊元素 */
 }
-
 .f7 {
   font-size: 0.875rem; /* 設定字體大小 */
   background-color: #7ba6bf;
@@ -130,6 +125,7 @@ code span {
 
 .link {
   text-decoration: none; /* 移除文字裝飾 */
+  
 }
 
 .mt2 {
@@ -151,10 +147,75 @@ code span {
 }
 
 
-.navbar-item {
-  color: #ff0000; /* 設置文字顏色為紅色 */
+
+.w-30-l.mt6-l {
+  position: sticky;
+  top: 100px;
+  max-height: calc(80vh - 120px);
+  overflow-y: auto;
+  z-index: 10;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  backdrop-filter: blur(5px);
+  background: #f0f0f0;
+  
+ }
+ 
+ /* 目錄樣式 */
+ #TableOfContents {
+  padding: 1rem;
+
+ }
+ 
+ #TableOfContents a {
+  display: block;
+  padding: 6px 0;
+  color: #6786ad;
+  transition: all 0.2s;
+  border-left: 2px solid transparent;
+  padding-left: 1rem;
+ }
+ 
+ #TableOfContents a:hover {
+  color: #546482;
+  border-left: 2px solid #b2c2df;
+  background: rgba(123,166,239,0.05);
+  transform: translateX(4px);
+ }
+ 
+ /* 層級縮進 */
+ #TableOfContents ul ul {
+  margin-left: 1rem;
+  border-left: 1px solid #eee;
+ }
+
+
+ /* 自定義特定內部 span 標籤樣式 */
+
+
+/* 修改關鍵字顏色 */
+pre code span[style*="color:#66d9ef"] {
+  color: #61b554 !important; /* 關鍵字的自定義顏色 */
 }
 
-.navbar-item:hover {
-  color: #00ff00; /* 設置懸停時的文字顏色為綠色 */
+/* 修改函數名稱顏色 */
+pre code span[style*="color:#a6e22e"] {
+  color: #9b83ab !important; /* 函數名稱的自定義顏色 */
+}
+
+/* 修改運算符顏色 */
+pre code span[style*="color:#f92672"] {
+  color: #7391b6 !important; /* 運算符的自定義顏色 */
+}
+
+/* 修改字串顏色 */
+pre code span[style*="color:#e6db74"] {
+  color: #61b554 !important; /* 字串的自定義顏色 */
+}
+pre code span[style*="color:#75715e"] {
+  color: #9c9c9d !important;
+}
+
+pre code span[style*="color:#ae81ff"] {
+  color: #b26949c6 !important; /* 數字的自定義顏色 */
 }

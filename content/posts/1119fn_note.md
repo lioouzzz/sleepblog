@@ -9,27 +9,220 @@ tags = ["python","後端"]
 toc = true
 +++
 
-<!-- 參數、引數 -->
 
-### 參數、引數
+### 定義函數
 
-參數 參數預設值
-引數 關鍵字引數、位置引數
-
-<!-- 位置引數、關鍵字引數 -->
-
-在函數的參數裡打 / ，代表在 / 之前的參數，都要用位置引數
-在函數的參數裡打 _ ，代表在 _ 之後的參數，都要用關鍵字引數
-夾在/ \*之間的參數都可以用
-python 的參數預設值，在函數定義的時候就決定好了。
-
-<!-- 參數預設值 -->
-
-如果在參數的預設值放入可變動物件，[]、{}，可能不會得到想要的答案
-如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷
-不要急著把可變動物件在參數預設值時就直接定義。
-
+寫函數的目的是為了把一段邏輯或程式碼抽象化，並且可以重複使用。
 <!--more-->
+
+```python
+def say_hello():
+    print("hello!")
+```
+
+執行函數之後要縮排(Indentation)，如果沒縮排就會出現 `IndentationError`的錯誤訊息喔!
+
+或是也可以寫成一行
+```python
+def say_hello():print("hello")
+```
+
+#### pass
+
+```python
+def say_hello():
+    pass
+```
+還沒想到要寫什麼可以先用pass卡位，連編譯時都會被忽略，因此放上任何關鍵字都不會有問題。
+
+#### 參數
+在python中，函數的參數是放在 `( )` 裡面，如果裡面有好幾個參數，就用 `,` 隔開，例如我有一個把
+華氏溫度(Fahrenheit)轉換成攝氏溫度(Celsius)的計算函數:
+
+```python
+def fahrenheit_to_celsiue(temperature):
+    return (temperature-32)*5/9
+```
+這裡的`temperature`就是這個函數的參數，也是這個函數的 **區域變數**
+
+執行函數
+
+```python
+#無參數的
+say_hello() 
+
+#有參數的
+fahrenheit_to_celsius(95) #35.0
+fahrenheit_to_celsius(27) #-2.7777777777777777
+```
+
+在上面看到的  `95` 跟  `27` ，稱做引數 (Argument)
+在定義函數的時候，放在小括號裡的是參數，在執行函數的時候，帶進小括號裡的是引數。
+
+
+原本的函數如果定義了參數，在執行函數時，引數數量要和參數數量一樣，**不能多也不能少**
+
+```PYTHON
+# 不需要帶參數但硬給它一個
+say_hello("小花")
+TypeError: say_hello() takes 0 positional arguments but 1 was given
+```
+
+
+#### 關鍵字引數
+假設寫了一個身體質量指數(Body Mass Index,BMI)的函數，並定義了 `height` 和 `weight` 兩個參數，像這樣:
+
+```PYTHON
+def calc_bmi(height,weight):
+    print(height,weight)
+```
+
+執行函數時可以指定參數的名稱，甚至跟 **定義的參數位置不一樣也沒關係**，「關鍵字引數（Keyword Argument）」，
+```PYTHON
+calc_bmi(170, 60)
+calc_bmi(weight=60, height=170)
+calc_bmi(height=170, weight=60)
+```
+
+原本需要按照順序、逐個傳入引數的方式叫做「位置引數（Positional Argument）」
+
+
+#### 位置引數和關鍵字引數的規則
+
+1.位置引數必須要在關鍵字引數之前
+```PYTHON
+calc_bmi(170, weight=60) #這可以
+calc_bmi(weight=60, 170) #這不行
+```
+報錯內容 `SyntaxError: positional argument follows keyword argument`
+
+2.一個參數不能重複傳兩次
+```PYTHON
+calc_bmi(170, height=60) #這不行
+```
+第一個參數是放height，第二個是weight，不能重複!  
+報錯內容 `TypeError: calc_bmi() got multiple values for argument 'height'`
+
+
+如果在定義參數的時候加上 `/ ` 標記，像這樣：
+```PYTHON
+def print_something(a, b, c, /, d, e):
+    print(a, b, c, d, e)
+```
+這表示，在 `/` 之前只能用位置引數，`/`之後都可以任意使用
+
+```python
+print_something(1, 2, 3, 4, 5)        # 全部都是位置引數，可以
+print_something(1, 2, 3, e=5, d=4)    # 後面兩個是關鍵字引數，也行
+print_something(1, 2, c=3, e=5, d=4)  # 這樣不行！
+```
+
+第三種寫法的報錯內容：
+`TypeError: print_something() got some positional-only arguments passed as keyword arguments: 'c'`
+
+如果在定義參數的時候加上 `* ` 標記，像這樣：
+```python
+def print_something(a,b,c,*,d,e):
+    print(a,b,c,d,e)
+```
+`*` 之後的參數都只能用**關鍵字引數**，不可以使用位置引數：
+
+```python
+print_something(1, 2, 3, e=5, d=4)        # 後面兩個是關鍵字引數
+print_something(a=1, b=2, c=3, e=5, d=4)  # 全部都是關鍵字引數
+print_something(1, 2, 3, 4, 5)            # 全部都是位置引數，不行！
+```
+
+#### 參數預設值
+有些程式語言，像JavaScript對函數定義的參數沒有強制都要傳，多了也不會錯，少了就是得到 `undefined`  
+不過python可就不一樣，參數引數的數量要一致，數量不對就會有錯誤訊息，不過參數如果有設定預設值，有些參數
+不給也沒關係。例如:
+
+```python
+def hello(name,message="哈囉"):
+    return f"{message}!我是{name}"
+```
+雖然有設定參數預設值，但如果我們有帶自己的值，就會用我們的值
+
+```python
+hello("香香") #輸出哈囉!我是香香!
+
+#香香是我們家的小狗狗🤭
+```
+
+```python
+hello("歐嗨唷~","劉同學") #輸出歐嗨唷~!我是劉同學
+```
+
+以下介紹一個有趣的參數定義random()例子
+
+```python
+from random import random 
+
+def add_random_value(number,value=random()):
+    print(f"{number=} {value=}")
+```
+```python
+print(add_random_value(10))  # number=10 value=0.8444218515250481
+print(add_random_value(20))  # number=20 value=0.8444218515250481
+print(add_random_value(30))  # number=30 value=0.8444218515250481
+```
+為什麼三次獨立執行，得到的隨機數值是一樣的?  
+因為因為python在定義函數的時候，**預設值是在定義的時候就計算好的，而不是在執行的時候才計算**
+
+如果想要有不同的隨機數值結果，要這樣寫
+```python
+from random import random
+
+def add_random_value(number,value=None):
+    if value is None:
+        value=random()
+    print(f"{number=} {value=}")
+```
+或是這種寫法也可以
+```python
+def add_random_value(number,value=None):
+    value=value or random()
+    print(f"{number=} {value}")
+```
+預設值先給個 `None` ，然後再函數裡面再進行檢查，如果是 `None`，表示這個函數在呼叫時沒有帶 `value`參數，
+所以這時候才用 `random()`函數產生隨機數值。這樣一來隨機函數在每次呼叫 `add_random_value()` 函數才被執行，
+所以每次執行的時候就會有不同的隨機數值。
+
+再舉一個類似的例子：
+```python
+def add_to_box(a,b,box=[])
+    box.append(a)
+    box.append(b)
+    return box
+
+    add_to_box(5,6) #[1,4]
+    add_to_box(7,8) #[1,4,7,8]
+```
+為什麼執行第二次的時候，為什麼這個 `box`會記得之前的結果？  
+因為函數在定義的階段就先幫我們定義了一個空串列  
+在執行階段**只會判斷有沒有參數進來**，有就用你的，沒有就用預設的，所以在上例中
+其實都是修改同一個串列，而不是新的串列，所以第二次執行會印出 `[1,4,7,8]`
+
+解決方式:
+```py
+def add_to_box(a,b,box=None):
+    box=box or []
+    box.append(a)
+    box.append(b)
+    return box
+```
+
+簡單的說，如果在參數預設值，放入可變動的資料結構，要特別注意，因為參數的預設值是在函數定義階段就決定的。
+如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷。
+
+#### 不定數量參數
+Python的函數定義了幾個參數，執行的時候，引數的數量就要按照參數定義的數量，不然就會有錯誤。
+如果我們不知道使用者會帶幾個參數進來，或想要讓函數使用起來更彈性，內鍵函數 `print()`就是個例子:
+
+```py
+
+```
 
 <!-- 不定數量參數-->
 
