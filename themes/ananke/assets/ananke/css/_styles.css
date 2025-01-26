@@ -26,8 +26,8 @@ p {
   font-family: 'Arial', 'Helvetica', sans-serif; /* 設定字體為通用字體 */
   font-weight: 300; /* 設定字體粗細為 300 */
   margin-top: 0.8rem; /* 減少標題和段落之間的距離 */
-
-  margin-bottom: 1rem;
+  
+  margin-bottom: 0.5rem;
 }
 
 a {
@@ -205,7 +205,7 @@ pre code span[style*="color:#a6e22e"] {
 
 /* 修改運算符顏色 */
 pre code span[style*="color:#f92672"] {
-  color: #7391b6 !important; /* 運算符的自定義顏色 */
+  color: #49678a !important; /* 運算符的自定義顏色 */
 }
 
 /* 修改字串顏色 */
@@ -217,5 +217,5 @@ pre code span[style*="color:#75715e"] {
 }
 
 pre code span[style*="color:#ae81ff"] {
-  color: #b26949c6 !important; /* 數字的自定義顏色 */
+  color: #c06239cd !important; /* 數字的自定義顏色 */
 }

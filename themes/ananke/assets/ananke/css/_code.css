@@ -12,7 +12,7 @@ pre code span {
 pre {
   font-family: 'Roboto Mono', monospace;
   padding: 1.5em;
-  margin: 1.5em 0;
+  margin: 0.1em 0 1.25em 0;
   border-radius: 6px;
   line-height: 1.8;
  }

@@ -196,8 +196,8 @@ def add_to_box(a,b,box=[])
     box.append(b)
     return box
 
-    add_to_box(5,6) #[1,4]
-    add_to_box(7,8) #[1,4,7,8]
+    add_to_box(5,6) #[5,6]
+    add_to_box(7,8) #[5,6,7,8]
 ```
 為什麼執行第二次的時候，為什麼這個 `box`會記得之前的結果？  
 因為函數在定義的階段就先幫我們定義了一個空串列  
@@ -214,56 +214,125 @@ def add_to_box(a,b,box=None):
 ```
 
 簡單的說，如果在參數預設值，放入可變動的資料結構，要特別注意，因為參數的預設值是在函數定義階段就決定的。
-如果要用參數預設值，參數先賦值為 None，讓它進來函數裡面在做判斷。
+如果要用參數預設值，參數先賦值為 `None`，讓它進來函數裡面在做判斷。
 
 #### 不定數量參數
 Python的函數定義了幾個參數，執行的時候，引數的數量就要按照參數定義的數量，不然就會有錯誤。
 如果我們不知道使用者會帶幾個參數進來，或想要讓函數使用起來更彈性，內鍵函數 `print()`就是個例子:
 
 ```py
+print(1, 2, 3)       # 印出 1 2 3
+print(1, 2, 3, 4, 5) # 印出 1 2 3 4 5
 
+#要多少有多少
+```
+在python 可以用 `*` 來做到這件事，我們先用最簡單的型態看看是怎麼回事:
+```py
+def hi(*a):
+    print(a)
 ```
 
-<!-- 不定數量參數-->
+```
+>>> hi(1, 2, 3, 4, 5)
+(1, 2, 3, 4, 5)
 
-想讓函數的在操作參數更加彈性的話，可以在參數前面加上 \* 標記
-這代表他們會吃下所有的 "位置引數(Positional Arguments)"
-在執行函數時，會蒐集成 Tuple。
+>>> hi(1, 2, 3)
+(1, 2, 3)
 
-為什麼蒐集成 Tuple？
-1.Tuple 有不可變的特性。 2.效能好。
+>>> hi()
+()
+```
+在參數面前加上 `*` ，表示這會吃下所有的「位置引數（Positional Arguments）
+執行 `hi()` 函數之後就會發現，不論帶幾個引數給他，python都會把他們收集成一個Tuple，
+甚至一個參數都不給，還會得到一個空的Tuple。
 
-這裡要注意:不會吃關鍵字引數！會報錯 (TypeError: fn got an unexpected keyword arguent " ")
+為什麼是Tuple，不是List? 因為Tuple不可變，效能也比串列好，參數列也不該一直被修改，包成Tuple也合理。
 
-`*`負責吃位置引數，會蒐集成 Tuple
-`**`負責吃關鍵字引數，會蒐集成{}
+接下來就可以在函數裡利用迴圈來處理這一包引數，例如:
+```py
+def say_hello_to(*names):
+    for name in names:
+        print(f"哈囉{name}!")
+```
 
-如果你之後的參數就是想接關鍵字引數，遇到這種情形怎麼辦?
-登登登! 那就使用兩個`**`
-`**`負責吃關鍵字引數，會自動蒐集成{}
+這樣 `say_hello_to()`函數都能一次搞定:
 
-```python
-def haha(*args,**kwargs*):
+```py
+say_hello_to("小魔女") #哈囉小魔女!
+
+say_hello_to("波音","麗娜","露亞")
+#哈囉波音!
+#哈囉麗娜!
+#哈囉露亞!
+```
+如果 `*`會吃下所有的位置引數，我會這樣寫:
+```py
+def hi(a,*b):
+    print(a,b)
+```
+
+```py
+>>> hi(1, 2, 3)
+1 (2, 3)
+>>> hi(1)
+1 ()
+```
+
+參數 a 是必要的，而參數 b 加上 `*` 表示會接收剩下所有的位置引數，所以如果執行 `hi(1, 2, 3)` 的話，數字 1 會分配給 a，而 2 和 3 會被包成 Tuple 丟給 `b`；如果是 `hi(1)` 的話，數字 1 還是分配給 `a`，但因為沒有剩下的引數，所以 `b` 會是空的 Tuple。
+
+
+```py
+def hi(a, *b, c):
+    print(a, b, c)
+```
+
+```py
+>>> hi(1, 2, 3, 4)
+
+#執行會得到錯誤訊息：
+
+TypeError: hi() missing 1 required keyword-only argument: 'c'
+#b會吃下所有的位置引數，這樣c就要使用關鍵字引數才能正常運行
+```
+
+`*` 會把剩下的位置引數吃光光，這是因為如果引數裡有關鍵字引數會出錯：
+
+```py
+def hi(*a):
+    print(a)
+
+hi(1,2,3,x=4,y=5) #這行會出錯
+```
+
+抓取位置引數是 `*`，抓下關鍵字引數就是 `**`
+
+```py
+def hi(*a,**b):
+    print(a,b)
+```
+
+```py
+>>> hi(1, 2, 3, x=4, y=5)
+(1, 2, 3) {'x': 4, 'y': 5}
+```
+這樣一來，前面 3 個位置引數同樣會被包成 Tuple 丟給參數 `a`，而後面的 `x=4` 以及 `y=5` 會被包成一個字典給參數 `b`
+
+把 `*` 跟 `**` 像這樣組合在一起使用，就能讓函數抓到所有的引數。不過你可能更常看到這樣的寫法：
+```py
+def func(*args,**kwargs):
     print(args,kwargs)
-
-haha(1,2,3,x=1,y=2)
-haha(1,x=1,y=2,z=3)
 ```
+`args` 跟 `kwargs` 其實就是 `arguments` 跟 `keyword arguments` 的意思。
 
-小疑問:`**`為什麼蒐集成{}
+<!-- 小疑問:`**`為什麼蒐集成{} -->
 
-<!-- 引數開箱(Unpacking) -->
+### 引數開箱
+如果學過 Js 的話，可以理解成解構，把一包東西展開，在python翻譯成「解包」
+串列、字典、Tuple、集合都可以用`*`來開箱，函數中的引數也可以使用開箱喔
 
-這裡可能會有小疑問，是要開箱什麼?
-如果學過 Js 的話，可以理解成解構，把一包東西展開。
-
-串列、字典、Tuple、集合都可以用`*`來開箱，函數中的引數也可以使用開箱喔!
-開箱 Aka 解包
 
 好處在哪裡？　用一段程式碼介紹
-
 如果這時有個串列，想帶進函數裡，一般會這樣做
-
 ```python
 def water(a,b,c):
 print(a,b,c)  #定義一個函數
@@ -271,19 +340,18 @@ print(a,b,c)  #定義一個函數
 flowers=["yellow","purple","green"]
 print water(flowers[0],flowers[1],flowers[2])
 ```
-
-寫久了覺得這種方式很麻煩 ，do re mi so🪄
+寫久了會覺得這種方式很麻煩 
 開箱這時派上用場，可以使用`*`直接展開他們!
 
-```python
+```py
 def water(a,b,c):
-print(a,b,c)  #定義一個函數
+    print(a,b,c)
 
 flowers = ["yellow", "purple", "green"]
 print(water(*flowers))
 ```
-
-解開變成位置引數，帶到函數裡面
+如此一來就不用透過索引值一個一個寫，但如果串列裡的元素數量跟參數數量不一樣，
+還是會出現引數過多或過少的錯誤。
 
 使用`*`開箱要注意，Tuple、串列都可以使用
 但不適用於集合，由於集合的無序性，解開的引數順序可能不理想!
@@ -291,40 +359,150 @@ print(water(*flowers))
 延續`**`負責吃關鍵字引數，會蒐集成{}的概念，
 字典使用`**`開箱(展開成關鍵字引數傳給函數)
 
+
+```py
+>>> heroes = {"a": "小可", "b": "小狗", "c": "小櫻"}
+>>> hi(**heroes)
+小可 小狗 小櫻
+```
+
+這樣就等於是把字典裡的 Key 對應到參數名稱，所以如果字典的 Key 跟參數的名字沒對上，也是會出現錯誤。
+
+#### Docstring
+```py
+def say_hello_to(someone):
+    """
+    Say hello to someone.
+
+    Parameters:
+    someone (str): The name of the person you want to say hello to.
+
+    Returns:
+    str: A greeting message.
+    """
+
+    return f"Hello, {someone}!"
+```
+
+>What is a Docstring?  
+A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition. Such a docstring becomes the __doc__ special attribute of that object.
+
+簡單來說，Docstring 就是一個支援換行的多行字串，要用單引號、雙引號都可以，當它出現在函數、類別或模組裡面的第一行的時候，這個字串會變成這個物件的 `__doc__` 特殊屬性。
+
+Docstring 必須是函數或類別的第一個陳述句（Statement），這樣到時候 help() 函數或 `.__doc__ `屬性才會抓的到這段文字
+
+### 回傳值
+
+```py
+
+def add(a, b):
+    print(a + b)
+
+add(3, 4)
+```
+
+執行 `add(3, 4)` 之後會在終端機印出 `7` 。但這並不是這個函數執行之後的「結果」，我們在終端機看到的 `7` 只是這個函數執行的「過程」，在執行的過程中把參數 `a` 跟 `b` 相加之後印出來。如果要有「結果」的話，在 Python 一定要使用 return 關鍵字：
+
+```py
+def add(a, b):
+    return a + b
+```
+
+如果想要加上型別註記，也可以這樣寫：
+
+```py
+def add(a: int, b: int) -> int:
+    return a + b
+```
+型別註記在 Python 並沒有強制性，以目前的版本來說，就算標記了型別但執行的時候不遵守也不會造成錯誤。
+
+有了 `return` 回傳結果，接下來一樣也是執行它，只是稍稍有些不同：
+
+```py
+answer = add(3, 4)
+print(answer)
+```
+
+`add()` 函數本身只有做計算，並且把計算完的結果交回給呼叫它的地方（也就是回傳）。正因為如此，單獨執行這個函數並不會在畫面上得到任何回應，也不會印出任何東西。所以這裡我先把結果存到一個變數裡，再呼叫 `print()` 函數把它印出來。
+
+#### 早一點回傳
+```py
+def add(a, b):
+    return a + b
+    print("Hello World")
+```
+
+`return` 之後加印了一行 `"Hello World"`，這樣寫並不會出錯，但最後一行的 `print()` 函數永遠不會被執行。因為 `return` 關鍵字不是只有把回傳結果，當函數遇到 `return` 關鍵字，就會立刻結束這個函數的執行並回傳結果，所以在 `return`後面的程式碼永遠沒機會被執行。
+
+例如有個 BMI 的計算公式原本會這樣寫：
+```py
+def calc_bmi(height,weight):
+    if height<=0 or weight<=0:
+        return None
+    else height = height /100
+        return round(weight /(height**2),2)
+
+print(calc_bmi(170, -65))  # None
+print(calc_bmi(170, 65))   # 22.49
+```
+因為 `return` 之後函數會直接結束，所以可以改寫成：
+```py
+def calc_bmi(height,weight):
+    if height<=0 or weight<=0
+    return None
+
+    height=height/100
+    return round(weight/(height**2),2)
+
+print(calc_bmi(170, -65))  # None
+print(calc_bmi(170, 65))   # 22.49
+```
+
+`if` 條件成立的話函數就會直接結束，所以這裡我把 `else `拿掉了，這個手法叫做「Early Return」。在函數的一開始先判斷條件，如果符合或不符合就直接 `return` 回傳結果，結束這個函數。
+
+### 作用域
+
+#### LEGB規則
+python作用域分成四種，分別是區域(Local,L)，封閉(Enclosing.E)，全域(Global,G)，內建(Built-in,B)
+
+LEGB 優先順序:
+Local：如果自己函數有定義的話，會優先使用，L(Local)
+Enclosing：如果在函數裡面還有函數的話，在自己這一層沒有定義，會往外層函數找
+Global：如果各層函數都找不到或是函數只有一層的話，會往全域變數找
+Built-in：如果全域變數也沒定義，才會找內建的函數或變數
+
+#### Lexical Scope
 ```python
-flowers = {a:"yellow", b:"purple", c:"green"}
-print(water(**flowers))
+language = "Python"
+
+def hi():
+    print(language)
+
+def hey():
+    language = "Ruby"
+    hi()
+
+hey()
 ```
+Python 採用的是 Lexical Scope 的設計，這個 Lexical 翻成中文是「詞彙的」，Lexical Scope 的意思是指當在找東西如果找不到會往外面找，**這個「外面」指的是函數定義的地方的外面**。也就是說，Python 的 Scope 只跟函數定義在什麼地方有關，跟它在哪裡被執行無關。
 
-<!-- Docstring -->
 
-```
-
-```
-
-<!-- 回傳值 -->
-
-return value
-
-<!-- Python 作用域 -->
-
-作用域 LEGB
-
-區域 Local
-封閉 Enclosing (發生在函數裡面的函數)
-全域 Global
-內建 Built-in (list、str、int、print)
+所以在上面這個範例中，雖然在呼叫 `hi()` 函數的前一行宣告了 `language` 變數，執行到 `hi()` 函數的時候因為自己沒有這個變數所以往外找，但 Python 會找當時定義 `hi()` 函數的地方的外面，所以執行之後會找到全域 Scope 的 `language` 變數而印出 `"Python" `字樣，而不是 `"Ruby"`。
 
 nonlocal 不是區域變數，不會往全域變數找
 
-LEGB 優先順序:
-如果自己函數有定義的話，會優先使用，L(Local)
-如果在函數裡面還有函數的話，在自己這一層沒有定義，會往外曾函數找，這是 G
-如果各層函數都找不到或是函數只有一層的話，會往全域變數找，這是 G
-如果全域變數也沒定義，才會找內建的函數或變數，這是 B
+
 
 <!-- a=a+1 -->
+#### a=a+1
 
+>Q: What are the rules for local and global variables in Python?
+A: In Python, variables that are only referenced inside a function are implicitly global. If a variable is assigned a value anywhere within the function’s body, it’s assumed to be a local unless explicitly declared as global.
+
+
+Python 透過一個很簡單的規則：如果在函數裡做賦值這件事，像是 a = 1，這個行為會被視為宣告一個區域變數 a，並且把值設定成 1，而不是取用或修改函數外層或全域變數。為什麼這樣設計？就是剛剛說的，Python 的變數並沒有明確的「宣告」設計，如果不加這條規則，以後在函數裡要宣告變數的時候，都得擔心外層是不是已經有同名的變數了，所以 Python 才定了這條規則。
+
+因此在 hi() 函數裡面的 a += 1，也就是 a = a + 1，等號左邊的 a = 表示會有一個區域變數 a，而等號右邊的 a + 1 會試著問「嘿，請問在我們這個函數裡有沒有變數 a？」，這時 Python 會跟它說有，但這個變數還沒有被賦值，所以無法使用，因此出現 UnboundLocalError 的錯誤訊息。
 ```python
 a=1
 
@@ -338,6 +516,7 @@ print(a)
 #執行結果會報錯，cannot access local variable "a" where it is not associated with a value
 ```
 
+解決方式：
 ```Python
 a=1
 def hi():
