@@ -26,8 +26,9 @@ p {
   font-family: 'Arial', 'Helvetica', sans-serif; /* 設定字體為通用字體 */
   font-weight: 300; /* 設定字體粗細為 300 */
   margin-top: 0.8rem; /* 減少標題和段落之間的距離 */
-  
   margin-bottom: 0.5rem;
+    line-height: 1.8 !important; /* 增加行高，使用 !important */
+
 }
 
 a {
@@ -68,7 +69,7 @@ pre {
 pre code {
   font-family: 'Roboto', sans-serif; /* 設定字體為 Roboto */
   padding: 0; /* 移除內邊距 */
-  letter-spacing: 0.5px;  
+  letter-spacing: 1.5px;  
 
 }
 
@@ -80,6 +81,8 @@ code {
   padding: 0.2em 0.4em; /* 設定內邊距 */
   border-radius: 4px; /* 設定邊框圓角為 4px */
   font-size: 0.9em; /* 設定字體大小為 0.9em */
+  letter-spacing: 1px;  
+
 }
 
 

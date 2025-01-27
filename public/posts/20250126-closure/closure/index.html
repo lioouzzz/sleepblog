@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Python-閉包(Closure) | 🍀🍀🍀</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="自由變數">
+    <meta name="generator" content="Hugo 0.138.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+      <meta name="author" content = "Elaine Liu">
+    
+
+    
+<link rel="stylesheet" href="/lioouzzz/sleepblog.git/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+<link rel="shortcut icon" href="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" type="image/x-icon" />
+
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250126-closure/closure/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250126-closure/closure/">
+  <meta property="og:site_name" content="🍀🍀🍀">
+  <meta property="og:title" content="Python-閉包(Closure)">
+  <meta property="og:description" content="自由變數">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-26T00:00:00+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="後端">
+
+  <meta itemprop="name" content="Python-閉包(Closure)">
+  <meta itemprop="description" content="自由變數">
+  <meta itemprop="datePublished" content="2025-01-26T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-01-26T00:00:00+00:00">
+  <meta itemprop="wordCount" content="337">
+  <meta itemprop="keywords" content="Python,後端">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Python-閉包(Closure)">
+  <meta name="twitter:description" content="自由變數">
+
+	
+  <script src="/lioouzzz/sleepblog.git/js/search.js"></script>
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  
+  
+  
+  <header class="cover bg-center" style="background-image: url('http://localhost:1313/lioouzzz/sleepblog.git/images/ribbon%20candle.jpg');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    
+    <a href="/lioouzzz/sleepblog.git/" class="f3 fw2 hover-blue no-underline custom-blue dib">
+      
+        <img src="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" class="w100 mw5-ns" alt="🍀🍀🍀" />
+      
+    </a>
+    
+    
+    <div class="flex-l items-center">
+      
+      <div class="relative mr2">
+    <input type="search" 
+      class="pa2 br2 ba b--custom-blue" 
+      placeholder="搜尋..." 
+      id="search-input"
+      onkeyup="search()">
+  </div>
+      
+      
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/" title="首頁 page">
+              首頁
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/posts/" title="全部文章 page">
+              全部文章
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/tags/" title="分類 page">
+              分類
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+ </nav>
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">Python-閉包(Closure)</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+
+
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Python-閉包(Closure)</h1>
+      
+      <p class="tracked">
+        By <strong>Elaine Liu</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-01-26T00:00:00Z">2025年1月26日</time>
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - 2 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 337 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="自由變數">自由變數</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hi</span>():
+</span></span><span style="display:flex;"><span>    message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hello,doggy!&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">byebye</span>():
+</span></span><span style="display:flex;"><span>        print(message)
+</span></span></code></pre></div><p>在內層的<code>byebye()</code>並沒有定義<code>message</code>函數，依照LEGB順序，它會往外找到外層<code>hi()</code>函數的區域變數<code>message</code>，
+像這種情況，<strong>內層函數本身沒有定義，而是使用外層函數的區域變數情況</strong>
+我們就稱為「自由變數」。</p>
+<p>如果把<code>message=&quot;Hello,doggy!&quot;</code>放至全域變數，這種變數就不叫自由變數！</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, doggy!&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hi</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hey</span>():
+</span></span><span style="display:flex;"><span>        print(message)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    hey()
+</span></span></code></pre></div><p>Python有提供一種更快速檢視函數中的自由變數，例如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hi</span>():
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hey</span>():
+</span></span><span style="display:flex;"><span>        print(a)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hi()
+</span></span></code></pre></div><p>每個函數都有個<code>__code__</code>屬性，它會回傳一個 Code Object
+這是每個函數都有的屬性。這個 Code Object 裡記載了這個函數的相關資訊。</p>
+<p>例如它有專門記錄自由變數的 <code>co_freevars</code> 屬性，開頭的 <code>co_</code> 就是 Code Object 的縮寫。</p>
+<p>試著印出 <code>co_freevars</code> 屬性就會得到一個 Tuple <code>('a',)</code>，表示變數 a 對 hey() 函數來說就是個「自由變數」</p>
+<h3 id="閉包">閉包</h3>
+<p>閉包是指內部函數，能夠訪問外部函數，並且記住外部函數的變量，即使外部函數執行完畢，局部變量要被銷毀時，
+內部變量依然能夠訪問這些變量。</p>
+<!-- raw HTML omitted -->
+<p>閉包特點：<br>
+1.外部函數裡面有一個內部函數，閉包就存在於內部函數中。<br>
+2.內部函數必須引用外部函數的變量。<br>
+3.外部函數返回內部函數，使外部依然可用，並保持對外部變量的引用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">outer_function</span>(x):
+</span></span><span style="display:flex;"><span>    y <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inner_function</span>(z):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> x <span style="color:#f92672">+</span> y <span style="color:#f92672">+</span> z
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> inner_function
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 創建閉包</span>
+</span></span><span style="display:flex;"><span>closure_func <span style="color:#f92672">=</span> outer_function(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 調用閉包</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> closure_func(<span style="color:#ae81ff">3</span>)  <span style="color:#75715e"># 計算 5 + 10 + 3 = 18</span>
+</span></span><span style="display:flex;"><span>print(result)  <span style="color:#75715e"># 輸出：18</span>
+</span></span></code></pre></div><p>在這個例子中：
+<code>outer_function</code> 定義了一個內部函數<code>inner_function</code>，並返回它。
+<code>inner_function</code> 需要引用外部函數 <code>outer_function</code> 的變量 <code>x</code> 和 <code>y</code>。
+Python 為 <code>x</code> 和 <code>y</code> 創建了 <code>cell objects</code>，以便 <code>inner_function</code> 可以訪問它們，即使 <code>outer_function</code> 已經執行完畢。</p>
+<h4 id="閉包運作原理">閉包運作原理</h4>
+<blockquote>
+<p>Cell Objects
+“Cell” objects are used to implement variables referenced by multiple scopes.</p>
+</blockquote>
+<p>拿以下這段程式碼做說明：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hi</span>():
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hey</span>():
+</span></span><span style="display:flex;"><span>        print(a)
+</span></span></code></pre></div><p>變數<code>a</code>分別被<code>hi()</code>函數和<code>hey()</code>函數這兩個Scope參照到，也就是說，
+當遇到一個變數被參照到多個Scope，Python會在編譯階段會幫我們建立一個Cell物件。</p>
+<p>這個Cell物件會指向變數<code>a</code>原本要指向的數字1，原本的變數 <code>a</code> 跟 <code>hey()</code> 函數裡的變數 a 都是指向這個 Cell 物件，像這樣：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>a <span style="color:#f92672">------&gt;</span> <span style="color:#f92672">&lt;</span> Cell 物件 <span style="color:#f92672">&gt;</span> <span style="color:#f92672">----&gt;</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span>  hey<span style="color:#f92672">.</span>a <span style="color:#f92672">-------|</span>
+</span></span></code></pre></div><p>不管有沒有發生閉包，只要變數在多個Scope被參考到，Python就會做這件事。這個Cell物件同樣可以透過函數的Code Object的<code>co_cellvars</code>屬性看到:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> hi<span style="color:#f92672">.</span>__code__<span style="color:#f92672">.</span>co_cellvars
+</span></span><span style="display:flex;"><span>(<span style="color:#e6db74">&#39;a&#39;</span>,)
+</span></span></code></pre></div><p>執行之後會印出一個 Tuple (&lsquo;a&rsquo;,)，表示在<code> hi()</code> 函數裡的變數 <code>a</code> 其實是指向 Cell 物件，再由 Cell 物件指向實際的值。</p>
+<p>如果再繼續往下挖，在 Code Object 有一個 <code>co_varnames</code> 屬性是用來存放區域變數的：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> hi<span style="color:#f92672">.</span>__code__<span style="color:#f92672">.</span>co_varnames
+</span></span><span style="display:flex;"><span>(<span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;hey&#39;</span>)
+</span></span></code></pre></div><p>從顯示結果可以看出來，在 <code>hi()</code> 函數裡面只有一個區域變數 <code>b</code> 跟函數 hey，也就是說變數<code>a</code>在 Code Object 的角度來看已經不算是區域變數，而是被歸類在 Cell 變數裡了。這些都是 Python 內部的實作細節，我們實際在寫程式碼的時候可以宏觀的來看就好，甚至就把它們都當區域變數來看待也沒問題。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, doggy!&#34;</span> <span style="color:#75715e"># 指向 Cell 物件</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hi</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hey</span>():
+</span></span><span style="display:flex;"><span>        print(message) <span style="color:#75715e"># 指向 Cell 物件</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> hey
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>greeting <span style="color:#f92672">=</span> hi()
+</span></span><span style="display:flex;"><span>greeting()
+</span></span></code></pre></div><p>因為在 <code>hi()</code> 以及 <code>hey()</code> 這兩個函數的 Scope 裡都有參照到 message 變數，所以在這兩個 Scope 裡都是指向 Python 偷偷幫我們另外建立的 Cell 物件，因此在 <code>hi()</code> 外要執行 <code>greeting()</code> 函數試著想要印出 message 變數的時候，其實就是去找那個 Cell 物件，然後再找到這個物件對應到的值。</p>
+<p>有興趣的話，可以透過函數的 <code>__closure__ </code>屬性可以看到這些 Cell 物件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> greeting<span style="color:#f92672">.</span>__closure__
+</span></span><span style="display:flex;"><span>(<span style="color:#f92672">&lt;</span>cell at <span style="color:#ae81ff">0x104b553c0</span>: str object at <span style="color:#ae81ff">0x104ba4c70</span><span style="color:#f92672">&gt;</span>,)
+</span></span></code></pre></div><p><code>__closure__</code> 屬性是一個 Tuple，裡面放了一個 Cell 物件，再繼續往下挖就可以找到這個 Cell 物件對應到的值：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> greeting<span style="color:#f92672">.</span>__closure__[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>cell_contents
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;Hello, doggy!&#39;</span>
+</span></span></code></pre></div><h4 id="閉包的應用">閉包的應用</h4>
+<p>閉包有什麼用途，可以透過閉包用來建立一個私有的變數，就不會像全域變數那樣不小心被修改，宣告在函數裡的變數在外面是無法直接取用的。</p>
+<p>閉包可以記住函數被定義時環境中的自由變數，利用這個特性可以用來實現一些有趣的功能，例如可以寫個簡單的計數器：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_counter</span>():
+</span></span><span style="display:flex;"><span>    count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inner</span>():
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">nonlocal</span> count
+</span></span><span style="display:flex;"><span>        count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> count
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> inner
+</span></span></code></pre></div><p>在 <code>create_counter()</code> 函數裡設定了一個 <code>count</code> 變數，它會變成 <code>inner()</code>函數的自由變數，這裡也會發生閉包的行為。透過這個函數可以建立獨立的計數器，而且它們有各別的狀態：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>counter1 <span style="color:#f92672">=</span> create_counter()
+</span></span><span style="display:flex;"><span>counter2 <span style="color:#f92672">=</span> create_counter()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(counter1())  <span style="color:#75715e"># 印出 1</span>
+</span></span><span style="display:flex;"><span>print(counter1())  <span style="color:#75715e"># 印出 2</span>
+</span></span><span style="display:flex;"><span>print(counter1())  <span style="color:#75715e"># 印出 3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(counter2())  <span style="color:#75715e"># 印出 1</span>
+</span></span><span style="display:flex;"><span>print(counter2())  <span style="color:#75715e"># 印出 2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(counter1())  <span style="color:#75715e"># 印出 4</span>
+</span></span></code></pre></div><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/python/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Python</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">後端</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">文章目錄</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#自由變數">自由變數</a></li>
+        <li><a href="#閉包">閉包</a>
+          <ul>
+            <li><a href="#閉包運作原理">閉包運作原理</a></li>
+            <li><a href="#閉包的應用">閉包的應用</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-washed-green bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/lioouzzz/sleepblog.git/" >
+    &copy;  🍀🍀🍀 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

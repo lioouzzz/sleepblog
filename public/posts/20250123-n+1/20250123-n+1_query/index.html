@@ -239,7 +239,7 @@ N&#43;1 問題是在 ORM（包括 Django ORM）中常見的效能問題
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 排除不需要的欄位</span>
 </span></span><span style="display:flex;"><span>Book<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>defer(<span style="color:#e6db74">&#39;description&#39;</span>)<span style="color:#f92672">.</span>select_related(<span style="color:#e6db74">&#39;author&#39;</span>)
-</span></span></code></pre></div><p>N+1問題如果不處理，會導致:
+</span></span></code></pre></div><p>N+1問題如果不處理，會導致:<br>
 1.資料庫查詢次數過多<br>
 2.應用程式效能降低<br>
 3.資料庫負載增加<br>

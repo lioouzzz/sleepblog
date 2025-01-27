@@ -155,5 +155,3 @@ const isValidInput = (input) => {
     return /^[a-zA-Z0-9]+$/.test(input);
 };
 ```
-### 結論
-![table](csrf_xss_table.png)

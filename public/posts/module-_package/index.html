@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Python模組與套件 | 🍀🍀🍀</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="什麼是模組(Module)？
+是一個python檔案，裡面會有一些函數、變數、類別。
+透過模組的設計可以讓程式碼更有組織性，也更容易維護。">
+    <meta name="generator" content="Hugo 0.138.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+      <meta name="author" content = "Elaine Liu">
+    
+
+    
+<link rel="stylesheet" href="/lioouzzz/sleepblog.git/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+<link rel="shortcut icon" href="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" type="image/x-icon" />
+
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/module-_package/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/module-_package/">
+  <meta property="og:site_name" content="🍀🍀🍀">
+  <meta property="og:title" content="Python模組與套件">
+  <meta property="og:description" content="什麼是模組(Module)？ 是一個python檔案，裡面會有一些函數、變數、類別。 透過模組的設計可以讓程式碼更有組織性，也更容易維護。">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-27T00:00:00+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="後端">
+
+  <meta itemprop="name" content="Python模組與套件">
+  <meta itemprop="description" content="什麼是模組(Module)？ 是一個python檔案，裡面會有一些函數、變數、類別。 透過模組的設計可以讓程式碼更有組織性，也更容易維護。">
+  <meta itemprop="datePublished" content="2025-01-27T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-01-27T00:00:00+00:00">
+  <meta itemprop="wordCount" content="312">
+  <meta itemprop="keywords" content="Python,後端">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Python模組與套件">
+  <meta name="twitter:description" content="什麼是模組(Module)？ 是一個python檔案，裡面會有一些函數、變數、類別。 透過模組的設計可以讓程式碼更有組織性，也更容易維護。">
+
+	
+  <script src="/lioouzzz/sleepblog.git/js/search.js"></script>
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  
+  
+  
+  <header class="cover bg-center" style="background-image: url('http://localhost:1313/lioouzzz/sleepblog.git/images/2000-s-computer-.png');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    
+    <a href="/lioouzzz/sleepblog.git/" class="f3 fw2 hover-blue no-underline custom-blue dib">
+      
+        <img src="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" class="w100 mw5-ns" alt="🍀🍀🍀" />
+      
+    </a>
+    
+    
+    <div class="flex-l items-center">
+      
+      <div class="relative mr2">
+    <input type="search" 
+      class="pa2 br2 ba b--custom-blue" 
+      placeholder="搜尋..." 
+      id="search-input"
+      onkeyup="search()">
+  </div>
+      
+      
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/" title="首頁 page">
+              首頁
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/posts/" title="全部文章 page">
+              全部文章
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/tags/" title="分類 page">
+              分類
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+ </nav>
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">Python模組與套件</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+
+
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Python模組與套件</h1>
+      
+      <p class="tracked">
+        By <strong>Elaine Liu</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-01-27T00:00:00Z">2025年1月27日</time>
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - 2 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 312 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="什麼是模組module">什麼是模組(Module)？</h3>
+<p>是一個python檔案，裡面會有一些函數、變數、類別。
+透過模組的設計可以讓程式碼更有組織性，也更容易維護。</p>
+<p>套件(Package)又是什麼？
+如果說剛才講到的模組是一個檔案，一個套件裡可以有很多模組，
+套件就是一個目錄、資料夾的概念，目錄裡能放很多檔案和子目錄。
+基本上就像一個檔案系統一樣的結構。</p>
+<h3 id="使用模組">使用模組</h3>
+<p>在Python中，使用模組，主要是透過 <code>import</code>關鍵字，這個關鍵字可以讓我們把模組匯入目前的程式碼。</p>
+<h4 id="把自己寫的py檔案模組匯入">把自己寫的<code>.py檔案</code>模組匯入</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e">#greeting.py檔案</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">helloworld</span>():
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Hello World&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hi</span>():
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Hi!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hey</span>():
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Hey!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">bye</span>():
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Bye!&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e">#doggy.py檔案</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> greeting
+</span></span></code></pre></div><p>這樣就完成一個簡單的基本匯入</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e">#doggy.py檔案</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> greeting
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(greeting)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 印出 &lt;module &#39;greeting&#39; from &#39;/demo/greeting.py&#39;&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(type(greeting))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 印出 &lt;class &#39;module&#39;&gt;</span>
+</span></span></code></pre></div><p>印出看看匯入進來的<code>greeting</code>是什麼，可以看到<code>import</code>關鍵字匯進來的是<code>module</code>物件。</p>
+<p>在 Python 如果我們想要看看某個物件身上有哪些東西，可以透過那個物件身上的 <code>__dict__</code> 屬性，或是直接使用內建函數<code> dir()</code> 來查看。在 Python 很多東西都是物件，模組也是，所以：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e">#doggy.py檔案</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> greeting
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(dir(greeting))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 印出</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># [&#39;__builtins__&#39;, &#39;__cached__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#  &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;bye&#39;, &#39;helloworld&#39;, &#39;hey&#39;, &#39;hi&#39;]</span>
+</span></span></code></pre></div><p>如果模組越來越多，我們可以使用套件(Package)，來幫模組做分類。
+可以手動建立一個<code>utils</code>目錄，把<code>greetin.py</code>移動到這個目錄</p>
+<pre tabindex="0"><code>├── utils
+│   └── greeting.py
+└── doggy.py
+</code></pre><p>這樣在匯入模組的時候，需要把套件名字，也就是目錄名字加進去：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e">#doggy.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> utils.greeting
+</span></span><span style="display:flex;"><span>utils<span style="color:#f92672">.</span>greeting<span style="color:#f92672">.</span>hey()
+</span></span></code></pre></div><p>也可以幫匯入的模組取小名</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e">#doggy.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> utils.greeting <span style="color:#66d9ef">as</span> g
+</span></span><span style="display:flex;"><span>g<span style="color:#f92672">.</span>hey()
+</span></span></code></pre></div><p>在 Python 所謂的匯入模組，其實就是執行那個模組裡的所有的程式碼。</p>
+<h4 id="只匯入部分功能">只匯入部分功能</h4>
+<p>跟<code>import</code>還有另一個搭配的關鍵字叫做<code>from</code>，這個關鍵字可以讓我們只匯入模組裡的某些功能，而不是整個模組，舉個小例子:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">from</span> utils.greeting <span style="color:#f92672">import</span> hey
+</span></span><span style="display:flex;"><span>hey()
+</span></span></code></pre></div><p>這樣的語法表示，utils這個目錄下的greeting模組，我只要匯入<code>hey()</code>函數。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">from</span> utils.greeting <span style="color:#f92672">import</span> hey, hi, helloworld
+</span></span><span style="display:flex;"><span>hey()
+</span></span></code></pre></div><p>像這樣，匯入多個也可以。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">from</span> utils.greeting <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+</span></span></code></pre></div><p>後面的 <code>*</code> 表示要匯入 <code>utils.greeting</code> 模組裡所有的東西</p>
+<h4 id="重複匯入模組">重複匯入模組？</h4>
+<p>因為 Python 會記住已經匯入過的模組。<br>
+也就是同一個模組只會被匯入一次，後續再次匯入相同模組的時候也一樣
+即使用不同的方式匯入同一個模組，Python 還是會視為同一個模組</p>
+<h4 id="匯入模組的位置">匯入模組的位置</h4>
+<p>大部份時候 <code>import</code>語法可能都是寫在檔案的最上面。<br>
+但如果要寫在函數裡面也是可以的：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> utils.greeting <span style="color:#f92672">import</span> hi, hey
+</span></span><span style="display:flex;"><span>    print(locals())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hello()
+</span></span></code></pre></div><p>在函數裡的 <code>import</code> 語法是在被呼叫的時候才會執行，而且在函數裡匯入的東西，只有在函數裡有效，也就是會變成在這個函數裡的區域變數。</p>
+<h4 id="模組的隱私">模組的隱私</h4>
+<p>如果你在變數名稱前面加上底線 <code>_</code>，這樣在使用<code>import *</code>的時候，就會自動跳過。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e">#greeting.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">helloworld</span>():
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Hello World&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_welcome</span>():
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Welcome!&#34;</span>)
+</span></span></code></pre></div><p>使用<code>import *</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">from</span> utils.greeting <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(globals())
+</span></span></code></pre></div><p>用 <code>globals()</code> 就會發現底線開頭的<code> _welcome()</code> 函數沒有被匯入進來。</p>
+<p>硬是要匯入的話，其實也還是可以🤣</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">from</span> utils.greeting <span style="color:#f92672">import</span> _welcome
+</span></span><span style="display:flex;"><span>_welcome() 
+</span></span></code></pre></div><h4 id="被匯入vs直接執行">被匯入vs直接執行</h4>
+<p>例如我在<code>utils</code>裡另外新增一個 <code>math.py </code>檔案，內容如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(a, b):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sub</span>(a, b):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">-</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(add(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span>)   <span style="color:#75715e"># True</span>
+</span></span><span style="display:flex;"><span>print(sub(<span style="color:#ae81ff">3</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">5</span>)  <span style="color:#75715e"># True</span>
+</span></span></code></pre></div><p>最後這兩行<code>print</code>，Python會直接執行這個檔案，會印出<code>True</code>的結果  但是如果今天<code>math.py</code>要被其他程式匯入時，<code>print</code>如果不想被執行印出來，可以使用Python預設的全域變數，有個叫<code>__name__</code>的特殊變數。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e">#utils/math.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(a,b):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a<span style="color:#f92672">+</span>b
+</span></span><span style="display:flex;"><span>print(__name__)
+</span></span></code></pre></div><p>檔案直接執行下去，會印出<code>&quot;__main__&quot;</code>字串，這是Python預設的主程式名稱。</p>
+<p>如果把這個檔案當作模組匯入的話，<code>__name__</code>會被設定為模組的名稱，
+也就是<code>utils.math</code>，如此一來就不會被印出</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(a, b):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sub</span>(a, b):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">-</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    print(add(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span>)   <span style="color:#75715e"># True</span>
+</span></span><span style="display:flex;"><span>    print(sub(<span style="color:#ae81ff">3</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">5</span>)  <span style="color:#75715e"># True</span>
+</span></span></code></pre></div><p>如此一來，在匯入時就不會被執行了。</p>
+<h4 id="套件與模組">套件與模組</h4>
+<p>套件本身也是模組，它可以用來整理、組織其他套件或模組的模組。
+它就是模組的容器，用內建函數<code>dir()</code>巡一下就會發現它長這樣</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> dir(utils)
+</span></span><span style="display:flex;"><span>[<span style="color:#e6db74">&#39;__doc__&#39;</span>, <span style="color:#e6db74">&#39;__file__&#39;</span>, <span style="color:#e6db74">&#39;__loader__&#39;</span>, <span style="color:#e6db74">&#39;__name__&#39;</span>, <span style="color:#e6db74">&#39;__package__&#39;</span>, <span style="color:#e6db74">&#39;__path__&#39;</span>, <span style="color:#e6db74">&#39;__spec__&#39;</span>]
+</span></span></code></pre></div><p>對比一下之前的<code>math.py</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> utils.math
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> dir(utils<span style="color:#f92672">.</span>math)
+</span></span><span style="display:flex;"><span>[<span style="color:#e6db74">&#39;__builtins__&#39;</span>, <span style="color:#e6db74">&#39;__cached__&#39;</span>, <span style="color:#e6db74">&#39;__doc__&#39;</span>, <span style="color:#e6db74">&#39;__file__&#39;</span>, <span style="color:#e6db74">&#39;__loader__&#39;</span>, <span style="color:#e6db74">&#39;__name__&#39;</span>, <span style="color:#e6db74">&#39;__package__&#39;</span>, <span style="color:#e6db74">&#39;__spec__&#39;</span>, <span style="color:#e6db74">&#39;add&#39;</span>, <span style="color:#e6db74">&#39;sub&#39;</span>]
+</span></span></code></pre></div><p>比較大的差異在於套件有<code>__path__</code>屬性，而一般的模組沒有</p>
+<blockquote>
+<p>any module that contains a <strong>path</strong> attribute is considered a package.</p>
+</blockquote>
+<p>也就是說，模組只要有 <code>__path__</code>屬性就可以被當作套件。</p>
+<p>那套件的程式碼應該要寫在哪？
+寫在<code>__init.py</code>
+有些開發工具會在新增套件時新增<code>__init__.py</code>，如果沒有就自己建立就好嚕</p>
+<p>現在的目錄結構：</p>
+<pre tabindex="0"><code>├── utils
+│   ├── __init__.py  &lt;-- 在這裡
+│   ├── greeting.py
+│   └── math.py
+└── app.py
+</code></pre><p>在Python3.2版本之前一定要加入<code>__init__.py</code>這個檔案，這個目錄才會被當作套件，裡面的模組才能被<code>import</code>匯入使用。</p>
+<p>不過在Python3.3之後就取消這個限制，即使沒有檔案，只要有相對應的目錄就會被當作套件看到，一樣可以匯入模組。</p>
+<p><code>__init__.py</code>是個Python的程式檔，當這個套件或是套件裡面的任何一個模組被匯入的時候，這個檔案都會被載入執行。</p><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/python/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Python</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">後端</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">文章目錄</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#什麼是模組module">什麼是模組(Module)？</a></li>
+        <li><a href="#使用模組">使用模組</a>
+          <ul>
+            <li><a href="#把自己寫的py檔案模組匯入">把自己寫的<code>.py檔案</code>模組匯入</a></li>
+            <li><a href="#只匯入部分功能">只匯入部分功能</a></li>
+            <li><a href="#重複匯入模組">重複匯入模組？</a></li>
+            <li><a href="#匯入模組的位置">匯入模組的位置</a></li>
+            <li><a href="#模組的隱私">模組的隱私</a></li>
+            <li><a href="#被匯入vs直接執行">被匯入vs直接執行</a></li>
+            <li><a href="#套件與模組">套件與模組</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-washed-green bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/lioouzzz/sleepblog.git/" >
+    &copy;  🍀🍀🍀 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

@@ -51,8 +51,8 @@
 
   <meta itemprop="name" content="Python">
   <meta itemprop="description" content="程式學習筆記，一些lilicodecode&gt;&lt;">
-  <meta itemprop="datePublished" content="2025-01-24T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-01-24T00:00:00+00:00">
+  <meta itemprop="datePublished" content="2025-01-26T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-01-26T00:00:00+00:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Python">
   <meta name="twitter:description" content="程式學習筆記，一些lilicodecode&gt;&lt;">
@@ -133,6 +133,53 @@
   </article>
   <div class="mw8 center">
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/lioouzzz/sleepblog.git/posts/20250126-closure/closure/" class="link black dim">
+        Python-閉包(Closure)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h3 id="閉包">閉包</h3>
+<p>閉包是指內部函數，能夠訪問外部函數，並且記住外部函數的變量，即使外部函數執行完畢，局部變量要被銷毀時，
+內部變量依然能夠訪問這些變量。</p>
+<p>閉包特點：<br>
+1.外部函數裡面有一個內部函數，閉包就存在於內部函數中。<br>
+2.內部函數必須引用外部函數的變量。<br>
+3.外部函數返回內部函數，使外部依然可用，並保持對外部變量的引用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">outer_function</span>(x):
+</span></span><span style="display:flex;"><span>    y <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inner_function</span>(z):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> x <span style="color:#f92672">+</span> y <span style="color:#f92672">+</span> z
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> inner_function
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 創建閉包</span>
+</span></span><span style="display:flex;"><span>closure_func <span style="color:#f92672">=</span> outer_function(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 調用閉包</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> closure_func(<span style="color:#ae81ff">3</span>)  <span style="color:#75715e"># 計算 5 + 10 + 3 = 18</span>
+</span></span><span style="display:flex;"><span>print(result)  <span style="color:#75715e"># 輸出：18</span>
+</span></span></code></pre></div><p>在這個例子中：
+<code>outer_function</code> 定義了一個內部函數<code>inner_function</code>，並返回它。
+<code>inner_function</code> 需要引用外部函數 <code>outer_function</code> 的變量 <code>x</code> 和 <code>y</code>。
+Python 為 <code>x</code> 和 <code>y</code> 創建了 <code>cell objects</code>，以便 <code>inner_function</code> 可以訪問它們，即使 <code>outer_function</code> 已經執行完畢。</p>
+<h4 id="自由變數">自由變數</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hi</span>():
+</span></span><span style="display:flex;"><span>    message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hello,doggy!&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">byebye</span>():
+</span></span><span style="display:flex;"><span>        print(message)
+</span></span></code></pre></div><p>在內層的<code>byebye()</code>並沒有定義<code>message</code>函數，依照LEGB順序，它會往外找到外層<code>hi()</code>函數的區域變數<code>message</code>，
+像這種情況，，</p>
+    </div>
+    <a href="/lioouzzz/sleepblog.git/posts/20250126-closure/closure/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
       
         <div class="relative w-100  mb4 bg-white">
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">
