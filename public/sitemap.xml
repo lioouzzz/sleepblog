@@ -3,27 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/</loc>
-    <lastmod>2025-01-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/categories/</loc>
-    <lastmod>2025-01-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/</loc>
-    <lastmod>2025-01-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/python/</loc>
-    <lastmod>2025-01-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/categories/python/</loc>
-    <lastmod>2025-01-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250126-closure/closure/</loc>
-    <lastmod>2025-01-26T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/module-_package/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/</loc>
-    <lastmod>2025-01-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250126-closure/closure/</loc>
     <lastmod>2025-01-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/django/</loc>

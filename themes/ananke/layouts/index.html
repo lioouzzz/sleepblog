@@ -1,58 +1,58 @@
 {{ define "main" }}
   <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy {{ $.Param "text_color" | default "mid-gray" }}">
-      {{ .Content }}
-    </article>
-    {{/* Define a section to pull recent posts from. For Hugo 0.20 this will default to the section with the most number of pages. */}}
-    {{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
-    
-    {{/* Check to see if the section is defined for ranging through it */}}
-    {{range ($mainSections)}}
-    {{/* Derive the section name  */}}
+    {{ .Content }}
+  </article>
+  
+  {{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
+  
+  {{range ($mainSections)}}
     {{ $section_name := . }}
-    {{/* Create a variable with that section to use in multiple places. */}}
     {{ $section := where $.Site.RegularPages "Section" "in" $section_name }}
     {{ $section_count := len $section }}
+    
     {{ if ge $section_count 1 }}
       <div class="pa3 pa4-ns w-100 w-70-ns center">
-        {{/* Use $section_name to get the section title. Use "with" to only show it if it exists */}}
         {{ with $.Site.GetPage "section" $section_name }}
-            <h1 class="flex-none">
-              {{ $.Param "recent_copy" | default (i18n "recentTitle" .) }}
-            </h1>
-          {{ end }}
+          <h1 class="flex-none">
+            {{ $.Param "recent_copy" | default (i18n "recentTitle" .) }}
+          </h1>
+        {{ end }}
 
-        {{ $n_posts := $.Param "recent_posts_number" | default 3 }}
-
+        {{ $paginator := $.Paginate $section }}
         <section class="w-100 mw8">
-          {{/* Range through the first $n_posts items of the section */}}
-          {{ range (first $n_posts $section) }}
+          {{ range $paginator.Pages }}
             <div class="relative w-100 mb4">
               {{ .Render "summary-with-image" }}
             </div>
           {{ end }}
         </section>
 
-        {{ if ge $section_count (add $n_posts 1) }}
-        <section class="w-100">
-          <h1 class="f3">{{ i18n "more" }}</h1>
-          {{/* Now, range through the next four after the initial $n_posts items. Nest the requirements, "after" then "first" on the outside */}}
-          {{ range (first 4 (after $n_posts $section))  }}
-            <h2 class="f5 fw4 mb4 dib {{ cond (eq $.Site.Language.LanguageDirection "rtl") "ml3" "mr3" }}">
-              <a href="{{ .RelPermalink }}" class="link black dim">
-                {{ .Title }}
+        {{ if or $paginator.HasPrev $paginator.HasNext }}
+          <div class="pagination flex items-center justify-center pa4">
+            {{ if $paginator.HasPrev }}
+            <a href="{{ $paginator.Prev.URL }}" style="color: #7ba6bf; border-color: #7ba6bf;" class="f5 no-underline inline-flex items-center pa3 ba border-box mr4 transition-colors duration-300 ease-in-out hover:text-white" onmouseover="this.style.backgroundColor='#7ba6bf'; this.style.color='white';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#7ba6bf';">
+              <svg class="w1" data-icon="chevronLeft" viewBox="0 0 32 32" style="fill:currentcolor">
+                  <path d="M20 1 L24 5 L14 16 L24 27 L20 31 L6 16 z"></path>
+                </svg>
+                <span class="pl1">上一頁</span>
               </a>
-            </h2>
-          {{ end }}
+            {{ end }}
 
-          {{/* As above, Use $section_name to get the section title, and URL. Use "with" to only show it if it exists */}}
-          {{ with $.Site.GetPage "section" $section_name }}
-            <a href="{{ .RelPermalink }}" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">{{ i18n "allTitle" . }}</a>
-          {{ end }}
-          </section>
+            <span style="color: #7ba6bf;" class="f5 no-underline inline-flex items-center pa3">
+              {{ $paginator.PageNumber }}/{{ $paginator.TotalPages }}
+            </span>
+
+            {{ if $paginator.HasNext }}
+            <a href="{{ $paginator.Next.URL }}" style="color: #7ba6bf; border-color: #7ba6bf;" class="f5 no-underline inline-flex items-center pa3 ba border-box ml4 transition-colors duration-300 ease-in-out hover:text-white" onmouseover="this.style.backgroundColor='#7ba6bf'; this.style.color='white';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#7ba6bf';">
+              <span class="pr1">下一頁</span>
+                <svg class="w1" data-icon="chevronRight" viewBox="0 0 32 32" style="fill:currentcolor">
+                  <path d="M12 1 L26 16 L12 31 L8 27 L18 16 L8 5 z"></path>
+                </svg>
+              </a>
+            {{ end }}
+          </div>
         {{ end }}
-
-        </div>
+      </div>
     {{ end }}
   {{ end }}
-{{end}}
-    
+{{ end }}

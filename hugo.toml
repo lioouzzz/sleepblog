@@ -1,8 +1,9 @@
 baseURL = 'https://github.com/lioouzzz/sleepblog.git'
 languageCode ="en-us"
 title = '🍀🍀🍀'
+paginate = 10
 theme = 'ananke'
-
+paginatePath = "page" 
 
 [params]
 text_color = ""
@@ -17,7 +18,7 @@ featured_image = "/images/cover_image.png"
 featured_image_class = "cover bg-center"
 # choose a color dimming class for the page or site header from any on this page: https://tachyons.io/docs/themes/skins/, preface it with "bg-" and add the value such as "-X0" where X is in [1,9]
 cover_dimming_class = "bg-washed-green-60"
-recent_posts_number = 20
+recent_posts_number = 10
 date_format = "2006年1月2日"
 background_color_class = "bg-washed-green"
 
@@ -27,7 +28,7 @@ background_color_class = "bg-washed-green"
   tag = "tags"
 
 [pagination]
-pagerSize = 20
+pagerSize = 10
 
 [[menu.main]]
   identifier = "home"
