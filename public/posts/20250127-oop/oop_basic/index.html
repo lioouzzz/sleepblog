@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Python-OOP物件導向設計 | 🍀🍀🍀</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="什麼是物件？
+
+物件(Object)=狀態(State)&#43;行為(Behavior)
+
+狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。
+為了讓大家更容易理解、學習程式，許多程式語言都有引進「擬人化」或「擬物化」的設計，讓我們可以用一般人更容易想像的方式來組織或管理程式碼，這就是所謂的物件導向程式設計。">
+    <meta name="generator" content="Hugo 0.138.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+      <meta name="author" content = "Elaine Liu">
+    
+
+    
+<link rel="stylesheet" href="/lioouzzz/sleepblog.git/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+<link rel="shortcut icon" href="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" type="image/x-icon" />
+
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/">
+  <meta property="og:site_name" content="🍀🍀🍀">
+  <meta property="og:title" content="Python-OOP物件導向設計">
+  <meta property="og:description" content="什麼是物件？ 物件(Object)=狀態(State)&#43;行為(Behavior)
+狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。
+為了讓大家更容易理解、學習程式，許多程式語言都有引進「擬人化」或「擬物化」的設計，讓我們可以用一般人更容易想像的方式來組織或管理程式碼，這就是所謂的物件導向程式設計。">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-27T00:00:00+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="後端">
+
+  <meta itemprop="name" content="Python-OOP物件導向設計">
+  <meta itemprop="description" content="什麼是物件？ 物件(Object)=狀態(State)&#43;行為(Behavior)
+狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。
+為了讓大家更容易理解、學習程式，許多程式語言都有引進「擬人化」或「擬物化」的設計，讓我們可以用一般人更容易想像的方式來組織或管理程式碼，這就是所謂的物件導向程式設計。">
+  <meta itemprop="datePublished" content="2025-01-27T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-01-27T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1311">
+  <meta itemprop="keywords" content="Python,後端">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Python-OOP物件導向設計">
+  <meta name="twitter:description" content="什麼是物件？ 物件(Object)=狀態(State)&#43;行為(Behavior)
+狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。
+為了讓大家更容易理解、學習程式，許多程式語言都有引進「擬人化」或「擬物化」的設計，讓我們可以用一般人更容易想像的方式來組織或管理程式碼，這就是所謂的物件導向程式設計。">
+
+	
+  <script src="/lioouzzz/sleepblog.git/js/search.js"></script>
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  
+  
+  
+  <header class="cover bg-center" style="background-image: url('http://localhost:1313/lioouzzz/sleepblog.git/images/2000-s-computer-.png');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    
+    <a href="/lioouzzz/sleepblog.git/" class="f3 fw2 hover-blue no-underline custom-blue dib">
+      
+        <img src="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" class="w100 mw5-ns" alt="🍀🍀🍀" />
+      
+    </a>
+    
+    
+    <div class="flex-l items-center">
+      
+      <div class="relative mr2">
+    <input type="search" 
+      class="pa2 br2 ba b--custom-blue" 
+      placeholder="搜尋..." 
+      id="search-input"
+      onkeyup="search()">
+  </div>
+      
+      
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/" title="首頁 page">
+              首頁
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/posts/" title="全部文章 page">
+              全部文章
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/tags/" title="分類 page">
+              分類
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+ </nav>
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">Python-OOP物件導向設計</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+
+
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Python-OOP物件導向設計</h1>
+      
+      <p class="tracked">
+        By <strong>Elaine Liu</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-01-27T00:00:00Z">2025年1月27日</time>
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - 7 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1311 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="什麼是物件">什麼是物件？</h3>
+<blockquote>
+<p>物件(Object)=狀態(State)+行為(Behavior)</p>
+</blockquote>
+<p>狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。</p>
+<p>為了讓大家更容易理解、學習程式，許多程式語言都有引進「擬人化」或「擬物化」的設計，讓我們可以用一般人更容易想像的方式來組織或管理程式碼，這就是所謂的物件導向程式設計。</p>
+<h3 id="類別與物件">類別與物件</h3>
+<p>類別就像雞蛋糕的烤盤，也就是類別(class)的概念，一樣形狀的模具，放一樣的原料，就能做出香噴噴的雞蛋糕。</p>
+<p>而透過烤盤做出來的雞蛋糕，以物件導向的專有名詞來說，可以解釋成實體(instance)。</p>
+<p>定義類別，使用的關鍵字是<code>class</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><h4 id="定義物件">定義物件</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>xiangxiang<span style="color:#f92672">=</span>Dog()
+</span></span><span style="display:flex;"><span>elaine<span style="color:#f92672">=</span>Dog()
+</span></span></code></pre></div><p>透過<code>Dog()</code>這個類別，可以生成很多狗狗，雖然這兩個物件都是用<code>Dog()</code>類別生成的，不過他們是不同的物件，有相同的行為，但有不同的狀態。</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; xiang
+&lt;__main__.Dog object at 0x104c6d160&gt;
+&gt;&gt;&gt; xiang
+&lt;__main__.Dog object at 0x104c6f0b0&gt;
+</code></pre><p>後面那個 <code>0x104c6d160</code> 或是 <code>0x104c6f0b0</code> 這種看起來像隨機英文數字組合的東西，它代表這顆物件所在的記憶體位置。</p>
+<p>這兩個數值不一樣，表示這兩顆物件所在的記憶體位置是不一樣的，也就是說，它們是兩個不同且獨立的個體。</p>
+<p>可以用<code>instance</code>來判定物件是不是某個類別生成的。</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; isinstance(xiang, Dog)
+True
+&gt;&gt;&gt; isinstance(elaine, Dog)
+True
+</code></pre><p>也可以用<code>__class__</code>屬性來觀察到這顆物件是由哪個類別產生的：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> xiangxiang<span style="color:#f92672">.</span>__class__
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>class<span style="color:#e6db74">&#39;__main__.Dog&#39;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> xiangxiang<span style="color:#f92672">.</span>__class__<span style="color:#f92672">.</span>__name__
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;Dog&#39;</span>
+</span></span></code></pre></div><p>再補個<code>__name__</code>屬性，就可以看到這個類別的名字。</p>
+<h4 id="初始化和實體屬性">初始化和實體屬性</h4>
+<p>雞蛋糕如果加了各式各樣的餡料會更加美味😋，我們可以把實體加點料，讓它更加鮮明。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>xiangxiang<span style="color:#f92672">=</span>Dog(<span style="color:#e6db74">&#34;香香&#34;</span>,咖啡色,<span style="color:#ae81ff">6</span>)
+</span></span><span style="display:flex;"><span>elaine<span style="color:#f92672">=</span>Dog(<span style="color:#e6db74">&#34;奕伶&#34;</span>,藍色,<span style="color:#ae81ff">24</span>)
+</span></span></code></pre></div><p>不過要注意的是，如果直接在實體加料會出現像這樣的錯誤。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>Traceback (most recent call last):
+</span></span><span style="display:flex;"><span>  File <span style="color:#e6db74">&#34;/demo/dog.py&#34;</span>, line <span style="color:#ae81ff">5</span>, <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>module<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    xiangxiang<span style="color:#f92672">=</span>Dog(<span style="color:#e6db74">&#34;香香&#34;</span>,咖啡色,<span style="color:#ae81ff">6</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">^^^^^^^^^^^^^^^^^^^^^^^</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">TypeError</span>: Cat() takes no arguments
+</span></span></code></pre></div><p>如果實體要加料那一定要告知類別！<br>
+需要在類別定義一個函數，<code>__init()__</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self,color,age):
+</span></span></code></pre></div><p>當我們透過類別建立實體時，<strong>定義在這個類別的<code>__init__( )</code>函數就會自動被呼叫來進行初始化的行為</strong>。</p>
+<p>這裡要注意的是 <code>__init__( )</code>的第一個參數，<code>self</code>，這個參數名稱，指的就是自己這顆實體本身，你也可以改成別的變數名稱不要叫<code>self</code>，<code>self</code>只是大家的慣例。</p>
+<p>為什麼要帶<code>self</code>參數給<code>__init__( )</code>，因為當我們呼叫<code>Dog( )</code>類別來建立實體時，Python會進行以下步驟：</p>
+<p>1.建立一個<code>Dog</code>類別並指定給變數<code>xiangxiang</code>，這顆物件裡沒有什麼屬性<br>
+2.立即執行<code>xiangxiang.__init__( )</code>，並且把其他參數傳給它，然後才透過<code>self</code>把這些參數指定成屬性</p>
+<p>Python中的<code>__init__()</code>不是建構子(Constructor)。因為執行<code>__init__()</code>方法時，這顆物件早就建立好了，<code>__init__()</code>是在做<strong>初始化</strong>的工作。</p>
+<p>所以在呼叫<code>__init()__</code>時，才需要<code>self</code>當作第一個參數，<code>self</code>指的是剛剛產生的物件。</p>
+<p><code>__new()</code>更接近其他程式語言在做的建構子的事。</p>
+<p>建構子的資料：</p>
+<blockquote>
+<p>In class-based, object-oriented programming, a constructor is a special type of function called to create an object.</p>
+</blockquote>
+<p>在 <code>__init__</code>() 函數裡應該要做些什麼事？其實它就只是個函數，所以你想做什麼都行，不過比較常見的就是把帶進來的參數指定成物件的屬性：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, name, color, age):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>color <span style="color:#f92672">=</span> color
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>age <span style="color:#f92672">=</span> age
+</span></span></code></pre></div><p>所以 <code>self.name</code> 或是 <code>self.age</code> 這樣的寫法就是在設定這顆物件的屬性。這樣我們就可以透過這些屬性來區分這兩隻狗勾：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>xiangxiang<span style="color:#f92672">=</span>Dog(<span style="color:#e6db74">&#34;香香&#34;</span>,咖啡色,<span style="color:#ae81ff">6</span>)
+</span></span><span style="display:flex;"><span>elaine<span style="color:#f92672">=</span>Dog(<span style="color:#e6db74">&#34;奕伶&#34;</span>,藍色,<span style="color:#ae81ff">24</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(xiangxiang<span style="color:#f92672">.</span>name) <span style="color:#75715e">#輸出 香香</span>
+</span></span><span style="display:flex;"><span>print(elaine<span style="color:#f92672">.</span>color) <span style="color:#75715e">#輸出 藍色</span>
+</span></span></code></pre></div><p>除了用<code>.</code>的方式外，也可以透過物件身上的<code>__dict__</code>屬性來檢視這顆物件身上的屬性：</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; xiangxinag.__dict__
+{&#39;name&#39;: &#39;香香&#39;, &#39;color&#39;: &#39;咖啡色&#39;, &#39;age&#39;: 6}
+&gt;&gt;&gt; elaine.__dict__
+{&#39;name&#39;: &#39;奕伶&#39;, &#39;color&#39;: &#39;藍色&#39;, &#39;age&#39;: 24}
+</code></pre><p>不同實體之間的屬性、狀態，都是<strong>獨立不受彼此影響的</strong>，如果想要修改這些屬性，可以透過<code>.</code>來修改：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>xiangxiang<span style="color:#f92672">=</span>Dog(<span style="color:#e6db74">&#34;香香&#34;</span>,<span style="color:#e6db74">&#34;咖啡色&#34;</span>,<span style="color:#ae81ff">6</span>)
+</span></span><span style="display:flex;"><span>print(xiangxiang<span style="color:#f92672">.</span>clor) <span style="color:#75715e">#印出咖啡色</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>xiangxiang<span style="color:#f92672">.</span>color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;白色&#34;</span>
+</span></span><span style="display:flex;"><span>print(xiangxiang<span style="color:#f92672">.</span>color) <span style="color:#75715e">#印出白色</span>
+</span></span></code></pre></div><p>因為這些屬性就像是這顆實體裡面的變數，我們也會稱這些屬性為「實體變數（Instance Variable）」。</p>
+<h4 id="實體方法">實體方法</h4>
+<p>除了屬性之外，我們也可以在類別裡面定義函數，在呼叫函數時，會稱叫他們
+「方法（Method）」，在類別裡定義方法和定義函數沒什麼不同，都是使用<code>def</code>關鍵字</p>
+<p>在函數章節學到的(參數預設值、位置引述、關鍵字引數&hellip;&hellip;)，在這裡也可以用</p>
+<p>類別比較特別的是，在定義方法的時候，第一個參數是自己這顆物件，也就是<code>self</code>，這樣才可以透過<code>self</code>變數來存取自己這顆物件身上的其他屬性或方法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self,name,color,age):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>name<span style="color:#f92672">=</span>name
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>color<span style="color:#f92672">=</span>color
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>age<span style="color:#f92672">=</span>age
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">speak</span>(self,sound<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;汪汪&#34;</span>):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;我是</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">,</span><span style="color:#e6db74">{</span>sound<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>在定義<code>speak()</code>函數的時候，不過有沒有用到<code>self</code>參數，在執行這個函數的時候都會自動幫我們把自己這顆物件傳進去當第一個參數，所以在定義函數的時候參數還是不能少。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>xiangxiang<span style="color:#f92672">=</span>Dog(<span style="color:#e6db74">&#34;香香&#34;</span>,<span style="color:#e6db74">&#34;咖啡色&#34;</span>,<span style="color:#ae81ff">6</span>)
+</span></span><span style="display:flex;"><span>xiangxiang<span style="color:#f92672">.</span>speak() <span style="color:#75715e">#我是香香,汪汪</span>
+</span></span><span style="display:flex;"><span>xiangxiang<span style="color:#f92672">.</span>speak(<span style="color:#e6db74">&#34;哈哈哈&#34;</span>) <span style="color:#75715e">#我是香香,哈哈哈</span>
+</span></span></code></pre></div><p>當Python看到我們執行<code>xiangxiang.speak()</code>方法的時候，它會自動把<code>xiangxiang</code>這顆物件傳給<code>speak()</code>函數當作第一個參數，也就是<code>self</code>
+，所以不要忘記在定義實體方法的時候把<code>self</code>參數加上去</p>
+<p>只要是<code>Dog</code>類別所產生的實體，就能夠使用這個類別的方法以及存取裡面的屬性，透過這樣的設計，我們可以把相關的資料和操作都放在同一個類別裡，讓程式碼更有組織性，也更容易維護。</p>
+<h4 id="類別屬性">類別屬性</h4>
+<p>在 Python 要在類別裡定義屬性，就直接寫在類別裡就好，像這樣：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>:
+</span></span><span style="display:flex;"><span>    count<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    actions<span style="color:#f92672">=</span>[]
+</span></span></code></pre></div><p>這些屬性是定義在類別本身，故稱為「類別屬性（Class Attribute）」。
+類別屬性和實體屬性不同，類別屬性是屬於類別本身的，而不屬於類別所產生出來的實體(xiangxiang、elaine)。</p>
+<p>如果我們想要存取類別屬性，直接透過類別就行了：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PY" data-lang="PY"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> Dog<span style="color:#f92672">.</span>count
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> Dog<span style="color:#f92672">.</span>actions
+</span></span><span style="display:flex;"><span>[]
+</span></span></code></pre></div><p>類別屬性也可以透過<code>__dict__</code>這個屬性來看類別的屬性：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> Dog<span style="color:#f92672">.</span>__dict__
+</span></span><span style="display:flex;"><span>mappingproxy({<span style="color:#e6db74">&#39;__module__&#39;</span>: <span style="color:#e6db74">&#39;__main__&#39;</span>, <span style="color:#e6db74">&#39;count&#39;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;actions&#39;</span>: [], <span style="color:#e6db74">&#39;...略...&#39;</span>})
+</span></span></code></pre></div><p>看起來的東西稍微比實體的屬性多了一些，但應該還是可以看到剛才定義的 <code>count</code> 跟 <code>actions</code> 屬性，這些屬性是存放在類別裡的。</p>
+<p>如果想要在實體方法裡面取用類別變數，可以連名帶姓的把類別名稱寫上去：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>:
+</span></span><span style="display:flex;"><span>    count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    actions <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, name, color, age):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>color <span style="color:#f92672">=</span> color
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>age <span style="color:#f92672">=</span> age
+</span></span><span style="display:flex;"><span>        Dog<span style="color:#f92672">.</span>count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>   <span style="color:#75715e"># &lt;-- 在這裡</span>
+</span></span></code></pre></div><p>在上面這個例子中，因為是寫在 <code>__init__()</code>方法裡，效果就變成每次建立新的實體的時候，count 屬性的值就會加一：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> Dog<span style="color:#f92672">.</span>count
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> xiangxiang <span style="color:#f92672">=</span> Dog(<span style="color:#e6db74">&#34;香香&#34;</span>, <span style="color:#e6db74">&#34;咖啡色&#34;</span>, <span style="color:#ae81ff">6</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> Dog<span style="color:#f92672">.</span>count
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> elaine <span style="color:#f92672">=</span> Cat(<span style="color:#e6db74">&#34;奕伶&#34;</span>, <span style="color:#e6db74">&#34;藍色&#34;</span>, <span style="color:#ae81ff">24</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> Dog<span style="color:#f92672">.</span>count
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>回頭看一下<code>xiangxiang</code>實體，如果我們試著印出<code>xiangxiang.count</code>會發生什麼事？，要注意，這裡是透過實體存取屬性，不是類別</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; xiangxiang = Dog(&#34;香香&#34;, &#34;咖啡色&#34;, 6)
+&gt;&gt;&gt; elaine = Cat(&#34;奕伶&#34;, &#34;藍色&#34;, 24)
+&gt;&gt;&gt; xiangxiang.count
+2
+</code></pre><p>雖然這個<code>count</code>是類別屬性，可是竟然可以透過實體取得？
+這是因為Python在找東西的時候，會先從實體自己本身看看有沒有，如果找到就沒事，找不到就會找類別。</p>
+<p>所以當我們印出<code>xiangxiang.count</code>時，Python在<code>xiangxiang</code>這個實體確實找不到，所以接著會到他所屬的類別<code>Dog</code>裡面找，然後就找到了。</p>
+<p>接下來，我想要在 <code>xiangxiang</code> 這顆物件身上新增一個 <code>count</code> 屬性的話，也是可以的：</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; xiangxiang.count = 2000
+&gt;&gt;&gt; xiangxiang.__dict__
+{&#39;name&#39;: &#39;凱蒂&#39;, &#39;color&#39;: &#39;白色&#39;, &#39;age&#39;: 18, &#39;xiangxiang&#39;: 2000}
+</code></pre><p>這時會發現原本的 <code>__dict__ </code>裡多了一個 <code>count</code> 屬性。</p>
+<pre tabindex="0"><code>xiangxiang.count
+2000
+</code></pre><p>印出來的值是2000，而不是原本的1，因為Python會在<code>xiangxiang</code>物件看有沒有<code>count</code>屬性，有找到，所以印出2000</p>
+<p>接著我再新增另一個 <code>elaine</code> 物件來做些實驗：</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; elaine=Dog(&#34;奕伶&#34;,&#34;藍色&#34;,24)
+&gt;&gt;&gt; elaine.__dict__
+{&#34;name&#34;:&#34;奕伶&#34;,&#34;color&#34;:&#34;藍色&#34;,&#34;age&#34;:20}
+&gt;&gt;&gt; elaine.count
+2
+</code></pre><p>這個<code>elaine</code>物件身上<code>count</code>屬性，所以根據規則<code>elaine.count</code>會得到2，如果我們直接印出 <code>Dog.count</code> 這個類別變數的話：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> Dog<span style="color:#f92672">.</span>count
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><h4 id="屬性裝飾器">屬性裝飾器</h4>
+<p>如果想要限制這個屬性的存取，在其他的程式語言有些會用<code>getter</code>跟<code>setter</code>的設計來限制屬性的存取，像這樣：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hero</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self,title,name,age):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>title<span style="color:#f92672">=</span>title
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>name<span style="color:#f92672">=</span>name
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_age<span style="color:#f92672">=</span>age
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_age</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_age
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_age</span>(self,age):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> age<span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> age<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">120</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#34;年齡設定錯誤&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_age<span style="color:#f92672">=</span>age
+</span></span></code></pre></div><p>在這裡，刻意把原本的 <code>self.age</code> 前面加上一個底線 <code>_</code> 變成 <code>self._age</code>，然後另外寫了 <code>.get_age()</code> 以及 <code>.set_age()</code> 這兩個方法來讀取或設定 <code>self._age</code> 的值，同時在 <code>.set_age()</code> 裡面加上簡單的判斷，如果設定的年齡不在適當範圍內就會丟出錯誤訊息：</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; himmel.get_age()
+18
+
+# 正常操作
+&gt;&gt;&gt; himmel.set_age(30)
+&gt;&gt;&gt; himmel.get_age()
+30
+
+# 不正常操作
+&gt;&gt;&gt; himmel.set_age(1000)
+Traceback (most recent call last):
+  File &#34;&lt;stdin&gt;&#34;, line 1, in &lt;module&gt;
+  File &#34;/private/tmp/tt.py&#34;, line 12, in set_age
+    raise ValueError(&#34;年齡設定錯誤&#34;)
+ValueError: 年齡設定錯誤
+</code></pre><p>雖然這樣寫可以控制屬性存取，但這種寫法還要加上小括號呼叫，這寫法有點囉嗦，用起來不像屬性，Python提供了一個名為<code>property</code>的函數裝飾器可以做到類似屬性的效果</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hero</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self,title,name,age):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>title<span style="color:#f92672">=</span>title
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>name<span style="color:#f92672">=</span>name
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_age<span style="color:#f92672">=</span>age
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@property</span>   <span style="color:#75715e"># &lt;-- 掛在這裡會得到 getter</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">age</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_age
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@age.setter</span> <span style="color:#75715e"># &lt;-- 這是 setter</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">age</span>(self,age):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> age<span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> age<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">120</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#34;年齡設定錯誤&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_age <span style="color:#f92672">=</span> age
+</span></span></code></pre></div><p>這裡的<code>property</code>是一個內建類別。age() 函數本身的內容沒變，只是在定義的時候多掛上了 <code>property</code> 跟 <code>age.setter</code> 這兩個裝飾器，這樣在存取<code> age</code>屬性的時候，不需要加上小括號就能使用：</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; himmel.age
+18
+&gt;&gt;&gt; himmel.age = 38
+&gt;&gt;&gt; himmel.age
+38
+&gt;&gt;&gt; himmel.age = 1000
+Traceback (most recent call last):
+  File &#34;&lt;stdin&gt;&#34;, line 1, in &lt;module&gt;
+  File &#34;/private/tmp/tt.py&#34;, line 14, in age
+    raise ValueError(&#34;年齡設定錯誤&#34;)
+ValueError: 年齡設定錯誤
+</code></pre><h4 id="私有屬性">私有屬性？</h4>
+<p>不管是<code>getter</code>或是<code>setter</code>還是掛上<code>property</code>函數裝飾器都一樣，Python並沒有真正的私有變數或屬性的設計，加底線只是一個慣例，讓開發者知道這個屬性不建議存取。如果硬要無視慣例，硬要拿來用也是可以。</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; himmel._age
+18
+&gt;&gt;&gt; himmel._age = 1000
+&gt;&gt;&gt; himmel._age
+1000
+</code></pre><p>如果改成<code>__age</code>，兩個底線。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hero</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, title, name, age):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>title <span style="color:#f92672">=</span> title
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>__age <span style="color:#f92672">=</span> age  <span style="color:#75715e"># 這裡改成兩個底線的 __age</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>himmel <span style="color:#f92672">=</span> Hero(<span style="color:#e6db74">&#34;勇者&#34;</span>, <span style="color:#e6db74">&#34;欣梅爾&#34;</span>, <span style="color:#ae81ff">18</span>)
+</span></span></code></pre></div><p>好像真的拿不到？</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; himmel.__age
+Traceback (most recent call last):
+  File &#34;&lt;stdin&gt;&#34;, line 1, in &lt;module&gt;
+AttributeError: &#39;Hero&#39; object has no attribute &#39;__age&#39;
+</code></pre><p>不過如果翻一下它的<code>__dict__</code>屬性，就會知道<code>__age</code>變成<code>_Hero_age</code>(_類別名稱__屬性名字)，這是Python的名字改編(Name Mangling)的特殊設計，如此一來就可以修改。</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; himmel._Hero__age
+18
+&gt;&gt;&gt; himmel._Hero__age = 1000
+&gt;&gt;&gt; himmel._Hero__age
+1000
+</code></pre><h4 id="限定屬性">限定屬性</h4>
+<p>Python的類別有個特別的屬性叫做<code>__slots__</code>，這個屬性可以限制物件的屬性只有設定在<code>__slots__</code>名單裡的才可以，如果新增物件以外的屬性，Python會拋出<code>AttributeError</code>的例外</p>
+<p>像以下的程式碼，給類別設定，就可以限制類別的物件只能有<code>name</code>和<code>age</code>這兩個屬性。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>:
+</span></span><span style="display:flex;"><span>    __slots__ <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>)
+</span></span></code></pre></div><p>這個<code>__slot__</code>屬性可以迭代物件，可以定義成串列、元組、集合，只要可迭代物件裡的元素是字串就可以了，在這裡是泛，在這裡示範用元組(Tuple)。</p>
+<p><code>__slots__</code>除了限定屬性之外，它還有拔除<code>__dict__</code>屬性的功能：</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; kitty.__dict__
+Traceback (most recent call last):
+  File &#34;&lt;stdin&gt;&#34;, line 1, in &lt;module&gt;
+AttributeError: &#39;Cat&#39; object has no attribute &#39;__dict__&#39;. Did you mean: &#39;__dir__&#39;?
+</code></pre><p>因為<code>__slots__</code>一開始會先定義好物件身上有哪些屬性，所以Python在建立物件時就會預留固定的空間來儲存這些屬性。</p>
+<p>不過<code>__slots__</code>遇上類別繼承的效果可能會不太一樣：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>:
+</span></span><span style="display:flex;"><span>    __slots__ <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, name, age):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>age <span style="color:#f92672">=</span> age
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>(Animal):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><pre tabindex="0"><code>&gt;&gt;&gt; kitty = Dog(&#34;Kitty&#34;, 18)
+&gt;&gt;&gt; kitty
+&lt;__main__.Dog object&gt;
+&gt;&gt;&gt; kitty.name
+&#39;Kitty&#39;
+&gt;&gt;&gt; kitty.hey = &#34;Hey&#34;
+&gt;&gt;&gt; kitty.__dict__
+{&#39;hey&#39;: &#39;Hey&#39;}
+</code></pre><p>為什麼這個<code>kitty</code>仍有<code>__dict__</code>屬性？這是因為<code>Dog</code>類別本身並沒有設定<code>__slots__</code>屬性，所以用它來建立物件的時候，還是會留有<code> __dict__</code> 屬性。</p>
+<p>如果換成<code>Dog</code>類別加上<code>__slots__</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>(Animal):
+</span></span><span style="display:flex;"><span>    __slots__ <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>&gt;&gt;&gt; kitty = Dog()
+&gt;&gt;&gt; kitty.__dict__
+{}
+</code></pre><p>這裡的<code>kitty</code>實體為什麼還是有<code>__dict__</code> ?</p>
+<p>以下是詳細說明：
+因為<code>Animal</code>沒有定義<code>__slot__</code>，所以Python會為<code>Animal</code>(以及子類別的每個實例)都建立一個<code>__dict__</code>來儲存屬性。</p>
+<p><code>Dog</code>定義了<code>__slots__ = ('name', 'age')</code>，只限定<code>name</code>和<code>age</code>這兩個屬性，並且在<code>Dog</code>不會有<code>__dict__</code>來儲存屬性。</p>
+<p><code>Dog</code>繼承於<code>Animal</code>，而<code>Animal</code>並沒有使用<code>__slots_</code>，因此<code>Animal</code>的<code>dict</code>仍然存在，會被<code>Dog</code>實例(kitty)所繼承。</p>
+<p>如何避免繼承 <code>__dict__</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>:
+</span></span><span style="display:flex;"><span>    __slots__ <span style="color:#f92672">=</span> ()  <span style="color:#75715e"># 定義一個空的 __slots__</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>(Animal):
+</span></span><span style="display:flex;"><span>    __slots__ <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>kitty <span style="color:#f92672">=</span> Dog()
+</span></span></code></pre></div><p>還是有方法可以加回來<code>__slots__</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span>:
+</span></span><span style="display:flex;"><span>    __slots__ <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>, <span style="color:#e6db74">&#39;__dict__&#39;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span></code></pre></div><p>小結：使用 <code>__slots__</code> 的確可以讓屬性的存取速度更快一點點，而且也比較節省記憶體，不過遇到繼承的時候就要稍微注意，一不小心可能就會出現跟預期不太一樣的結果。</p>
+<h3 id="類別方法與靜態方法">類別方法與靜態方法</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Duck</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">all</span>():
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;鴨鴨們，集合了&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Duck<span style="color:#f92672">.</span>all()
+</span></span></code></pre></div><p><code>Duck.all()</code>這不是類別方法(Class Method)，只是剛好定義在類別裡的函數而已，跟類別沒有什麼關係</p>
+<p>再回頭看看實體方法，所謂的實體方法，就是綁定在「實體」的方法，在執行時Python會把這個實體傳給這個方法作為第一個參數，同樣的概念，類別方法(class Method)就是綁定在「類別」的方法，在執行時會把類別傳給這個方法當作第一個參數。</p>
+<p>定義類別方法，通常會用內建的函數裝飾器 <code>classmethod</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Duck</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">all</span>():
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;鴨子們，集合了!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@classmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">list</span>(cls):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>cls<span style="color:#f92672">.</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">們，集合囉!&#34;</span>)
+</span></span></code></pre></div><p>在 <code>list()</code> 函數裡的 <code>cls</code> 跟 <code>self</code> 是差不多的概念，這不是什麼特殊的變數，就只是因為傳進來的是一個類別，所以慣例上會把參數命名為 <code>cls</code>，沒辦法，誰叫 <code>class</code> 在 Python 是個關鍵字不能拿來用所以只好妥協用 <code>cls</code>。</p>
+<p>可以先來看看這個<code>list()</code>長什麼樣子：</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; Duck.all
+&lt;function Duck.all&gt;
+&gt;&gt;&gt; type(Duck.all)
+&lt;class &#39;function&#39;&gt;
+
+&gt;&gt;&gt; Duck.list
+&lt;bound method Duck.list of &lt;class &#39;__main__.Duck&#39;&gt;&gt;
+&gt;&gt;&gt; type(Duck.list)
+&lt;class &#39;method&#39;&gt;
+</code></pre><p>在這裡的<code>Duck.list</code>是個方法物件，前面也有個<code>bound</code>字樣，表示這個<code>.list()</code>方法是綁定在<code>Duck</code>類別上，相對的<code>Duck.all</code>就只是一般的函數。</p>
+<p>雖然說是「類別」方法，但實體也可以用：</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; donald = Duck()
+&gt;&gt;&gt; donald.list
+&lt;bound method Duck.list of &lt;class &#39;__main__.Duck&#39;&gt;&gt;
+&gt;&gt;&gt; donald.list()
+Duck們，集合囉！
+</code></pre><p>當 <code>donald</code> 實體要找 <code>.list() </code>方法的時候，它會先找自己身上的有沒有，沒有的話就會去找它的所屬類別，不過這個執行的結果跟實體本身沒關係，因為這個 <code>.list()</code> 類別方法綁定的是類別，所以執行 <code>donald.list()</code> 跟執行 <code>Duck.list()</code> 的結果是一樣的。</p>
+<p>另一個看起來也是很像的做法做叫「靜態方法（Static Method）」，同樣也是透過內建的函數裝飾器 <code>staticmethod</code> 來裝飾方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Duck</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@staticmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_sound</span>(sound<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;呱呱呱&#34;</span>):
+</span></span><span style="display:flex;"><span>        print(sound)
+</span></span></code></pre></div><p>所謂的靜態方法，就是跟類別或實體沒有關係的方法，也不需要接收任何隱藏的參數，也就是不用像實體方法或類別方法一樣在第一個參數把自己傳進來。</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; Duck.make_sound
+&lt;function Duck.make_sound&gt;
+&gt;&gt;&gt; type(Duck.make_sound)
+&lt;class &#39;function&#39;&gt;
+
+&gt;&gt;&gt; Duck.make_sound()
+呱呱呱
+</code></pre><p>它看起來就像一般的函數，不過這個函數是寫在<code>Duck</code>類別，可以透過<code>Duck</code>類別呼叫它，透過<code>staticmethod</code>裝飾器的<code>.make_sound()</code>，不需要接收像<code>self</code>(實例方法)或<code>cls</code>(類方法)這樣的隱式參數。</p>
+<p>主要用途是當一個方法的功能跟類別有關，但又不需要存取或修改類別或實例的屬性時，把這個方法封裝在類別內。</p>
+<p>以下的例子(類別方法、靜態方法、一般方法)，來看看分別有什麼差別：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Duck</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">all</span>():
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;鴨鴨們，集合囉！&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@classmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">walk</span>(cls):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>cls<span style="color:#e6db74">}</span><span style="color:#e6db74">會走路&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@staticmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_sound</span>(sound<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;呱呱呱&#34;</span>):
+</span></span><span style="display:flex;"><span>        print(sound)
+</span></span></code></pre></div><p>進 REPL 做點實驗：</p>
+<pre tabindex="0"><code># 一般方法
+&gt;&gt;&gt; Duck.all
+&lt;function Duck.all&gt;
+
+# 靜態方法
+&gt;&gt;&gt; Duck.make_sound
+&lt;function Duck.make_sound&gt;
+
+# 類別方法
+&gt;&gt;&gt; Duck.walk
+&lt;bound method Duck.walk of &lt;class &#39;__main__.Duck&#39;&gt;&gt;
+</code></pre><p>雖然看起來沒差別，不過從實體的角度看還是有差異：</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; donald = Duck()
+
+# 一般方法
+&gt;&gt;&gt; donald.all
+&lt;bound method Duck.all of &lt;__main__.Duck object&gt;&gt;
+
+# 類別方法
+&gt;&gt;&gt; donald.walk
+&lt;bound method Duck.walk of &lt;class &#39;__main__.Duck&#39;&gt;&gt;
+
+# 靜態方法
+&gt;&gt;&gt; donald.make_sound
+&lt;function Duck.make_sound&gt;
+</code></pre><p>靜態方法依舊只是一般的函數而已，也不會偷渡一些看不到的參數進去。</p>
+<h3 id="繼承">繼承</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Primate</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">grab</span>(self, something<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> something:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;抓</span><span style="color:#e6db74">{</span>something<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;抓東西&#34;</span>
+</span></span></code></pre></div><p>在物件導向程式設計裡有個<code>「繼承（Inheritance）」</code>的設計可以這樣寫：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Primate</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">grab</span>(self, something<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> something:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;抓</span><span style="color:#e6db74">{</span>something<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;抓東西&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Human</span>(Primate):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Monkey</span>(Primate):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>「<code>Human</code>類別繼承自 <code>Primate</code> 類別」以及「<code>Monkey</code> 類別繼承自 <code>Primate</code> 類別」，這樣一來，就算 <code>Human</code> 跟 <code>Monkey</code> 類別什麼都沒寫，繼承的設計可以讓我們可以把共通的功能寫在上層類別裡，就不用一直重複寫一樣的程式碼了</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> goku <span style="color:#f92672">=</span> Monkey()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> someone <span style="color:#f92672">=</span> Human()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> goku<span style="color:#f92672">.</span>grab(<span style="color:#e6db74">&#34;香蕉&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;抓香蕉&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> someone<span style="color:#f92672">.</span>grab(<span style="color:#e6db74">&#34;錢錢&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;抓錢錢&#39;</span>
+</span></span></code></pre></div><h4 id="沒寫就沒繼承嗎">沒寫就沒繼承嗎?</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Mammal</span>(Animal):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span>(Mammal):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>雖然以上的程式碼沒有明確寫出繼承自哪個類別，Python 在這種情況會在幫我們偷偷繼承一個名為 <code>object</code> 的類別。我們可以透過類別身上的<code>.mro()</code>方法或是<code>__mro__</code>屬性看到這個類別的祖宗十八代</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; Cat.mro()
+(&lt;class &#39;__main__.Cat&#39;&gt;, &lt;class &#39;__main__.Mammal&#39;&gt;, &lt;class &#39;__main__.Animal&#39;&gt;, &lt;class &#39;object&#39;&gt;)
+&gt;&gt;&gt; Cat.__mro__
+(&lt;class &#39;__main__.Cat&#39;&gt;, &lt;class &#39;__main__.Mammal&#39;&gt;, &lt;class &#39;__main__.Animal&#39;&gt;, &lt;class &#39;object&#39;&gt;)
+&gt;&gt;&gt; Mammal.__mro__
+(&lt;class &#39;__main__.Mammal&#39;&gt;, &lt;class &#39;__main__.Animal&#39;&gt;, &lt;class &#39;object&#39;&gt;)
+&gt;&gt;&gt; Animal.__mro__
+(&lt;class &#39;__main__.Animal&#39;&gt;, &lt;class &#39;object&#39;&gt;)
+</code></pre><p>什麼是<code>MRO</code>? MRO是Method Resolution Order的縮寫，意思是Python在查找方法時候的尋找順序。<br>
+前面有提過，要在某個物件裡找屬性或是方法的時候，會看這顆物件自己有沒有，沒有匯往它的所屬類別找，
+再沒有會往所屬類別的上層類別找，直到找不到為止。</p>
+<p>從結果來看，最末端都是<code>object</code>類別，如果沒有特別標註上層類別的話，上層類別就是內建的<code>object</code>類別</p>
+<h4 id="覆寫方法">覆寫方法</h4>
+<p>當繼承自上層類別時，如果類別裡面有跟上層類別同名的方法時，會發生什麼事情？</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>:
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">walk</span>(self):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;animal is walking&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">walk</span>(self):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Cat is walking&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>kitty<span style="color:#f92672">=</span>Cat()
+</span></span><span style="display:flex;"><span>kitty<span style="color:#f92672">.</span>walk() <span style="color:#75715e"># 會是哪一個 walk？</span>
+</span></span></code></pre></div><p>以上程式碼稱之Override，「to be more important than something」的意思，翻譯為「覆寫」，雖然叫覆寫，不過同名方法並沒也被消滅，只是優先順序上排到比較後面而已。</p>
+<p>剛剛提到的MRO，Python再搜尋屬性或方法的流程，除了物件本身，會先從物件的所屬類別開始找，如果找到就執行，找不到就往上層類別找。所以我們呼叫<code>kitty.walk()</code>的時候，Python會先找<code>Cat</code>類別有沒有<code>walk()</code>方法。</p>
+<p>也就是說，並沒有覆蓋上層的<code>Animal</code>類別的方法，只是在MRO的優先順序找到對應的方法，原本上層的類別還是存在。</p>
+<h4 id="執行上層類別的方法">執行上層類別的方法</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PY" data-lang="PY"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">walk</span>(self):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Animal is walking&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">eat</span>(self, food):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>food<span style="color:#e6db74">}</span><span style="color:#e6db74"> is yummy!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span>(Animal):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">walk</span>(self):
+</span></span><span style="display:flex;"><span>        Animal<span style="color:#f92672">.</span>eat(self,<span style="color:#e6db74">&#34;罐罐&#34;</span>) <span style="color:#75715e">#加上這一行會輸出，Cat is walking、 罐罐is yummy!</span>
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Cat is walking&#34;</span>)
+</span></span></code></pre></div><p>以上程式碼可以改寫成：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PY" data-lang="PY"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">walk</span>(self):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Animal is walking&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">eat</span>(self, food):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>food<span style="color:#e6db74">}</span><span style="color:#e6db74"> is yummy!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span>(Animal):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">walk</span>(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>eat(<span style="color:#e6db74">&#34;罐罐&#34;</span>)  <span style="color:#75715e">#super會做出一個實體出來，會呼叫eat()</span>
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Cat is walking&#34;</span>)
+</span></span></code></pre></div><p>不過為什麼要改寫成<code>super()</code> ?</p>
+<ol>
+<li>
+<p><strong>降低耦合度</strong>
+直接呼叫父類別的的方法(Animal.eat(self,&ldquo;罐罐&rdquo;))，會把父類別的名稱硬編到子類別中，如果日後要更改繼承結構或是父類別名稱，就要同步修改子類別的程式碼。<br>
+而使用 <code>super()</code> 則不需要顯式指定父類別名稱，使得類別之間的耦合度降低，維護性更好。</p>
+</li>
+<li>
+<p><strong>支援多重繼承</strong>
+在多重繼承下，使用<code>super()</code>可以依據方法解析順序(MRO，Method Resolution Order)正確地找到下一個應該被呼叫的方法，直接指定父類別會容易忽略多重繼承的層級跟順序，可能會導致錯誤的行為或重複呼叫同一方法。</p>
+</li>
+<li>
+<p><strong>語意清楚直覺</strong>
+使用<code>super()</code>，可以更直觀的表達「呼叫父類別的方法」意圖，當閱讀程式碼的時候 <code>super().eat(&quot;罐罐&quot;)</code>
+可以立刻理解這是在呼叫上一層(父層)的<code>eat</code>方法，而不必去追蹤硬編碼的父類別名稱。</p>
+</li>
+<li>
+<p><strong>容易擴展與重構</strong>
+<code>super()</code> 的使用使得這種變化更容易處理，因為你不需要手動調整每個子類別中對父類別方法的調用。這對於維護大型系統非常重要。</p>
+</li>
+</ol>
+<h4 id="你是我的後代嗎-">你是我的後代嗎 ?</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Mammal</span>(Animal):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span>(Mammal):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Bird</span>(Animal):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>Python 有個內建函數<code>issubclass()</code>，是用來判斷是不是某個類別的衍生類別：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> issubclass(Cat, Mammal)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> issubclass(Cat, Animal)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> issubclass(Cat, Bird)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> issubclass(Cat, object)
+</span></span><span style="display:flex;"><span>Trues
+</span></span></code></pre></div><p>這裡的<code>issubclass()</code>函數可用來判斷「是一種（is kind of）」的關係，例如，<code>Cat</code> 是一種 <code>Mammal</code>，同時也是一種 <code>Animal</code>，不過 <code>Bird</code> 同樣都是一種 Animal 但就跟 <code>Cat </code>類別就沒有繼承關係。最後一個例子是 <code>object</code> 類別，前面提到只要沒特別標示上層類別的，例如 <code>Animal</code> 類別就是，Python 會讓它的上層類別自動變成 <code>object</code> 類別，所以 <code>issubclass(Cat, object)</code>會回傳 <code>True</code>，或者也可以廣義的說所有的類別都是 <code>object</code> 的衍生類別。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>kitty <span style="color:#f92672">=</span> Cat()
+</span></span></code></pre></div><p>這時 <code>kitty</code> 物件跟 <code>Cat</code> 類別之間並不是「是一種」的關係，而是「是一個（is a）」的關係。</p>
+<p>要判斷某個物件是不是某個類別的實體，有幾種方式，用<code>__class__</code>屬性或是內建函數<code>type()</code>都可以查到這顆物件是由哪一個類別所建立的。Python 有個內建函數 <code>isinstance()</code>也能做到類似的判斷，但範圍更廣一點。</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; isinstance(kitty, Cat)
+True
+&gt;&gt;&gt; isinstance(kitty, Bird)
+False
+&gt;&gt;&gt; isinstance(kitty, Animal)
+True
+&gt;&gt;&gt; isinstance(kitty, object)
+True
+</code></pre><p>跟<code>type()</code>函數比較明顯的差異在於<code>isinstance()</code>函數在判斷的時候，即便不是直接產生它的類別，例如 <code>Animal</code> 甚至是最上層的 <code>object</code> 類別，判斷的結果都會是 <code>True</code>。</p>
+<p>所以哪個比較好用？
+如果只是要知道物件是不是由某個特定類別所建立的，使用<code>type()</code>函數判斷會比較精準。
+如果只是想知道物件有沒有某種類別的特定行為，用<code>isinstance()</code>會比較簡單。</p>
+<h4 id="多重繼承">多重繼承</h4>
+<p>多重繼承（Multiple Inheritance），一個類別可以同時繼承多個類別，可以先來看看怎麼寫</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>:
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sleep</span>(self):
+</span></span><span style="display:flex;"><span>       print(<span style="color:#e6db74">&#34;Zzzzz&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Bird</span>(Animal):
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fly</span>(self):
+</span></span><span style="display:flex;"><span>       print(<span style="color:#e6db74">&#34;I blieve I can fly ♫♪&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Fish</span>(Animal):
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dive</span>(self):
+</span></span><span style="display:flex;"><span>       print(<span style="color:#e6db74">&#34;Dive!!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span>(Bird, Fish):
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p><code>Cat</code> 類別可以同時繼承 <code>Bird</code> 以及<code> Fish</code> 類別，寫法就是在類別名稱後面加上要繼承的類別名稱，並使用逗號隔開。這樣一來，<code>Cat</code> 類別就同時擁有了 <code>Bird</code>、<code>Fish</code> 以及 <code>Animal</code> 這三個類別的所有方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> kitty <span style="color:#f92672">=</span> Cat()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 還是可以睡覺</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> kitty<span style="color:#f92672">.</span>sleep()
+</span></span><span style="display:flex;"><span>Zzzzz
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 可以下海</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> kitty<span style="color:#f92672">.</span>dive()
+</span></span><span style="display:flex;"><span>Dive<span style="color:#960050;background-color:#1e0010">!!</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 也可以飛天</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> kitty<span style="color:#f92672">.</span>fly()
+</span></span><span style="display:flex;"><span>I blieve I can fly <span style="color:#960050;background-color:#1e0010">♫♪</span>
+</span></span></code></pre></div><p>不過多重繼承會遇到幾個問題</p>
+<h4 id="鑽石問題">鑽石問題</h4>
+<p>舉例來說，<code>Animal</code> 類別本來就有實作了 <code>.sleep()</code> 方法，但 Bird 以及 Fish 也有自己的 <code>.sleep()</code> 方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sleep</span>(self):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Zzzzz&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Bird</span>(Animal):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sleep</span>(self):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;我可以站著睡覺&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Fish</span>(Animal):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sleep</span>(self):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;我睡覺不用閉眼睛&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span>(Bird, Fish):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>只看 .sleep() 就好。這時候的繼承狀態大概像這樣：</p>
+<pre tabindex="0"><code>   A      Animal(A)
+  / \
+ B   F    Bird(B), Fish(F)
+  \ /
+   C      Cat(C)
+</code></pre><p>這個專有名詞叫「鑽石問題（Diamond Problem）」，是指一個類別同時繼承兩個類別，而這兩個類別又同時繼承自同一個類別，這樣的繼承關係就會形成一個鑽石的形狀，但其實更像個菱形，所以有時候又稱之菱形繼承。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>kitty <span style="color:#f92672">=</span> Cat()
+</span></span><span style="display:flex;"><span>kiity<span style="color:#f92672">.</span>sleep()  <span style="color:#75715e"># 會執行哪個 .sleep() 方法？</span>
+</span></span></code></pre></div><p>會執行哪一個類別的 <code>.sleep()</code> 方法？
+答案是 <code>Bird</code> 類別的 <code>.sleep()</code> 方法會被執行。</p>
+<p>來看一下MRO</p>
+<pre tabindex="0"><code>&gt;&gt;&gt; Cat.mro()
+[&lt;class &#39;__main__.Cat&#39;&gt;,
+ &lt;class &#39;__main__.Bird&#39;&gt;,
+ &lt;class &#39;__main__.Fish&#39;&gt;,
+ &lt;class &#39;__main__.Animal&#39;&gt;,
+ &lt;class &#39;object&#39;&gt;]
+</code></pre><p>Python在處理多重繼承的時候，有自己一套演算法計算出MRO的順序，依上面的例子來說MRO的順序是由小括號內的類別順序決定的。</p><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/python/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Python</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">後端</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">文章目錄</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#什麼是物件">什麼是物件？</a></li>
+        <li><a href="#類別與物件">類別與物件</a>
+          <ul>
+            <li><a href="#定義物件">定義物件</a></li>
+            <li><a href="#初始化和實體屬性">初始化和實體屬性</a></li>
+            <li><a href="#實體方法">實體方法</a></li>
+            <li><a href="#類別屬性">類別屬性</a></li>
+            <li><a href="#屬性裝飾器">屬性裝飾器</a></li>
+            <li><a href="#私有屬性">私有屬性？</a></li>
+            <li><a href="#限定屬性">限定屬性</a></li>
+          </ul>
+        </li>
+        <li><a href="#類別方法與靜態方法">類別方法與靜態方法</a></li>
+        <li><a href="#繼承">繼承</a>
+          <ul>
+            <li><a href="#沒寫就沒繼承嗎">沒寫就沒繼承嗎?</a></li>
+            <li><a href="#覆寫方法">覆寫方法</a></li>
+            <li><a href="#執行上層類別的方法">執行上層類別的方法</a></li>
+            <li><a href="#你是我的後代嗎-">你是我的後代嗎 ?</a></li>
+            <li><a href="#多重繼承">多重繼承</a></li>
+            <li><a href="#鑽石問題">鑽石問題</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-washed-green bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/lioouzzz/sleepblog.git/" >
+    &copy;  🍀🍀🍀 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

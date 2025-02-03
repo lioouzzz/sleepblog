@@ -9,6 +9,13 @@
     <lastBuildDate>Mon, 27 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Python-OOP物件導向設計</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/</link>
+      <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Python模組與套件</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/module-_package/</link>
       <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
