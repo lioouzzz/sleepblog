@@ -11,7 +11,6 @@ toc=true
 
 
 ### 自由變數
-<!--more-->
 
 ```py
 def hi():
@@ -19,6 +18,8 @@ def hi():
     def byebye():
         print(message)
 ```
+<!--more-->
+
 在內層的`byebye()`並沒有定義`message`函數，依照LEGB順序，它會往外找到外層`hi()`函數的區域變數`message`，
 像這種情況，**內層函數本身沒有定義，而是使用外層函數的區域變數情況**
 我們就稱為「自由變數」。

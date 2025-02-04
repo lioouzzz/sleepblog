@@ -10,8 +10,7 @@
 
 物件(Object)=狀態(State)&#43;行為(Behavior)
 
-狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。
-為了讓大家更容易理解、學習程式，許多程式語言都有引進「擬人化」或「擬物化」的設計，讓我們可以用一般人更容易想像的方式來組織或管理程式碼，這就是所謂的物件導向程式設計。">
+狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。">
     <meta name="generator" content="Hugo 0.138.0">
     
     
@@ -46,8 +45,7 @@
   <meta property="og:site_name" content="🍀🍀🍀">
   <meta property="og:title" content="Python-OOP物件導向設計">
   <meta property="og:description" content="什麼是物件？ 物件(Object)=狀態(State)&#43;行為(Behavior)
-狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。
-為了讓大家更容易理解、學習程式，許多程式語言都有引進「擬人化」或「擬物化」的設計，讓我們可以用一般人更容易想像的方式來組織或管理程式碼，這就是所謂的物件導向程式設計。">
+狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -58,8 +56,7 @@
 
   <meta itemprop="name" content="Python-OOP物件導向設計">
   <meta itemprop="description" content="什麼是物件？ 物件(Object)=狀態(State)&#43;行為(Behavior)
-狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。
-為了讓大家更容易理解、學習程式，許多程式語言都有引進「擬人化」或「擬物化」的設計，讓我們可以用一般人更容易想像的方式來組織或管理程式碼，這就是所謂的物件導向程式設計。">
+狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。">
   <meta itemprop="datePublished" content="2025-01-27T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-01-27T00:00:00+00:00">
   <meta itemprop="wordCount" content="1311">
@@ -67,8 +64,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Python-OOP物件導向設計">
   <meta name="twitter:description" content="什麼是物件？ 物件(Object)=狀態(State)&#43;行為(Behavior)
-狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。
-為了讓大家更容易理解、學習程式，許多程式語言都有引進「擬人化」或「擬物化」的設計，讓我們可以用一般人更容易想像的方式來組織或管理程式碼，這就是所謂的物件導向程式設計。">
+狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。">
 
 	
   <script src="/lioouzzz/sleepblog.git/js/search.js"></script>
@@ -266,7 +262,7 @@ True
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>age<span style="color:#f92672">=</span>age
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">speak</span>(self,sound<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;汪汪&#34;</span>):
 </span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;我是</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">,</span><span style="color:#e6db74">{</span>sound<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
-</span></span></code></pre></div><p>在定義<code>speak()</code>函數的時候，不過有沒有用到<code>self</code>參數，在執行這個函數的時候都會自動幫我們把自己這顆物件傳進去當第一個參數，所以在定義函數的時候參數還是不能少。</p>
+</span></span></code></pre></div><p>在定義<code>speak()</code>函數的時候，不管有沒有用到<code>self</code>參數，在執行這個函數的時候都會自動幫我們把自己這顆物件傳進去當第一個參數，所以在定義函數的時候參數還是不能少。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>xiangxiang<span style="color:#f92672">=</span>Dog(<span style="color:#e6db74">&#34;香香&#34;</span>,<span style="color:#e6db74">&#34;咖啡色&#34;</span>,<span style="color:#ae81ff">6</span>)
 </span></span><span style="display:flex;"><span>xiangxiang<span style="color:#f92672">.</span>speak() <span style="color:#75715e">#我是香香,汪汪</span>
 </span></span><span style="display:flex;"><span>xiangxiang<span style="color:#f92672">.</span>speak(<span style="color:#e6db74">&#34;哈哈哈&#34;</span>) <span style="color:#75715e">#我是香香,哈哈哈</span>

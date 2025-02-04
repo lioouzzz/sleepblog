@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>資料庫正規化 | 🍀🍀🍀</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="資料庫正規化 (Database Normalization)
+資料庫正規化是一套設計原則和技術，目標在於通過合理拆分資料表和定義適當的關係，來消除冗餘的資料(重複的資料)，避免資料在插入、更新、刪除異常，從而提高資料一致性和維護性。">
+    <meta name="generator" content="Hugo 0.138.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+      <meta name="author" content = "Elaine Liu">
+    
+
+    
+<link rel="stylesheet" href="/lioouzzz/sleepblog.git/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+<link rel="shortcut icon" href="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" type="image/x-icon" />
+
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250203-database_normalization/20250203-database_normalization/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250203-database_normalization/20250203-database_normalization/">
+  <meta property="og:site_name" content="🍀🍀🍀">
+  <meta property="og:title" content="資料庫正規化">
+  <meta property="og:description" content="資料庫正規化 (Database Normalization) 資料庫正規化是一套設計原則和技術，目標在於通過合理拆分資料表和定義適當的關係，來消除冗餘的資料(重複的資料)，避免資料在插入、更新、刪除異常，從而提高資料一致性和維護性。">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-03T00:00:00+00:00">
+    <meta property="article:tag" content="Database">
+    <meta property="article:tag" content="後端">
+
+  <meta itemprop="name" content="資料庫正規化">
+  <meta itemprop="description" content="資料庫正規化 (Database Normalization) 資料庫正規化是一套設計原則和技術，目標在於通過合理拆分資料表和定義適當的關係，來消除冗餘的資料(重複的資料)，避免資料在插入、更新、刪除異常，從而提高資料一致性和維護性。">
+  <meta itemprop="datePublished" content="2025-02-03T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-02-03T00:00:00+00:00">
+  <meta itemprop="wordCount" content="398">
+  <meta itemprop="keywords" content="Database,後端">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="資料庫正規化">
+  <meta name="twitter:description" content="資料庫正規化 (Database Normalization) 資料庫正規化是一套設計原則和技術，目標在於通過合理拆分資料表和定義適當的關係，來消除冗餘的資料(重複的資料)，避免資料在插入、更新、刪除異常，從而提高資料一致性和維護性。">
+
+	
+  <script src="/lioouzzz/sleepblog.git/js/search.js"></script>
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  
+  
+  
+  <header class="cover bg-center" style="background-image: url('http://localhost:1313/lioouzzz/sleepblog.git/images/hellokitty.png');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    
+    <a href="/lioouzzz/sleepblog.git/" class="f3 fw2 hover-blue no-underline custom-blue dib">
+      
+        <img src="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" class="w100 mw5-ns" alt="🍀🍀🍀" />
+      
+    </a>
+    
+    
+    <div class="flex-l items-center">
+      
+      <div class="relative mr2">
+    <input type="search" 
+      class="pa2 br2 ba b--custom-blue" 
+      placeholder="搜尋..." 
+      id="search-input"
+      onkeyup="search()">
+  </div>
+      
+      
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/" title="首頁 page">
+              首頁
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/posts/" title="全部文章 page">
+              全部文章
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-blue no-underline custom-blue" href="/lioouzzz/sleepblog.git/tags/" title="分類 page">
+              分類
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+ </nav>
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">資料庫正規化</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+
+
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">資料庫正規化</h1>
+      
+      <p class="tracked">
+        By <strong>Elaine Liu</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-02-03T00:00:00Z">2025年2月3日</time>
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - 2 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 398 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="資料庫正規化-database-normalization">資料庫正規化 (Database Normalization)</h3>
+<p>資料庫正規化是一套設計原則和技術，目標在於通過合理拆分資料表和定義適當的關係，來消除冗餘的資料(重複的資料)，避免資料在插入、更新、刪除異常，從而提高資料一致性和維護性。</p>
+<h3 id="為什麼需要正規化">為什麼需要正規化？</h3>
+<p>如果沒有正規化的資料表，資料會有以下問題：<br>
+📎<strong>冗餘</strong>：相同資訊出現多次，造成資料庫儲存資源浪費。<br>
+📎<strong>更新異常</strong>：修改某一筆資料時，如果資料在多處重複出現，會導致部分資料未同步更新，造成不一致。<br>
+📎<strong>插入異常</strong>：某些欄位必須填入資料才能插入記錄，但該資料對某些實際情況可能並不適用。<br>
+📎<strong>刪除異常</strong>：刪除一筆記錄時，可能會同時刪除其他相關但又不該刪除的資訊。</p>
+<p>正規化的目的就在於避免這些問題，使得資料庫結構更合理，維護起來也更容易。</p>
+<h3 id="正規化的各階段">正規化的各階段</h3>
+<p>正規化通常分為多個層次，最常見的有第一正規化（1NF）、第二正規化（2NF）、第三正規化（3NF），以及更嚴格的BCNF（Boyce-Codd Normal Form）。下面依次介紹：</p>
+<p><strong>第一正規化(1NF)</strong>
+要求資料表中的每一個欄位都必須是不可再分的「原子值」（atomic value），也就是說，每個欄位只能存放單一資訊，而不能存放多重值或陣列。</p>
+<p>舉個例子：</p>
+<table>
+  <thead>
+      <tr>
+          <th>Student ID</th>
+          <th>Student Name</th>
+          <th>Courses</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S001</td>
+          <td>John Doe</td>
+          <td>Math, Physics, Chemistry</td>
+      </tr>
+  </tbody>
+</table>
+<p>問題：
+<code>Courses</code> 欄位存放了多個課程名稱（以逗號分隔），違反了<strong>原子性</strong>原則，因為一個欄位不應該包含多個值。</p>
+<p>改進寫法：
+將重複的資訊拆成多條紀錄，或拆成獨立的資料表，使每個欄位只存放單一的值。調整後可變成：</p>
+<table>
+  <thead>
+      <tr>
+          <th>Student ID</th>
+          <th>Student Name</th>
+          <th>Courses</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S001</td>
+          <td>John Doe</td>
+          <td>Math　　　　</td>
+      </tr>
+      <tr>
+          <td>S001</td>
+          <td>John Doe</td>
+          <td>Physics　　</td>
+      </tr>
+      <tr>
+          <td>S001</td>
+          <td>John Doe</td>
+          <td>Chemistry</td>
+      </tr>
+  </tbody>
+</table>
+<p>現在，每一行中 Course 欄位都是原子值，資料表滿足 1NF。</p>
+<p><strong>第二正規化(2NF)</strong>
+在滿足 1NF 的基礎上，要求資料表中的非主鍵欄位必須完全依賴於整個主鍵，也就是說，不允許部分依賴（partial dependency），避免出現只有主鍵的一部分決定其他欄位的情況。</p>
+<p>假設有一個學生選課資料表，主鍵由 <code>StudentID</code> 與 <code>Course</code> 共同組成：</p>
+<table>
+  <thead>
+      <tr>
+          <th>Student ID</th>
+          <th>Student Name</th>
+          <th>Courses</th>
+          <th>Instructor</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S001</td>
+          <td>John Doe</td>
+          <td>Math　　　　</td>
+          <td>Prof. A</td>
+      </tr>
+      <tr>
+          <td>S001</td>
+          <td>John Doe</td>
+          <td>Physics　　</td>
+          <td>Prof. B</td>
+      </tr>
+      <tr>
+          <td>S001</td>
+          <td>John Doe</td>
+          <td>Chemistry</td>
+          <td>Prof. C</td>
+      </tr>
+  </tbody>
+</table>
+<p>問題：
+這個表中 <code>StudentName</code> 只依賴於 <code>StudentID</code>，而不是整個複合主鍵（<code>StudentID</code> + <code>Course</code>）。這種部分依賴會導致資料冗餘與更新異常（若學生姓名改變，需更新多條記錄）。</p>
+<p>改進方法：<br>
+把資料拆成兩個表：<br>
+1.學生資料表</p>
+<table>
+  <thead>
+      <tr>
+          <th>Student ID</th>
+          <th>Student Name</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S001</td>
+          <td>John Doe</td>
+      </tr>
+  </tbody>
+</table>
+<p>2.學生選課關係表：</p>
+<table>
+  <thead>
+      <tr>
+          <th>Student ID</th>
+          <th>Student Name</th>
+          <th>Instructor</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S001</td>
+          <td>John Doe</td>
+          <td>Prof. A</td>
+      </tr>
+      <tr>
+          <td>S001</td>
+          <td>Physics</td>
+          <td>Prof.  B</td>
+      </tr>
+      <tr>
+          <td>S001</td>
+          <td>Chemistry</td>
+          <td>Prof. C</td>
+      </tr>
+  </tbody>
+</table>
+<p>這樣一來，學生姓名只儲存在 <code>學生基本資料表</code> 中，每個非主鍵欄位都完整依賴於相應表的主鍵，滿足 2NF。</p>
+<p><strong>第三正規化(3NF)</strong>
+在滿足 2NF 的基礎上，要求資料表中的非主鍵欄位不能相互依賴，也就是不能存在傳遞依賴（transitive dependency）。簡單來說，每個非主鍵欄位應該直接依賴於主鍵，而非依賴於其他非主鍵欄位。</p>
+<p>舉例：
+假設有一個員工資料表，設計如下：</p>
+<table>
+  <thead>
+      <tr>
+          <th>Employee ID</th>
+          <th>Employee Name</th>
+          <th>Department ID</th>
+          <th>Department Name</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>E001</td>
+          <td>Alice</td>
+          <td>D01</td>
+          <td>Sales</td>
+      </tr>
+      <tr>
+          <td>E002</td>
+          <td>Bob</td>
+          <td>D02</td>
+          <td>Marketing</td>
+      </tr>
+  </tbody>
+</table>
+<p>問題：
+在這個表中，<code>DepartmentName</code> 是依賴於 <code>DepartmentID</code> 而存在的，而 <code>DepartmentID</code> 又依賴於 <code>EmployeeID</code>。也就是說，<code>EmployeeID</code> → <code>DepartmentID</code> → <code>DepartmentName</code>，這形成了傳遞依賴。這種依賴關係意味著如果部門資訊發生變化，可能需要在多個記錄中進行修改。</p>
+<p>改進方法：
+拆分成兩個資料表</p>
+<p>1.員工基本資料表：</p>
+<table>
+  <thead>
+      <tr>
+          <th>Employee ID</th>
+          <th>Employee Name</th>
+          <th>Department ID</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>E001</td>
+          <td>Alice</td>
+          <td>D01</td>
+      </tr>
+      <tr>
+          <td>E002</td>
+          <td>Bob</td>
+          <td>D02</td>
+      </tr>
+  </tbody>
+</table>
+<p>2.部門資料表</p>
+<table>
+  <thead>
+      <tr>
+          <th>Department ID</th>
+          <th>Department Name</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>D01</td>
+          <td>Sales</td>
+      </tr>
+      <tr>
+          <td>D02</td>
+          <td>Marketing</td>
+      </tr>
+  </tbody>
+</table>
+<p>這樣，每個表中的非主鍵欄位都直接依賴於該表的主鍵，消除了傳遞依賴，達到 3NF 的要求</p>
+<p>4.BCNF（Boyce-Codd Normal Form）
+BCNF 是對 3NF 的加強，要求資料表中每個決定因素（determinant）必須是候選鍵。也就是說，若某個欄位能決定其他欄位，那麼這個欄位必須屬於候選鍵。</p>
+<p>應用情境：
+在某些情況下，即使資料表滿足 3NF，仍可能存在因複雜依賴關係引起的異常。透過 BCNF 可以進一步拆分資料表，以消除這類依賴。BCNF 的拆分通常較為複雜，僅在特定需求下採用。</p>
+<h3 id="綜合舉例學生選課資料庫設計">綜合舉例：學生選課資料庫設計</h3>
+<p>記錄學生基本資料及其選修的課程，並且每門課程有對應的授課教師。原始設計可能是這樣的（未正規化版本）：</p>
+<table>
+  <thead>
+      <tr>
+          <th>Student ID</th>
+          <th>Student Name</th>
+          <th>Courses</th>
+          <th>Instructor</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S001</td>
+          <td>John Doe</td>
+          <td>Math, Physics, Chemistry</td>
+          <td>Prof. A, Prof. B, Prof. C</td>
+      </tr>
+  </tbody>
+</table>
+<p>這個設計有幾個問題：
+違反1NF<code>Courses</code>和<code>Instructor</code>欄位中存放了多個值
+潛在部分依賴問題：如果我們嘗試將所有資料放在同一表中，某些欄位只依賴於學生（例如學生姓名），而其他欄位依賴於課程。</p>
+<p>正規化步驟：<br>
+1.拆分為原子值（達到1NF）：
+將每個學生與每門課程對應成單獨一行：</p>
+<table>
+  <thead>
+      <tr>
+          <th>Student ID</th>
+          <th>Course</th>
+          <th>Instructor</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S001</td>
+          <td>Math</td>
+          <td>Prof. A</td>
+      </tr>
+      <tr>
+          <td>S001</td>
+          <td>Physics</td>
+          <td>Prof. B</td>
+      </tr>
+      <tr>
+          <td>S001</td>
+          <td>Chemistry</td>
+          <td>Prof. C</td>
+      </tr>
+  </tbody>
+</table>
+<p>2.消除部分依賴(達到2NF)：
+將學生的基本資訊和選課關係分為兩個表格，因為<code>StudentName</code>僅依賴於<code>StudentID</code></p>
+<table>
+  <thead>
+      <tr>
+          <th>Student ID</th>
+          <th>Student Name</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S001</td>
+          <td>John Doe</td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th>Student ID</th>
+          <th>Course</th>
+          <th>Instructor</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S001</td>
+          <td>Math</td>
+          <td>Prof. A</td>
+      </tr>
+      <tr>
+          <td>S001</td>
+          <td>Physics</td>
+          <td>Prof. B</td>
+      </tr>
+      <tr>
+          <td>S001</td>
+          <td>Chemistry</td>
+          <td>Prof. C</td>
+      </tr>
+  </tbody>
+</table>
+<p>3.消除傳遞依賴(達到3NF)：
+假設情況進一步複雜化：每門課程除了授課教師外，還有其他資訊（例如課程時數、上課地點），並且這些資訊只依賴於 <code>Course</code>。此時，<code>Instructor</code> 與其他課程相關資料實際上是依賴於 <code>Course</code> 而非學生。因此可以再拆分一個課程資料表：</p>
+<p>課程資料表：</p>
+<table>
+  <thead>
+      <tr>
+          <th>Course</th>
+          <th>Instructor</th>
+          <th>Credit Hours</th>
+          <th>Location</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Math</td>
+          <td>Prof. A</td>
+          <td>3</td>
+          <td>Room 101</td>
+      </tr>
+      <tr>
+          <td>Physics</td>
+          <td>Prof. B</td>
+          <td>4</td>
+          <td>Room 102</td>
+      </tr>
+      <tr>
+          <td>Chemistry</td>
+          <td>Prof. C</td>
+          <td>3</td>
+          <td>Room 103</td>
+      </tr>
+  </tbody>
+</table>
+<p>學生選課關係表（僅保留學生與課程之間的關聯）：</p>
+<table>
+  <thead>
+      <tr>
+          <th>Student ID</th>
+          <th>Course</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S001</td>
+          <td>Math</td>
+      </tr>
+      <tr>
+          <td>S001</td>
+          <td>Physics</td>
+      </tr>
+      <tr>
+          <td>S001</td>
+          <td>Chemistry　</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="正規化的優點與考量">正規化的優點與考量</h4>
+<p>優點：<br>
+<strong>資料一致性</strong>：減少冗餘資料，避免資料不一致的情形<br>
+<strong>易於維護</strong>：當資料需要更新時，只需要修改一處<br>
+<strong>結構清晰</strong>：各資料表職責明確，利於理解與管理。</p>
+<p>考量：<br>
+<strong>查詢效能</strong>：過度正規化可能會導致大量的<code>JOIN</code>操作，影響查詢效能，在一些以查詢效率為主的系統中，可能會採取部分反正規化（Denormalization）的策略。<br>
+<strong>設計複雜度</strong>：對於複雜業務邏輯，拆分過多的表可能增加設計與維護難度，需要在正規化與效能之間取得平衡。</p>
+<p>小結：資料庫正規化是一項重要的資料庫設計技術，通過將資料拆分到多個相互關聯的表中，可以有效消除冗餘和依賴異常，提升資料的一致性和維護性。在實際應用中，設計者往往需要根據具體業務需求與效能要求，在正規化和反正規化之間做出取捨。</p>
+<h3 id="django-orm如何跟資料庫正規化應用呢-">Django ORM如何跟資料庫正規化應用呢 ?　　</h3>
+<p>在Django開發過程中，設計模型就要遵守資料庫正規化的原則，從而得到一個結構合理、易於維護的資料庫，舉個學生選課的例子：</p>
+<p>1.<strong>拆分實體：</strong>
+將「學生」、「課程」以及「選課」定義為三個獨立的模型。學生模型存放學生的基本資訊；課程模型存放課程詳細資料；選課模型則以 ForeignKey 建立學生與課程之間的關聯。這樣可以確保學生資訊只存在學生模型中，避免重複出現。</p>
+<p>2.<strong>建立正確的關聯：</strong>
+Django ORM 利用<code>ForeignKey</code>、 <code>ManyToManyField</code>、<code>OneToOneField</code>，可以很方便在模型之間建立關聯，以下示範用<code>ForeignKey</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(models<span style="color:#f92672">.</span>Model):
+</span></span><span style="display:flex;"><span>    student_id <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, unique<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 其他欄位</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Course</span>(models<span style="color:#f92672">.</span>Model):
+</span></span><span style="display:flex;"><span>    code <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, unique<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>CharField(max_length<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 其他欄位</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Enrollment</span>(models<span style="color:#f92672">.</span>Model):
+</span></span><span style="display:flex;"><span>    student <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(Student, on_delete<span style="color:#f92672">=</span>models<span style="color:#f92672">.</span>CASCADE, related_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;enrollments&#39;</span>)
+</span></span><span style="display:flex;"><span>    course <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(Course, on_delete<span style="color:#f92672">=</span>models<span style="color:#f92672">.</span>CASCADE, related_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;enrollments&#39;</span>)
+</span></span><span style="display:flex;"><span>    enrollment_date <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>DateField(auto_now_add<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span></code></pre></div><p>這樣設計後，資料在學生、課程和選課三個表中各自存放，既符合正規化的原則，又方便 Django ORM 進行資料操作。</p>
+<h3 id="foreignkey模型建立額外小補充">ForeignKey模型建立額外小補充</h3>
+<p><code>related_name</code>用於模型的關聯欄位，(例如<code>ForeignKey</code>、<code>ManyToManyField</code>，用來指定反向關聯的名稱)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Enrollment</span>(models<span style="color:#f92672">.</span>Model):
+</span></span><span style="display:flex;"><span>    student <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>ForeignKey(Student, on_delete<span style="color:#f92672">=</span>models<span style="color:#f92672">.</span>CASCADE, related_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;enrollments&#39;</span>)
+</span></span></code></pre></div><p>這樣，每個 <code>Student</code> 對象就可以通過 <code>student.enrollments.all()</code> 來取得該學生所有的選課記錄。</p>
+<p>為什麼要這樣寫？
+這樣可以讓反向關聯更加語意，也便於理解與使用。當有多個外鍵指向同一模型時，指定 <code>related_name</code> 也可以避免命名衝突。</p>
+<h4 id="容易搞混的select_relatedprefetch_relatedrelated_name">容易搞混的<code>select_related</code>、<code>prefetch_related</code>、<code>related_name</code></h4>
+<p><code>select_related</code>(適用於ForeignKey)和 <code>prefetch_related</code>(適用於多對多)則是查詢優化的方法，用來提前抓取外鍵關聯的數據，降低查詢次數，提升效能。</p>
+<p><code>related_name</code> 是在模型定義中用來設定反向關聯名稱，並且使程式碼更易讀、易管理。</p><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/database/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Database</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">後端</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">文章目錄</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#資料庫正規化-database-normalization">資料庫正規化 (Database Normalization)</a></li>
+        <li><a href="#為什麼需要正規化">為什麼需要正規化？</a></li>
+        <li><a href="#正規化的各階段">正規化的各階段</a></li>
+        <li><a href="#綜合舉例學生選課資料庫設計">綜合舉例：學生選課資料庫設計</a>
+          <ul>
+            <li><a href="#正規化的優點與考量">正規化的優點與考量</a></li>
+          </ul>
+        </li>
+        <li><a href="#django-orm如何跟資料庫正規化應用呢-">Django ORM如何跟資料庫正規化應用呢 ?　　</a></li>
+        <li><a href="#foreignkey模型建立額外小補充">ForeignKey模型建立額外小補充</a>
+          <ul>
+            <li><a href="#容易搞混的select_relatedprefetch_relatedrelated_name">容易搞混的<code>select_related</code>、<code>prefetch_related</code>、<code>related_name</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-washed-green bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/lioouzzz/sleepblog.git/" >
+    &copy;  🍀🍀🍀 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
