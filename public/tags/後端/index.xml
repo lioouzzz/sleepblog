@@ -6,14 +6,28 @@
     <description>Recent content in 後端 on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARM&amp;AMD</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250207-armamd/armamd/</link>
+      <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250207-armamd/armamd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>資料庫正規化</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250203-database_normalization/20250203-database_normalization/</link>
+      <pubDate>Mon, 03 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250203-database_normalization/20250203-database_normalization/</guid>
+      <description>&lt;h3 id=&#34;資料庫正規化-database-normalization&#34;&gt;資料庫正規化 (Database Normalization)&lt;/h3&gt;&#xA;&lt;p&gt;資料庫正規化是一套設計原則和技術，目標在於通過合理拆分資料表和定義適當的關係，來消除冗餘的資料(重複的資料)，避免資料在插入、更新、刪除異常，從而提高資料一致性和維護性。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Python-OOP物件導向設計</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/</link>
       <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/</guid>
-      <description></description>
+      <description>&lt;h3 id=&#34;什麼是物件&#34;&gt;什麼是物件？&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;物件(Object)=狀態(State)+行為(Behavior)&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python模組與套件</title>
@@ -27,7 +41,7 @@
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250126-closure/closure/</link>
       <pubDate>Sun, 26 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250126-closure/closure/</guid>
-      <description>&lt;h3 id=&#34;自由變數&#34;&gt;自由變數&lt;/h3&gt;</description>
+      <description>&lt;h3 id=&#34;自由變數&#34;&gt;自由變數&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hi&lt;/span&gt;():&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    message&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hello,doggy!&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;byebye&lt;/span&gt;():&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(message)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
       <title>函數是一等公民</title>

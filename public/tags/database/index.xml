@@ -6,8 +6,15 @@
     <description>Recent content in Database on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>資料庫正規化</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250203-database_normalization/20250203-database_normalization/</link>
+      <pubDate>Mon, 03 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250203-database_normalization/20250203-database_normalization/</guid>
+      <description>&lt;h3 id=&#34;資料庫正規化-database-normalization&#34;&gt;資料庫正規化 (Database Normalization)&lt;/h3&gt;&#xA;&lt;p&gt;資料庫正規化是一套設計原則和技術，目標在於通過合理拆分資料表和定義適當的關係，來消除冗餘的資料(重複的資料)，避免資料在插入、更新、刪除異常，從而提高資料一致性和維護性。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>資料庫</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/1211database/</link>
