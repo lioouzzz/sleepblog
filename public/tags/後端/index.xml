@@ -6,14 +6,21 @@
     <description>Recent content in 後端 on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ARM&amp;AMD</title>
+      <title>Token</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250209-token/</link>
+      <pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250209-token/</guid>
+      <description>&lt;h3 id=&#34;token的基本定義&#34;&gt;Token的基本定義&lt;/h3&gt;&#xA;&lt;p&gt;Token是一個代表某種權限或身分的字符串&#xA;通常包括加密或編碼的資訊&#xA;可以是暫時性或永久性的憑證&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ARM64和AMD64</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250207-armamd/armamd/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250207-armamd/armamd/</guid>
-      <description></description>
+      <description>&lt;p&gt;安裝Docker時，會有出現要安裝的版本，會有ARM64、AMD64版本，而我們的電腦又是哪一種版本呢？&lt;/p&gt;</description>
     </item>
     <item>
       <title>資料庫正規化</title>

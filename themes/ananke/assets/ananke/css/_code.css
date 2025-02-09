@@ -21,3 +21,6 @@ pre {
   letter-spacing: 0.5px;
  }
  
+ strong {
+  font-weight: 600;
+}

@@ -9,11 +9,11 @@
     <lastBuildDate>Fri, 07 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/categories/database/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ARM&amp;AMD</title>
+      <title>ARM64和AMD64</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250207-armamd/armamd/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250207-armamd/armamd/</guid>
-      <description></description>
+      <description>&lt;p&gt;安裝Docker時，會有出現要安裝的版本，會有ARM64、AMD64版本，而我們的電腦又是哪一種版本呢？&lt;/p&gt;</description>
     </item>
     <item>
       <title>資料庫正規化</title>

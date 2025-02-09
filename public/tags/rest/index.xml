@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>REST on 🍀🍀🍀</title>
+    <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/rest/</link>
+    <description>Recent content in REST on 🍀🍀🍀</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 09 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/rest/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>打造會員系統(前後端分離)</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250210-resudo_membersystem/20250210-resudo_membersystem/</link>
+      <pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250210-resudo_membersystem/20250210-resudo_membersystem/</guid>
+      <description>&lt;p&gt;紀錄一下前後端分離的小專案(Resudo)！&lt;br&gt;&#xA;實作會員系統真好玩，有一種自己真的在經營電商的感覺一樣，hohoho&amp;hellip;..&lt;/p&gt;&#xA;&lt;p&gt;這次專案使用的工具&lt;br&gt;&#xA;前端：&lt;code&gt;vite+React&lt;/code&gt;&lt;br&gt;&#xA;後端：&lt;code&gt;django&lt;/code&gt;&lt;br&gt;&#xA;資料庫：&lt;code&gt;MySQL&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
