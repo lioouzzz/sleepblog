@@ -9,6 +9,34 @@
     <lastBuildDate>Sun, 09 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>API</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/api/</link>
+      <pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/tags/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Django_REST_framework</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/django_rest_framework/</link>
+      <pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/tags/django_rest_framework/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/python/</link>
+      <pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vite&#43;React</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/vite&#43;react/</link>
+      <pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/tags/vite&#43;react/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>後端</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/</link>
       <pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
@@ -20,13 +48,6 @@
       <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/database/</link>
       <pubDate>Mon, 03 Feb 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/tags/database/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/python/</link>
-      <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/tags/python/</guid>
       <description></description>
     </item>
     <item>

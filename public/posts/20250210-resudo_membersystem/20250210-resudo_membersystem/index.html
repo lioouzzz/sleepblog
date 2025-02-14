@@ -6,9 +6,7 @@
     
     <title>打造會員系統(前後端分離) | 🍀🍀🍀</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="紀錄一下前後端分離的小專案(Resudo)！
-實作會員系統真好玩，有一種自己真的在經營電商的感覺一樣hohoho&hellip;..
-這次專案使用的工具
+    <meta name="description" content="這次專案使用的工具
 前端：vite&#43;React
 後端：django
 資料庫：MySQL">
@@ -45,9 +43,7 @@
     <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250210-resudo_membersystem/20250210-resudo_membersystem/">
   <meta property="og:site_name" content="🍀🍀🍀">
   <meta property="og:title" content="打造會員系統(前後端分離)">
-  <meta property="og:description" content="紀錄一下前後端分離的小專案(Resudo)！
-實作會員系統真好玩，有一種自己真的在經營電商的感覺一樣hohoho…..
-這次專案使用的工具
+  <meta property="og:description" content="這次專案使用的工具
 前端：vite&#43;React
 後端：django
 資料庫：MySQL">
@@ -62,21 +58,17 @@
     <meta property="article:tag" content="Django_REST_framework">
 
   <meta itemprop="name" content="打造會員系統(前後端分離)">
-  <meta itemprop="description" content="紀錄一下前後端分離的小專案(Resudo)！
-實作會員系統真好玩，有一種自己真的在經營電商的感覺一樣hohoho…..
-這次專案使用的工具
+  <meta itemprop="description" content="這次專案使用的工具
 前端：vite&#43;React
 後端：django
 資料庫：MySQL">
   <meta itemprop="datePublished" content="2025-02-09T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-02-09T00:00:00+00:00">
-  <meta itemprop="wordCount" content="8">
+  <meta itemprop="wordCount" content="1257">
   <meta itemprop="keywords" content="Python,Vite&#43;React,API,Django_REST_framework">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="打造會員系統(前後端分離)">
-  <meta name="twitter:description" content="紀錄一下前後端分離的小專案(Resudo)！
-實作會員系統真好玩，有一種自己真的在經營電商的感覺一樣hohoho…..
-這次專案使用的工具
+  <meta name="twitter:description" content="這次專案使用的工具
 前端：vite&#43;React
 後端：django
 資料庫：MySQL">
@@ -178,18 +170,557 @@
 
       
       
-        <span class="f6 mv4 dib tracked"> - One minute read </span>
-        <span class="f6 mv4 dib tracked"> - 8 words </span>
+        <span class="f6 mv4 dib tracked"> - 6 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1257 words </span>
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>紀錄一下前後端分離的小專案(Resudo)！<br>
-實作會員系統真好玩，有一種自己真的在經營電商的感覺一樣hohoho&hellip;..</p>
-<p>這次專案使用的工具<br>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>這次專案使用的工具<br>
 前端：<code>vite+React</code><br>
 後端：<code>django</code><br>
 資料庫：<code>MySQL</code></p>
-<p>本文僅最基本的會員系統，
-關於會員系統的資安防禦，預計之後再更新，一人作業，請耐心等待🎠🎠</p><ul class="pa0">
+<h3 id="後端建立-api">後端建立 API</h3>
+<p>首先建立一個應用程式 app <code>users</code></p>
+<pre tabindex="0"><code>python manage.py startapp users
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>INSTALLED_APPS <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.admin&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.auth&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.contenttypes&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.sessions&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.messages&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.staticfiles&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;corsheaders&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;users&#34;</span>,  <span style="color:#75715e">#加入&#34;users&#34;到這個INSTALLED_APPS</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;profiles&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;drf_yasg&#39;</span>,
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>CORS_ALLOW_CREDENTIALS <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span></code></pre></div><p>在這裡介紹一下，序列器。<br>
+可以把資料在不同格式轉換格式，在 API 開發和數據存儲時很常見。</p>
+<p>序列化是把物件(Object)轉換為 JSON、XML、二進位格式，方便傳輸和儲存，在後端開發時，通常需要把 Python 物件(Django)模型轉換為 JSON 格式，讓前端讀取。</p>
+<p>下一步我們就開始來編寫序列器：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PY" data-lang="PY"><span style="display:flex;"><span><span style="color:#f92672">from</span> django.contrib.auth.models <span style="color:#f92672">import</span> User <span style="color:#75715e">#匯入Django內建模型，管理使用者帳號</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rest_framework <span style="color:#f92672">import</span> serializers <span style="color:#75715e">#serializers 來自 Django REST Framework。提供了`ModelSerializer`來簡化Model到Json之間的轉換</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserSerializer</span>(serializers<span style="color:#f92672">.</span>ModelSerializer):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#定義UserSerializer，這個序列化器繼承於serializers.ModleSerializer，表示它是基於Django Model 自動生成的序列化器</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Meta</span>:
+</span></span><span style="display:flex;"><span>        model <span style="color:#f92672">=</span> User
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#序列化器對應的Django User模型</span>
+</span></span><span style="display:flex;"><span>        fields <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#34;username&#34;</span>, <span style="color:#e6db74">&#34;email&#34;</span>, <span style="color:#e6db74">&#34;password&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#序列化時要包含的欄位</span>
+</span></span><span style="display:flex;"><span>        extra_kwargs <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;password&#39;</span>: {<span style="color:#e6db74">&#39;write_only&#39;</span>: <span style="color:#66d9ef">True</span>},
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;email&#39;</span>: {<span style="color:#e6db74">&#39;required&#39;</span>: <span style="color:#66d9ef">True</span>}}
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#額外參數設定，密碼欄位只能寫入，不能讀取，這樣在API RESPONSE中不會顯示密碼。 email是必填</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create</span>(self, validated_data):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#create()負責反序列化JSON並創立User實例</span>
+</span></span><span style="display:flex;"><span>        user <span style="color:#f92672">=</span> User<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>create_user(
+</span></span><span style="display:flex;"><span>            username<span style="color:#f92672">=</span>validated_data[<span style="color:#e6db74">&#39;username&#39;</span>],
+</span></span><span style="display:flex;"><span>            email<span style="color:#f92672">=</span>validated_data[<span style="color:#e6db74">&#39;email&#39;</span>],
+</span></span><span style="display:flex;"><span>            password<span style="color:#f92672">=</span>validated_data[<span style="color:#e6db74">&#39;password&#39;</span>],
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#使用User.objects.create_user()，create_user()會自動加密密碼，如果是用   ser.objects.create()，不會加密，密碼只會用純文字，這樣不安全。</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#validate_data表示已驗證的資料</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> user
+</span></span></code></pre></div><p>再來，到 users/urls.py 去定義路由</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">from</span> django.urls <span style="color:#f92672">import</span> path
+</span></span><span style="display:flex;"><span>form <span style="color:#f92672">.</span>views <span style="color:#f92672">import</span> user_register<span style="color:#f92672">,</span>user_login<span style="color:#f92672">,</span>user_logout
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app_names<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;users&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>urlpatterns<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>    path(<span style="color:#e6db74">&#34;register/&#34;</span>,user_register,name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;user_register&#34;</span>),
+</span></span><span style="display:flex;"><span>    path(<span style="color:#e6db74">&#34;login/&#34;</span>,user_login,name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;user_login&#34;</span>),
+</span></span><span style="display:flex;"><span>    path(<span style="color:#e6db74">&#34;logout/&#34;</span>,user_logout,name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;user_logout&#34;</span>),
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>到 views.py 去控制判斷請求回應</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">from</span> django.shortcuts <span style="color:#f92672">import</span> render
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rest_framework.decroators <span style="color:#f92672">import</span> api_view
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rest_framework.response <span style="color:#f92672">import</span> Response
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> django.contrib.auth <span style="color:#f92672">import</span> authenticate,login,logout
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> .serializers <span style="color:#f92672">import</span> UserSerializer
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@api_view</span>([POST])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user_register</span>(request):
+</span></span><span style="display:flex;"><span>    serializer<span style="color:#f92672">=</span>UserSerializer(data<span style="color:#f92672">=</span>request<span style="color:#f92672">.</span>data)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> serializer<span style="color:#f92672">.</span>is_valid():
+</span></span><span style="display:flex;"><span>        serializer<span style="color:#f92672">.</span>save()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Response({<span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;註冊成功&#34;</span>},status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_201_CREATED)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Response({<span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;註冊失敗&#34;</span>},status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_400_BAD_REQUEST)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@api_view</span>([POST])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user_login</span>(request):
+</span></span><span style="display:flex;"><span>    username<span style="color:#f92672">=</span>request<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;username&#34;</span>)
+</span></span><span style="display:flex;"><span>    password<span style="color:#f92672">=</span>request<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;password&#34;</span>)
+</span></span><span style="display:flex;"><span>    email<span style="color:#f92672">=</span>request<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;email&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    user<span style="color:#f92672">=</span>authenticate(request,username<span style="color:#f92672">=</span>username,passowrd<span style="color:#f92672">=</span>password)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> user <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        login(request,user)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Response({<span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;登入成功&#34;</span>},status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_200_OK)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Response({<span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;登入失敗&#34;</span>},status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_400_BAD_REQUEST)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@api_view</span>([POST])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user_logout</span>(request):
+</span></span><span style="display:flex;"><span>    logout(request)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Response({message:<span style="color:#e6db74">&#34;登出成功&#34;</span>},status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_200_OK)
+</span></span></code></pre></div><h3 id="前端串接-api">前端串接 API</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">// src/App.jsx
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Routes</span>, <span style="color:#a6e22e">Route</span>, <span style="color:#a6e22e">Link</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Home</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./components/Home&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ProfileIndex</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./components/profiles/ProfileIndex&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ProfileShow</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./components/profiles/ProfileShow&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ProfileNew</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./components/profiles/ProfileNew&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ProfileEdit</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./components/profiles/ProfileEdit&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Register</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./components/auth/Register&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Login</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./components/auth/Login&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./App.css&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">nav</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/register&#34;</span>&gt;<span style="color:#a6e22e">Register</span>&lt;/<span style="color:#f92672">Link</span>&gt; <span style="color:#f92672">|</span> &lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/login&#34;</span>&gt;<span style="color:#a6e22e">Login</span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">nav</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Routes</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">Home</span> /&gt;} /&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;register&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">Register</span> /&gt;} /&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/login&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">Login</span> /&gt;} /&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/profiles&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">ProfileIndex</span> /&gt;} /&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/profiles/:id&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">ProfileShow</span> /&gt;} /&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/profiles/new&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">ProfileNew</span> /&gt;} /&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/profiles/edit/:id&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">ProfileEdit</span> /&gt;} /&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">Routes</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">// src/components/Home.jsx
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Link</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Home</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">setMessage</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleLogout</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;http://localhost:8000/api/users/logout/&#39;</span>, {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;POST&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">ok</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setMessage</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">message</span>)
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setMessage</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">error</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;登出失敗&#39;</span>)
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setMessage</span>(<span style="color:#e6db74">&#39;發生錯誤&#39;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">歡迎來到首頁</span>&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">Link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/profiles/new&#34;</span>&gt;<span style="color:#a6e22e">建立新</span> <span style="color:#a6e22e">Profile</span>&lt;/<span style="color:#f92672">Link</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">handleLogout</span>}&gt;<span style="color:#a6e22e">登出</span>&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">message</span> <span style="color:#f92672">&amp;&amp;</span> &lt;<span style="color:#f92672">p</span>&gt;{<span style="color:#a6e22e">message</span>}&lt;/<span style="color:#f92672">p</span>&gt;}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">// auth/Login.jsx
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Login</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">setUsername</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">password</span>, <span style="color:#a6e22e">setPassword</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">setMessage</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleLogin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">preventDefault</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;http://localhost:8000/api/users/login/&#39;</span>, {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;POST&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>({ <span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">password</span> }),
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">ok</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>          window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/&#39;</span>
+</span></span><span style="display:flex;"><span>        }, <span style="color:#ae81ff">800</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setMessage</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">message</span>)
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setMessage</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">data</span>))
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setMessage</span>(<span style="color:#e6db74">&#39;發生錯誤&#39;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">Login</span>&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">onSubmit</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">handleLogin</span>}&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">label</span>&gt;<span style="color:#a6e22e">Username</span><span style="color:#f92672">:</span> &lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">username</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{(<span style="color:#a6e22e">e</span>) =&gt; <span style="color:#a6e22e">setUsername</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>)}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">required</span>
+</span></span><span style="display:flex;"><span>          /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">label</span>&gt;<span style="color:#a6e22e">Password</span><span style="color:#f92672">:</span> &lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">password</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{(<span style="color:#a6e22e">e</span>) =&gt; <span style="color:#a6e22e">setPassword</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>)}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">required</span>
+</span></span><span style="display:flex;"><span>          /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;<span style="color:#a6e22e">Login</span>&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">form</span>&gt;
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">message</span> <span style="color:#f92672">&amp;&amp;</span> &lt;<span style="color:#f92672">p</span>&gt;{<span style="color:#a6e22e">message</span>}&lt;/<span style="color:#f92672">p</span>&gt;}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Login</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">// src/components/auth/Register.jsx
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useNavigate</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Register</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">setUsername</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">email</span>, <span style="color:#a6e22e">setEmail</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">password</span>, <span style="color:#a6e22e">setPassword</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">setMessage</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">navigate</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useNavigate</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleRegister</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">preventDefault</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">payload</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">username</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">email</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">password</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;http://localhost:8000/api/users/register/&#39;</span>,
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;POST&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span>,
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">payload</span>),
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>      )
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">ok</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setMessage</span>(<span style="color:#e6db74">&#39;註冊成功&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>          window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/&#39;</span>
+</span></span><span style="display:flex;"><span>        }, <span style="color:#ae81ff">800</span>)
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setMessage</span>(<span style="color:#e6db74">&#39;註冊失敗&#39;</span>, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">data</span>))
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setMessage</span>(<span style="color:#e6db74">&#39;發生錯誤&#39;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">註冊</span>&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">onSubmit</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">handleRegister</span>}&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">label</span>&gt;<span style="color:#a6e22e">使用者名稱</span>&lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">username</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{(<span style="color:#a6e22e">e</span>) =&gt; <span style="color:#a6e22e">setUsername</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>)}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">required</span>
+</span></span><span style="display:flex;"><span>          /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">label</span>&gt;<span style="color:#a6e22e">Email</span><span style="color:#f92672">:</span> &lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">email</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{(<span style="color:#a6e22e">e</span>) =&gt; <span style="color:#a6e22e">setEmail</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>)}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">required</span>
+</span></span><span style="display:flex;"><span>          /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">label</span>&gt;<span style="color:#a6e22e">密碼</span>&lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">password</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{(<span style="color:#a6e22e">e</span>) =&gt; <span style="color:#a6e22e">setPassword</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>)}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">required</span>
+</span></span><span style="display:flex;"><span>          /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;<span style="color:#a6e22e">註冊</span>&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">form</span>&gt;
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">message</span> <span style="color:#f92672">&amp;&amp;</span> &lt;<span style="color:#f92672">p</span>&gt;{<span style="color:#a6e22e">message</span>}&lt;/<span style="color:#f92672">p</span>&gt;}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Register</span>
+</span></span></code></pre></div><h3 id="增加-jwt-認證">增加 JWT 認證</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PY" data-lang="PY"><span style="display:flex;"><span><span style="color:#f92672">from</span> pathlib <span style="color:#f92672">import</span> Path
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> environ
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> timedelta <span style="color:#75715e"># 匯入這個模組</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> dotenv <span style="color:#f92672">import</span> load_dotenv
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>INSTALLED_APPS <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.admin&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.auth&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.contenttypes&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.sessions&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.messages&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.staticfiles&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;corsheaders&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;rest_framework&#34;</span>,  <span style="color:#75715e">#加上這個</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;users&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;profiles&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;drf_yasg&#39;</span>,
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>REST_FRAMEWORK <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;DEFAULT_AUTHENTICATION_CLASSES&#39;</span>: (
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;rest_framework_simplejwt.authentication.JWTAuthentication&#39;</span>,
+</span></span><span style="display:flex;"><span>    ),  <span style="color:#75715e">#API端點身分驗證方是用simplejwt套件</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;DEFAULT_PERMISSION_CLASSES&#39;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;rest_framework.permissions.IsAuthenticated&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#所有端點都要登入才能存取</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SIMPLE_JWT <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;ACCESS_TOKEN_LIFETIME&#39;</span>: timedelta(minutes<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>), <span style="color:#75715e">#存取權杖的時間</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;REFRESH_TOKEN_LIFETIME&#39;</span>: timedelta(days<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#75715e">#刷新權杖，有效是一天</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;AUTH_HEADER_TYPES&#39;</span>: (<span style="color:#e6db74">&#39;Bearer&#39;</span>,), <span style="color:#75715e">#授權標頭，請求API時要加上的標頭，用&#34;Bearer&#34;作為前綴</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#每次請求API，都要提供Access Token，Access Token 過期後，會使用Refresh Token來換取Access Token，如此一來使用者可以用Refresh Token 取得最新的Access Token，而不需要重新登入，可以減少頻繁輸入密碼的需求。</span>
+</span></span></code></pre></div><p>在主程式的 urls.py 添加 token 路由</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e"># core/urls.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> django.contrib <span style="color:#f92672">import</span> admin
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> django.urls <span style="color:#f92672">import</span> path,include
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rest_framework_simplejwt.views <span style="color:#f92672">import</span> TokenObtainPairView,TokenRefreshView
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rest_framework <span style="color:#f92672">import</span> permissions
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>path(<span style="color:#e6db74">&#39;api/token/&#39;</span>,TokenObtainPairView<span style="color:#f92672">.</span>as_view(),name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;token_obtain_pair&#39;</span>)
+</span></span><span style="display:flex;"><span>path(<span style="color:#e6db74">&#39;api/token/refresh/&#39;</span>,TokenRefreshView<span style="color:#f92672">.</span>as_view(),name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;token_refresh&#39;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#75715e"># users/views.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rest_framework.decorators <span style="color:#f92672">import</span> api_view,permission_classes
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rest_framework_simplejwt.tokens <span style="color:#f92672">import</span> RefreshToken
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rest_framework.permissions <span style="color:#f92672">import</span> AllowAny, IsAuthenticated
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@api_view</span>([<span style="color:#e6db74">&#34;POST&#34;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user_register</span>(request):
+</span></span><span style="display:flex;"><span>  serializer<span style="color:#f92672">=</span>UserSerializer(data<span style="color:#f92672">=</span>request<span style="color:#f92672">.</span>data)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> serializer<span style="color:#f92672">.</span>is_valid(){
+</span></span><span style="display:flex;"><span>    user<span style="color:#f92672">=</span>serializer<span style="color:#f92672">.</span>save()
+</span></span><span style="display:flex;"><span>    refresh<span style="color:#f92672">=</span>RefreshToken<span style="color:#f92672">.</span>for_user(user)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Response({<span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;註冊成功&#34;</span>,<span style="color:#e6db74">&#34;access&#34;</span>:str(refresh<span style="color:#f92672">.</span>access_token),<span style="color:#e6db74">&#34;refresh&#34;</span>:str(refresh)<span style="color:#f92672">.</span>status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_201_CREATED})
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Response(serializer<span style="color:#f92672">.</span>errors,status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_400_BAD_REQUEST)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@api_view</span>([<span style="color:#e6db74">&#34;POST&#34;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@permission_classes</span>([AllowAny])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user_login</span>(request):
+</span></span><span style="display:flex;"><span>  username<span style="color:#f92672">=</span>request<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;username&#34;</span>)
+</span></span><span style="display:flex;"><span>  password<span style="color:#f92672">=</span>request<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;password&#34;</span>)
+</span></span><span style="display:flex;"><span>  user<span style="color:#f92672">=</span>authenticate(request,username<span style="color:#f92672">=</span>username,password<span style="color:#f92672">=</span>password)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> user <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        refresh <span style="color:#f92672">=</span> RefreshToken<span style="color:#f92672">.</span>for_user(user) <span style="color:#75715e">#創建JWT Token</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Response({<span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;登入成功&#34;</span>,<span style="color:#e6db74">&#34;access&#34;</span>:str(refresh<span style="color:#f92672">.</span>access_token),<span style="color:#e6db74">&#34;refresh&#34;</span>:str(refresh)},status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_200_OK)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Response({<span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;登入失敗&#34;</span>},status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_400_BAD_REQUEST)
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># refresh.access_token:取得AccessToken(30分內)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#refresh:取得Refresh Token</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@api_view</span>([<span style="color:#e6db74">&#34;POST&#34;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@permission_classes</span>([AllowAny])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user_logout</span>(request):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Response({<span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;登出成功&#34;</span>},status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_200_OK)
+</span></span></code></pre></div><h3 id="前端-token-設置">前端 token 設置</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">// components&gt;auth&gt;Register.jsx
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useNavigate</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Register</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">setUsername</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">email</span>, <span style="color:#a6e22e">setEmail</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">password</span>, <span style="color:#a6e22e">setPassword</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">setMessage</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">navigate</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useNavigate</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleRegister</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">preventDefault</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">payload</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">username</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">email</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">password</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;http://localhost:8000/api/users/register/&#39;</span>,
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;POST&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span>,
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">payload</span>),
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>      )
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">ok</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setMessage</span>(<span style="color:#e6db74">&#39;註冊成功&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">setItem</span>(<span style="color:#e6db74">&#39;accessToken&#39;</span>, <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">access</span>) <span style="color:#75715e">//這是一個 瀏覽器的 Web API，用來儲存資料在 localStorage，即使使用者刷新頁面，資料也不會消失。data.access：這是從後端 API 回應中取得的 Access Token。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">setItem</span>(<span style="color:#e6db74">&#39;refreshToken&#39;</span>, <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">refresh</span>) <span style="color:#75715e">//data.refresh：這是從後端 API 回應中取得的 Refresh Token。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>          window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/&#39;</span>
+</span></span><span style="display:flex;"><span>        }, <span style="color:#ae81ff">800</span>)
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setMessage</span>(<span style="color:#e6db74">&#39;註冊失敗&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">data</span>))
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setMessage</span>(<span style="color:#e6db74">&#39;發生錯誤&#39;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Register</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">//components&gt;auth&gt;Login.jsx
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Login</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">setUsername</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">password</span>, <span style="color:#a6e22e">setPassword</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">setMessage</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleLogin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">preventDefault</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;http://localhost:8000/api/users/login/&#39;</span>, {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;POST&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>({ <span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">password</span> }),
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">ok</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">setItem</span>(<span style="color:#e6db74">&#39;accessToken&#39;</span>, <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">access</span>) <span style="color:#75715e">//設定這個
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">setItem</span>(<span style="color:#e6db74">&#39;refreshToken&#39;</span>, <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">refresh</span>) <span style="color:#75715e">//設定這個
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">setMessage</span>(<span style="color:#e6db74">&#39;登入成功!&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>          window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/&#39;</span>
+</span></span><span style="display:flex;"><span>        }, <span style="color:#ae81ff">800</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setMessage</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">message</span>)
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setMessage</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">data</span>))
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setMessage</span>(<span style="color:#e6db74">&#39;發生錯誤&#39;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Login</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">//components&gt;Home.jsx
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Link</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Home</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">setMessage</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleLogout</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#e6db74">&#39;accessToken&#39;</span>) <span style="color:#75715e">//從 localStorage 取出 JWT Access Token，用來進行 API 請求時的身份驗證。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;http://localhost:8000/api/users/logout/&#39;</span>, {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;POST&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span>, <span style="color:#75715e">//指定請求的內容類型是 JSON 格式。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#a6e22e">Authorization</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Bearer </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">token</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, <span style="color:#75715e">// 使用 JWT Token 來驗證身份。Bearer 是 HTTP 授權標頭 (Authorization Header) 的標準格式：
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        },
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">ok</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setMessage</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">message</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">removeItem</span>(<span style="color:#e6db74">&#39;accessToken&#39;</span>) <span style="color:#75715e">//從 localStorage移除 accessToken,確保用戶登出後，前端不會再自動帶上 Token。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">removeItem</span>(<span style="color:#e6db74">&#39;refreshToken&#39;</span>) <span style="color:#75715e">//從 localStorage移除 refreshToken，，避免用戶可以繼續使用 refreshToken 來換取新的 accessToken
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">setMessage</span>(<span style="color:#e6db74">&#39;登出成功&#39;</span>)
+</span></span><span style="display:flex;"><span>        window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/login&#39;</span>
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setMessage</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">error</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;登出失敗&#39;</span>)
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setMessage</span>(<span style="color:#e6db74">&#39;發生錯誤&#39;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Home</span>
+</span></span></code></pre></div><h3 id="受保護的-api">受保護的 api</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">// ProfilesIndex.jsx、ProfilesNew.jsx、ProfilesEdit.jsx、ProfilesShow.jsx
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 省略
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 加入程式碼有註解的地方
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fetchProfiles</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#e6db74">&#39;accessToken&#39;</span>) <span style="color:#75715e">// 從 localStorage 取出 accessToken，accessToken 是用戶登入時後端發送的驗證憑證，會在請求時提供給後端來確認用戶身份。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;/api/profiles/&#39;</span>, {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;GET&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#39;Content-Type&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;application/json&#39;</span>, <span style="color:#75715e">//Content-Type&#39;: &#39;application/json&#39;告訴伺服器 我們預期回傳 JSON 資料。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#a6e22e">Authorization</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Bearer </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">token</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>, <span style="color:#75715e">//這是身份驗證標頭（Authorization Header），用來告訴伺服器 Authorization: Bearer &lt;你的 accessToken&gt;。這樣伺服器就能識別請求來自哪個使用者，並確保這個使用者有權限存取 /api/profiles/。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        },
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">ok</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;取得 Profiles 失敗&#39;</span>)
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>()
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setProfiles</span>(<span style="color:#a6e22e">data</span>)
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">err</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setError</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">message</span>)
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">finally</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setLoading</span>(<span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fetchProfiles</span>()
+</span></span><span style="display:flex;"><span>}, [])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">loading</span>) <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">載入中</span>...&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>) <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;Error<span style="color:#f92672">:</span> {<span style="color:#a6e22e">error</span>}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">profiles</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">目前沒有任何</span> <span style="color:#a6e22e">Profile</span> <span style="color:#a6e22e">資料</span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">ProfileIndex</span>
+</span></span></code></pre></div><ul class="pa0">
   
    <li class="list di">
      <a href="/lioouzzz/sleepblog.git/tags/python/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Python</a>
@@ -216,7 +747,19 @@
 
     <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
     <p class="f5 b mb3">文章目錄</p>
-      <nav id="TableOfContents"></nav>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#後端建立-api">後端建立 API</a></li>
+        <li><a href="#前端串接-api">前端串接 API</a></li>
+        <li><a href="#增加-jwt-認證">增加 JWT 認證</a></li>
+        <li><a href="#前端-token-設置">前端 token 設置</a></li>
+        <li><a href="#受保護的-api">受保護的 api</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </aside>
 
