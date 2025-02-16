@@ -20,10 +20,4 @@
     </section>
   </div>
 
-  <h1>分類</h1>
-  <ul>
-    {{ range .Data.Terms.Alphabetical }}
-      <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> ({{ .Count }})</li>
-    {{ end }}
-  </ul>
 {{ end }}
