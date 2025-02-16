@@ -1,43 +1,38 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="container">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="{{ .Site.BaseURL }}">
-          {{ .Site.Title }}
-        </a>
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-  
-      <div id="navbarMenu" class="navbar-menu">
-        <div class="navbar-start">
-          {{ range .Site.Menus.main }}
-            {{ if eq .Identifier "categories" }}
-              <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link" href="#">
-                  {{ .Name }}
-                </a>
-                <div class="navbar-dropdown">
-                  {{ range .Site.Taxonomies.category }}
-                    <a class="navbar-item" href="{{ .Page.RelPermalink }}">
-                      {{ .Page.Title }}
-                    </a>
-                  {{ end }}
-                </div>
-              </div>
-            {{ else }}
-              <a class="navbar-item" href="{{ .URL }}">
-                {{ .Name }}
-              </a>
-            {{ end }}
-          {{ end }}
-        </div>
-        <div class="navbar-end">
-          {{ partial "search.html" . }}
-        </div>
-      </div>
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{ .Site.BaseURL }}"> {{ .Site.Title }} </a>
+      <a
+        role="button"
+        class="navbar-burger"
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="navbarMenu"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-  </nav>
-  
+
+    <div id="navbarMenu" class="navbar-menu">
+      <div class="navbar-start">
+        {{ range .Site.Menus.main }} {{ if eq .Identifier "categories" }}
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#"> {{ .Name }} </a>
+          <div class="navbar-dropdown">
+            {{ range .Site.Taxonomies.category }}
+            <a class="navbar-item" href="{{ .Page.RelPermalink }}">
+              {{ .Page.Title }}
+            </a>
+            {{ end }}
+          </div>
+        </div>
+        {{ else }}
+        <a class="navbar-item" href="{{ .URL }}"> {{ .Name }} </a>
+        {{ end }} {{ end }}
+      </div>
+      <div class="navbar-end">{{ partial "search.html" . }}</div>
+    </div>
+  </div>
+</nav>

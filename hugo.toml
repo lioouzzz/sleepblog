@@ -6,6 +6,7 @@ theme = 'ananke'
 paginatePath = "page" 
 
 [params]
+  custom_css = ["css/custom.css"]
 text_color = ""
 author = "Elaine Liu"
 favicon = "images/20241130%20個人logo2.png"
@@ -64,4 +65,3 @@ pagerSize = 10
     noClasses = false     # 允許添加 CSS 類別
 
 
-custom_css = ["custom.css"]

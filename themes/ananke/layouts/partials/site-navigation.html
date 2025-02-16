@@ -1,32 +1,53 @@
-<nav class="pv3 ph3 ph4-ns" role="navigation">
+<nav class="pv3 ph3 ph4-ns bg-white" role="navigation">
   <div class="flex-l justify-between items-center center">
-    <!-- Logo部分 -->
-    <a href="{{ .Site.Home.RelPermalink }}" class="f3 fw2 hover-blue no-underline custom-blue dib">
+    <a
+      href="{{ .Site.Home.RelPermalink }}"
+      class="f3 fw2 hover-blue no-underline dark-blue dib"
+    >
       {{ with .Site.Params.site_logo }}
-        <img src="{{ relURL . }}" class="w100 mw5-ns" alt="{{ $.Site.Title }}" />
-      {{ else }}
-        {{ .Site.Title }}
-      {{ end }}
+      <img src="{{ relURL . }}" class="w100 mw5-ns" alt="{{ $.Site.Title }}" />
+      {{ else }} {{ .Site.Title }} {{ end }}
     </a>
-    
-    <!-- 導航和搜索 -->
+
     <div class="flex-l items-center">
-      <!-- 搜索框 -->
-      {{ partial "search.html" . }}
-      
-      <!-- 導航菜單 -->
-      {{ if .Site.Menus.main }}
-        <ul class="{{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr0 ml3" "pl0 mr3" }}">
-          {{ range .Site.Menus.main }}
-          <li class="list f5 f4-ns fw4 dib {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3" }}">
-            <a class="hover-blue no-underline custom-blue" href="{{ .URL }}" title="{{ i18n "pageTitle" . }}">
-              {{ .Name }}
-            </a>
-          </li>
-          {{ end }}
-        </ul>
+      {{ partial "search.html" . }} {{ if .Site.Menus.main }}
+      <ul class="pl0 mr3">
+        {{ range .Site.Menus.main }} {{ if or (eq .Identifier "categories") (eq
+        .Identifier "tags") }}
+        <li class="list f5 f4-ns fw4 dib mr3 dropdown">
+          <a
+            href="{{ .URL }}"
+            class="hover-blue no-underline dark-blue dropdown-toggle"
+          >
+            {{ .Name }}
+          </a>
+          <ul class="dropdown-menu">
+            {{ if eq .Identifier "categories" }} {{ range $name, $taxonomy :=
+            $.Site.Taxonomies.categories }}
+            <li>
+              <a href="{{ $.Site.BaseURL }}categories/{{ $name | urlize }}/">
+                {{ $name }} ({{ len $taxonomy }})
+              </a>
+            </li>
+            {{ end }} {{ else if eq .Identifier "tags" }} {{ range $name,
+            $taxonomy := $.Site.Taxonomies.tags }}
+            <li>
+              <a href="{{ $.Site.BaseURL }}tags/{{ $name | urlize }}/">
+                {{ $name }} ({{ len $taxonomy }})
+              </a>
+            </li>
+            {{ end }} {{ end }}
+          </ul>
+        </li>
+        {{ else }}
+        <li class="list f5 f4-ns fw4 dib mr3">
+          <a href="{{ .URL }}" class="hover-blue no-underline dark-blue">
+            {{ .Name }}
+          </a>
+        </li>
+        {{ end }} {{ end }}
+      </ul>
       {{ end }}
-      {{ partialCached "social/follow.html" . }}
     </div>
   </div>
- </nav>
+</nav>

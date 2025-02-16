@@ -5,7 +5,7 @@ title = '打造會員系統(前後端分離)'
 show_reading_time=true
 featured_image = 'images/sunnyday.png'
 categories = ["前端","後端"]
-tags = ["python","vite+React","API","Django_REST_framework"]
+tags = ["python","vite+React","API","DRF"]
 toc=true
 +++
 

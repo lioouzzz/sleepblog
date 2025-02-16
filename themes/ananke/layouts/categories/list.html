@@ -1,19 +1,24 @@
 {{ define "main" }}
-<section class="section">
-  <div class="container">
-    <h1 class="title">文章分類</h1>
-
-    {{ with (index .Site.Data.categories .Title) }}
-    <p>{{ .description }}</p>
+<div class="pa3 pa4-ns w-100 w-70-ns center">
+  <section class="mt4">
+    {{ range .Pages }}
+    <article class="bb b--black-10">
+      <a class="db pv4 no-underline black dim" href="{{ .Permalink }}">
+        <div class="flex flex-column flex-row-ns">
+          {{ if .Params.cover }}
+          <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
+            <img src="{{ .Params.cover }}" class="db" alt="Article thumbnail" />
+          </div>
+          {{ end }}
+          <div class="w-100 {{ if .Params.cover }}w-60-ns{{ end }} pr3-ns">
+            <h2 class="f3 fw6 mt0 lh-title rgb(105, 132, 129)">{{ .Title }}</h2>
+            <p class="f6 f5-l lh-copy mv0">{{ .Summary }}</p>
+            <time class="f6 db gray mt2">{{ .Date.Format "2006-01-02" }}</time>
+          </div>
+        </div>
+      </a>
+    </article>
     {{ end }}
-
-    <ul>
-      {{ range .Pages }}
-      <li>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-      </li>
-      {{ end }}
-    </ul>
-  </div>
-</section>
+  </section>
+</div>
 {{ end }}
