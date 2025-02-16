@@ -65,11 +65,14 @@
   <script src="/lioouzzz/sleepblog.git/js/search.js"></script>
   </head><body class="ma0 avenir bg-near-white development">
 
-    
-
-  <header>
-    <div class="pb3-m pb6-l bg-washed-green">
-      <nav class="pv3 ph3 ph4-ns bg-white" role="navigation">
+       
+<header
+  class="cover bg-center vh-75"
+  style="background-image: url('http://localhost:1313/lioouzzz/sleepblog.git/images/cover_image.png');"
+>
+  
+  <div class="bg-washed-green-60">
+    <nav class="pv3 ph3 ph4-ns bg-white" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a
       href="/lioouzzz/sleepblog.git/"
@@ -240,60 +243,137 @@
   </div>
 </nav>
 
-      <div class="tc-l pv3 ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          Python
-        </h1>
-        
-      </div>
+    <div class="tc-l pv4 pv6-l ph3 ph4-ns">
+      <h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title">
+        Python
+      </h1>
+      
     </div>
-  </header>
+  </div>
+</header>
 
 
     <main class="pb7" role="main">
       
-<section class="section">
-  <div class="container">
-    <h1 class="title">文章分類</h1>
-
+<div class="pa3 pa4-ns w-100 w-70-ns center">
+  <section class="mt4">
     
-
-    <ul>
-      
-      <li>
-        <a href="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/">Python-OOP物件導向設計</a>
-      </li>
-      
-      <li>
-        <a href="http://localhost:1313/lioouzzz/sleepblog.git/posts/module-_package/">Python模組與套件</a>
-      </li>
-      
-      <li>
-        <a href="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250126-closure/closure/">Python-閉包(Closure)</a>
-      </li>
-      
-      <li>
-        <a href="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250124-first_class_citizen/">函數是一等公民</a>
-      </li>
-      
-      <li>
-        <a href="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250123-n&#43;1/20250123-n&#43;1_query/">Django N&#43;1 查詢問題</a>
-      </li>
-      
-      <li>
-        <a href="http://localhost:1313/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/">django串接google第三方登入</a>
-      </li>
-      
-      <li>
-        <a href="http://localhost:1313/lioouzzz/sleepblog.git/posts/1119fn_note/">Python 函數</a>
-      </li>
-      
-    </ul>
-  </div>
-</section>
+    <article class="bb b--black-10">
+      <a class="db pv4 no-underline black dim" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/">
+        <div class="flex flex-column flex-row-ns">
+          
+          <div class="w-100  pr3-ns">
+            <h2 class="f3 fw6 mt0 lh-title rgb(105, 132, 129)">Python-OOP物件導向設計</h2>
+            <p class="f6 f5-l lh-copy mv0"><h3 id="什麼是物件">什麼是物件？</h3>
+<blockquote>
+<p>物件(Object)=狀態(State)+行為(Behavior)</p>
+</blockquote>
+<p>狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。</p></p>
+            <time class="f6 db gray mt2">2025-01-27</time>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    <article class="bb b--black-10">
+      <a class="db pv4 no-underline black dim" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/module-_package/">
+        <div class="flex flex-column flex-row-ns">
+          
+          <div class="w-100  pr3-ns">
+            <h2 class="f3 fw6 mt0 lh-title rgb(105, 132, 129)">Python模組與套件</h2>
+            <p class="f6 f5-l lh-copy mv0"><h3 id="什麼是模組module">什麼是模組(Module)？</h3>
+<p>是一個python檔案，裡面會有一些函數、變數、類別。
+透過模組的設計可以讓程式碼更有組織性，也更容易維護。</p></p>
+            <time class="f6 db gray mt2">2025-01-27</time>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    <article class="bb b--black-10">
+      <a class="db pv4 no-underline black dim" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250126-closure/closure/">
+        <div class="flex flex-column flex-row-ns">
+          
+          <div class="w-100  pr3-ns">
+            <h2 class="f3 fw6 mt0 lh-title rgb(105, 132, 129)">Python-閉包(Closure)</h2>
+            <p class="f6 f5-l lh-copy mv0"><h3 id="自由變數">自由變數</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hi</span>():
+</span></span><span style="display:flex;"><span>    message<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hello,doggy!&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">byebye</span>():
+</span></span><span style="display:flex;"><span>        print(message)
+</span></span></code></pre></div></p>
+            <time class="f6 db gray mt2">2025-01-26</time>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    <article class="bb b--black-10">
+      <a class="db pv4 no-underline black dim" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250124-first_class_citizen/">
+        <div class="flex flex-column flex-row-ns">
+          
+          <div class="w-100  pr3-ns">
+            <h2 class="f3 fw6 mt0 lh-title rgb(105, 132, 129)">函數是一等公民</h2>
+            <p class="f6 f5-l lh-copy mv0"><h3 id="python函數是一等公民first-class-citizen">Python函數是一等公民(First-Class Citizen)</h3>
+<p>在Python中，函數是一等公民，有時也稱為一級物件(First-Class Object)，意思是函數、數字、字串、串列等資料型態，都是相同的地位。</p></p>
+            <time class="f6 db gray mt2">2025-01-24</time>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    <article class="bb b--black-10">
+      <a class="db pv4 no-underline black dim" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250123-n&#43;1/20250123-n&#43;1_query/">
+        <div class="flex flex-column flex-row-ns">
+          
+          <div class="w-100  pr3-ns">
+            <h2 class="f3 fw6 mt0 lh-title rgb(105, 132, 129)">Django N&#43;1 查詢問題</h2>
+            <p class="f6 f5-l lh-copy mv0"><h3 id="n1查詢問題">N+1查詢問題</h3>
+<p>N+1 問題是在 ORM（包括 Django ORM）中常見的效能問題
+指的是在處理關聯資料時，除了要執行一次主查詢外，還要為每個結果執行而外查詢</p>
+<p>來舉個例子 !</p></p>
+            <time class="f6 db gray mt2">2025-01-23</time>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    <article class="bb b--black-10">
+      <a class="db pv4 no-underline black dim" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/1214googlelogin/1214googlelogin/">
+        <div class="flex flex-column flex-row-ns">
+          
+          <div class="w-100  pr3-ns">
+            <h2 class="f3 fw6 mt0 lh-title rgb(105, 132, 129)">django串接google第三方登入</h2>
+            <p class="f6 f5-l lh-copy mv0"><p>詳細的參考文件(Document)可以前往 Django Package 官網
+<a href="https://docs.allauth.org/en/dev/socialaccount/providers/google.html">django-allauth</a></p>
+<p>首先先安裝套件</p>
+<pre tabindex="0"><code class="language-terminal" data-lang="terminal">pip install django-allauth
+</code></pre></p>
+            <time class="f6 db gray mt2">2024-12-14</time>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+    <article class="bb b--black-10">
+      <a class="db pv4 no-underline black dim" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/1119fn_note/">
+        <div class="flex flex-column flex-row-ns">
+          
+          <div class="w-100  pr3-ns">
+            <h2 class="f3 fw6 mt0 lh-title rgb(105, 132, 129)">Python 函數</h2>
+            <p class="f6 f5-l lh-copy mv0"><h3 id="定義函數">定義函數</h3>
+<p>寫函數的目的是為了把一段邏輯或程式碼抽象化，並且可以重複使用。</p></p>
+            <time class="f6 db gray mt2">2024-11-24</time>
+          </div>
+        </div>
+      </a>
+    </article>
+    
+  </section>
+</div>
 
     </main>
-    <footer class="bg-washed-green bottom-0 w-100 pa3" role="contentinfo">
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/lioouzzz/sleepblog.git/" >
     &copy;  🍀🍀🍀 2025 

@@ -22,7 +22,7 @@
   visibility: hidden;
   transform: translateY(-10px);
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.839);
+  background: rgba(255, 255, 255, 0.24);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(235, 150, 54, 0.87);
 }
@@ -103,4 +103,11 @@ nav.pv3.ph3.ph4-ns.bg-white {
 nav.pv3.ph3.ph4-ns.bg-white ul a,
 nav.pv3.ph3.ph4-ns.bg-white a {
   color: rgb(105, 132, 129) !important;
+}
+
+.site-header,
+.header {
+  background: url('/lioouzzz/sleepblog.git/images/cover_image.png') no-repeat
+    center center;
+  background-size: cover;
 }
