@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>網路安全 on 🍀🍀🍀</title>
+    <link>http://localhost:1313/lioouzzz/sleepblog.git/categories/%E7%B6%B2%E8%B7%AF%E5%AE%89%E5%85%A8/</link>
+    <description>Recent content in 網路安全 on 🍀🍀🍀</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E7%B6%B2%E8%B7%AF%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>了解HTTP&amp;HTTPS</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250215http_https/</link>
+      <pubDate>Sun, 16 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250215http_https/</guid>
+      <description>&lt;h3 id=&#34;什麼是-http&#34;&gt;什麼是 HTTP？&lt;/h3&gt;&#xA;&lt;p&gt;預設連接埠 80&lt;br&gt;&#xA;HTTP，又名為(HyperText Transfer Protocol，超文本傳輸協議)&lt;br&gt;&#xA;是一種&lt;strong&gt;無狀態&lt;/strong&gt;的應用層協議，用於網路上的數據通信，尤其是瀏覽器和 Web 伺服器之間的通信&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

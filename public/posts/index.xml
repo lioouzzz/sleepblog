@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>了解HTTP&amp;HTTPS</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250215http_https/</link>
+      <pubDate>Sun, 16 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250215http_https/</guid>
+      <description>&lt;h3 id=&#34;什麼是-http&#34;&gt;什麼是 HTTP？&lt;/h3&gt;&#xA;&lt;p&gt;預設連接埠 80&lt;br&gt;&#xA;HTTP，又名為(HyperText Transfer Protocol，超文本傳輸協議)&lt;br&gt;&#xA;是一種&lt;strong&gt;無狀態&lt;/strong&gt;的應用層協議，用於網路上的數據通信，尤其是瀏覽器和 Web 伺服器之間的通信&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Token</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250209-token/</link>
@@ -17,9 +24,9 @@
     </item>
     <item>
       <title>打造會員系統(前後端分離)</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250210-resudo_membersystem/20250210-resudo_membersystem/</link>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250210-resudo_membersystem/</link>
       <pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250210-resudo_membersystem/20250210-resudo_membersystem/</guid>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250210-resudo_membersystem/</guid>
       <description>&lt;p&gt;這次專案使用的工具&lt;br&gt;&#xA;前端：&lt;code&gt;vite+React&lt;/code&gt;&lt;br&gt;&#xA;後端：&lt;code&gt;django&lt;/code&gt;&lt;br&gt;&#xA;資料庫：&lt;code&gt;MySQL&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     <item>
@@ -147,13 +154,6 @@
       <pubDate>Sun, 24 Nov 2024 11:00:37 +0800</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/1119fn_note/</guid>
       <description>&lt;h3 id=&#34;定義函數&#34;&gt;定義函數&lt;/h3&gt;&#xA;&lt;p&gt;寫函數的目的是為了把一段邏輯或程式碼抽象化，並且可以重複使用。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250209-ngnix/ngnix/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250209-ngnix/ngnix/</guid>
-      <description></description>
     </item>
   </channel>
 </rss>

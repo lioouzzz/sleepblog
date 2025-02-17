@@ -2,17 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vite&#43;React on 🍀🍀🍀</title>
-    <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/vite&#43;react/</link>
+    <link>http://localhost:61022/lioouzzz/sleepblog.git/tags/vite&#43;react/</link>
     <description>Recent content in Vite&#43;React on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Feb 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/vite+react/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:61022/lioouzzz/sleepblog.git/tags/vite+react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTTP&amp;HTTPS</title>
+      <link>http://localhost:61022/lioouzzz/sleepblog.git/posts/20250215http_https/</link>
+      <pubDate>Sun, 16 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:61022/lioouzzz/sleepblog.git/posts/20250215http_https/</guid>
+      <description></description>
+    </item>
     <item>
       <title>打造會員系統(前後端分離)</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250210-resudo_membersystem/20250210-resudo_membersystem/</link>
+      <link>http://localhost:61022/lioouzzz/sleepblog.git/posts/20250210-resudo_membersystem/</link>
       <pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250210-resudo_membersystem/20250210-resudo_membersystem/</guid>
+      <guid>http://localhost:61022/lioouzzz/sleepblog.git/posts/20250210-resudo_membersystem/</guid>
       <description>&lt;p&gt;這次專案使用的工具&lt;br&gt;&#xA;前端：&lt;code&gt;vite+React&lt;/code&gt;&lt;br&gt;&#xA;後端：&lt;code&gt;django&lt;/code&gt;&lt;br&gt;&#xA;資料庫：&lt;code&gt;MySQL&lt;/code&gt;&lt;/p&gt;</description>
     </item>
   </channel>

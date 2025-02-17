@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>了解HTTP&amp;HTTPS | 🍀🍀🍀</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="什麼是 HTTP？
+預設連接埠 80
+HTTP，又名為(HyperText Transfer Protocol，超文本傳輸協議)
+是一種無狀態的應用層協議，用於網路上的數據通信，尤其是瀏覽器和 Web 伺服器之間的通信">
+    <meta name="generator" content="Hugo 0.138.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+      <meta name="author" content = "Elaine Liu">
+    
+
+    
+<link rel="stylesheet" href="/lioouzzz/sleepblog.git/ananke/css/main.min.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/lioouzzz/sleepblog.git/css/custom.css">
+  
+
+    
+
+    
+      
+<link rel="shortcut icon" href="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" type="image/x-icon" />
+
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250215http_https/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/20250215http_https/">
+  <meta property="og:site_name" content="🍀🍀🍀">
+  <meta property="og:title" content="了解HTTP&HTTPS">
+  <meta property="og:description" content="什麼是 HTTP？ 預設連接埠 80
+HTTP，又名為(HyperText Transfer Protocol，超文本傳輸協議)
+是一種無狀態的應用層協議，用於網路上的數據通信，尤其是瀏覽器和 Web 伺服器之間的通信">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-16T00:00:00+00:00">
+
+  <meta itemprop="name" content="了解HTTP&HTTPS">
+  <meta itemprop="description" content="什麼是 HTTP？ 預設連接埠 80
+HTTP，又名為(HyperText Transfer Protocol，超文本傳輸協議)
+是一種無狀態的應用層協議，用於網路上的數據通信，尤其是瀏覽器和 Web 伺服器之間的通信">
+  <meta itemprop="datePublished" content="2025-02-16T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-02-16T00:00:00+00:00">
+  <meta itemprop="wordCount" content="230">
+  <meta itemprop="keywords" content="資安,網路安全">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="了解HTTP&HTTPS">
+  <meta name="twitter:description" content="什麼是 HTTP？ 預設連接埠 80
+HTTP，又名為(HyperText Transfer Protocol，超文本傳輸協議)
+是一種無狀態的應用層協議，用於網路上的數據通信，尤其是瀏覽器和 Web 伺服器之間的通信">
+
+	
+  <script src="/lioouzzz/sleepblog.git/js/search.js"></script>
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  
+  
+  
+  <header class="cover bg-center" style="background-image: url('http://localhost:1313/lioouzzz/sleepblog.git/images/lines.png');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns bg-white" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a
+      href="/lioouzzz/sleepblog.git/"
+      class="f3 fw2 hover-blue no-underline dark-blue dib"
+    >
+      
+      <img src="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" class="w100 mw5-ns" alt="🍀🍀🍀" />
+      
+    </a>
+
+    <div class="flex-l items-center">
+      <div class="relative mr2">
+    <input type="search" 
+      class="pa2 br2 ba b--custom-blue" 
+      placeholder="搜尋..." 
+      id="search-input"
+      onkeyup="search()">
+  </div> 
+      <ul class="pl0 mr3">
+         
+        <li class="list f5 f4-ns fw4 dib mr3">
+          <a href="/lioouzzz/sleepblog.git/" class="hover-blue no-underline dark-blue">
+            首頁
+          </a>
+        </li>
+          
+        <li class="list f5 f4-ns fw4 dib mr3">
+          <a href="/lioouzzz/sleepblog.git/posts/" class="hover-blue no-underline dark-blue">
+            全部文章
+          </a>
+        </li>
+          
+        <li class="list f5 f4-ns fw4 dib mr3 dropdown">
+          <a
+            href="/lioouzzz/sleepblog.git/categories/"
+            class="hover-blue no-underline dark-blue dropdown-toggle"
+          >
+            文章分類
+          </a>
+          <ul class="dropdown-menu">
+             
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/database/">
+                database (3)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/javascripts/">
+                javascripts (5)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/python/">
+                python (7)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E5%89%8D%E7%AB%AF/">
+                前端 (1)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E5%BE%8C%E7%AB%AF/">
+                後端 (1)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E7%B6%B2%E8%B7%AF%E5%AE%89%E5%85%A8/">
+                網路安全 (1)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E8%B3%87%E5%AE%89/">
+                資安 (3)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/">
+                資料結構 (1)
+              </a>
+            </li>
+             
+          </ul>
+        </li>
+          
+        <li class="list f5 f4-ns fw4 dib mr3 dropdown">
+          <a
+            href="/lioouzzz/sleepblog.git/tags/"
+            class="hover-blue no-underline dark-blue dropdown-toggle"
+          >
+            文章標籤
+          </a>
+          <ul class="dropdown-menu">
+             
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/api/">
+                api (1)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/database/">
+                database (2)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/django/">
+                django (3)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/drf/">
+                drf (1)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/js/">
+                js (5)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/python/">
+                python (8)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/vite&#43;react/">
+                vite&#43;react (1)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%89%8D%E7%AB%AF/">
+                前端 (6)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/">
+                後端 (12)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E8%B3%87%E5%AE%89/">
+                資安 (1)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/">
+                資料結構 (1)
+              </a>
+            </li>
+             
+          </ul>
+        </li>
+         
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">了解HTTP&amp;HTTPS</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+
+
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">了解HTTP&amp;HTTPS</h1>
+      
+      <p class="tracked">
+        By <strong>Elaine Liu</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-02-16T00:00:00Z">2025年2月16日</time>
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - 2 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 230 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="什麼是-http">什麼是 HTTP？</h3>
+<p>預設連接埠 80<br>
+HTTP，又名為(HyperText Transfer Protocol，超文本傳輸協議)<br>
+是一種<strong>無狀態</strong>的應用層協議，用於網路上的數據通信，尤其是瀏覽器和 Web 伺服器之間的通信</p>
+<p>🪹 無狀態(stateless)：每次請求都是獨立的，伺服器不會記得前一次的請求資訊</p>
+<p>HTTP 是 Web 的核心協議，<strong>負責客戶端(Client)和伺服器(Server)之間的請求(Request)和回應(Response)</strong>，實際上是藉由 TCP 作為資料的傳輸方式。</p>
+<p>🪹 基於請求-響應模式 (Request-Response Model)：
+客戶端發送請求，伺服器回應相應數據</p>
+<p>舉例，今天使用者送出一個請求，經過 TCP 三次握手，資料就可以透過 TCP 傳遞給伺服器，並等待伺服器回應，像這樣的傳輸過程，資料都是<strong>明文</strong>如果傳輸的過程有惡意竊聽，資料便有機會被窺探，盜用。</p>
+<p>🪹 明文：數據不經過加密，容易被第三方攔截。</p>
+<h4 id="http-請求結構">HTTP 請求結構</h4>
+<p>HTTP 請求由以下部分組成：</p>
+<pre tabindex="0"><code>GET /index.html HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+Accept: text/html
+</code></pre><p><strong>請求行</strong>：指定請求方法(GET/POST/PUT/DELETE)，請求的資源<code>index.html</code>以及協議版本 <code>HTTP1.1</code></p>
+<p><strong>標頭</strong>：包括用戶代理(<code>User-Agent</code>)、可接受的數據類型(Accept)、主機(<code>Host</code>)等</p>
+<p><strong>請求主體</strong>：主要在<code>POST</code>或<code>PUT</code>請求中攜帶數據</p>
+<h4 id="http-響應結構舉例">HTTP 響應結構(舉例):</h4>
+<pre tabindex="0"><code>HTTP/1.1 200 OK
+Date: Mon, 17 Feb 2025 12:00:00 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1256
+
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Example&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;&lt;h1&gt;Hello, World!&lt;/h1&gt;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><strong>狀態行</strong>：包含 HPPT 協議版本(<code>HTTP/1.1</code>)，狀態碼(<code>200 OK</code>)<br>
+<strong>標頭</strong>：指定數據類型(<code>Content-Type</code>)、內容長度(<code>Content-Length</code>)
+、時間(<code>Date</code>)<br>
+<strong>主體</strong>：伺服器返回的 HTML、JSON 或其他格式的內容。</p>
+<h3 id="http-工作流程">HTTP 工作流程</h3>
+<p>1.使用者在瀏覽器輸入 URL，例如 <code>https://lioouzzz.github.io/sleepblog/</code><br>
+2.瀏覽器向 Web 伺服器發送 HTTP 請求。<br>
+3.伺服器接收請求並返回相應的 HTML 頁面或其他資源。<br>
+4.瀏覽器解析 HTML，並可能發出更多請求以獲取 CSS、JavaScript、圖片等資源。</p>
+<h4 id="使用-http-被盜用案例">使用 HTTP 被盜用案例</h4>
+<p>像是，
+惡意的使用者偽裝成功用網路來釣魚，當其他使用者連上時，就可以擷取封包，窺探傳書的內容，即使扣除掉這種不知名的網路免費網路，其實也沒辦法確認網路連線到目標伺服器的路上，每個節點都不會窺探、側錄你所傳遞的資料。</p>
+<p>所以我們為了避免這種情況，就要把資料加密。</p>
+<h3 id="https-是什麼">HTTPS 是什麼？</h3>
+<p>所以 HTTPS 是什麼？
+全名<strong>HperText TransferProtocol Secure，安全超文本傳輸協議</strong>，連接埠 443<br>
+是在 HTTP 基礎上加上 SSL/TLS 加密層，使得數據在傳輸過程中是加密的，能夠有效防止攔截和竄改。</p>
+<h4 id="https-特點">HTTPS 特點</h4>
+<p>1.數據加密(Encryption):透過 SSL/TLS 來加密傳輸中的數據，避免被中間人攻擊(MITM)<br>
+2.數據完整性(Integrity):確保數據在傳輸過程中沒有修改或損壞<br>
+3.身分驗證(Authentication):確保客戶端和伺服器之間的通信是可信的，通常透過 SSL/TLS 憑證(SSL Certificates)來驗證伺服器身分</p>
+<h4 id="https-工作流程">HTTPS 工作流程</h4>
+<p>1.瀏覽器發送 HTTPS 請求，例如 <code>https://lioouzzz.github.io/sleepblog/</code><br>
+2.伺服器返回 SSL/TLS 憑證(Certificate)<br>
+3.瀏覽器驗證憑證是否合法(是否由可信的 CA 簽發)<br>
+4.若合法，瀏覽器和伺服器建立安全連線，交換加密密鑰(SSL/TLS Handshake)<br>
+5.之後所有的 HTTP 數據都會被加密傳輸</p>
+<h3 id="ssltls-握手過程">SSL/TLS 握手過程</h3>
+<p>1.Client Hello： 客戶端發送支持的 TLS 版本和加密算法列表<br>
+2.Server Hello： 伺服器回應選擇的 TLS 版本、加密算法、提供 SSL 憑證<br>
+3.憑證驗證： 客戶端驗證 SSL 憑證是否合法<br>
+4.密鑰交換： 客戶端和伺服器交換密鑰，用於對稱加密<br>
+5.開始加密通信</p>
+<h3 id="http-和-https-的比較">HTTP 和 HTTPS 的比較</h3>
+<table>
+  <thead>
+      <tr>
+          <th>特性</th>
+          <th>HTTP</th>
+          <th>HTTPS</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>安全性</strong></td>
+          <td>無加密，容易被竊聽、篡改</td>
+          <td>使用 SSL/TLS 加密，安全性高</td>
+      </tr>
+      <tr>
+          <td><strong>傳輸速度</strong></td>
+          <td>快 (無加密)</td>
+          <td>稍慢 (需加密/解密)</td>
+      </tr>
+      <tr>
+          <td><strong>數據完整性</strong></td>
+          <td>容易被篡改</td>
+          <td>具備完整性驗證</td>
+      </tr>
+      <tr>
+          <td><strong>使用場景</strong></td>
+          <td>普通網站</td>
+          <td>電子商務、銀行、登入頁面</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="為什麼要使用-https">為什麼要使用 HTTPS</h3>
+<p>1.保護使用者隱私:防止密碼、個人訊息被竊取<br>
+2.防止中間人攻擊:避免中間人修改訊息<br>
+3.提高網站信任度:Google 會對 HTTPS 網站進行 SEO 加分<br>
+4.瀏覽器強制 HTTPS:Chrome、Firefox 會對 HTTP 網站標記為「不安全」</p>
+<h4 id="如何把-http-升級至-https">如何把 HTTP 升級至 HTTPS</h4>
+<p>1.申請 SSL(Let&rsquo;s Encrypt):適合個人或小型網站<br>
+2.付費 SSL(DigiCert,GlobalSign,Verisign)<br>
+3.配置 Web 伺服器</p>
+<ul>
+<li>Nginx 設定 HTTPS</li>
+<li>Apache 設定 HTTPS</li>
+</ul>
+<h3 id="總結">總結</h3>
+<p>了解了 HTTP 和 HTTPS 的不同後，所有網站都應該使用 HTTPS，以確保數據安全並提升網站可信度！</p><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">文章目錄</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#什麼是-http">什麼是 HTTP？</a>
+          <ul>
+            <li><a href="#http-請求結構">HTTP 請求結構</a></li>
+            <li><a href="#http-響應結構舉例">HTTP 響應結構(舉例):</a></li>
+          </ul>
+        </li>
+        <li><a href="#http-工作流程">HTTP 工作流程</a>
+          <ul>
+            <li><a href="#使用-http-被盜用案例">使用 HTTP 被盜用案例</a></li>
+          </ul>
+        </li>
+        <li><a href="#https-是什麼">HTTPS 是什麼？</a>
+          <ul>
+            <li><a href="#https-特點">HTTPS 特點</a></li>
+            <li><a href="#https-工作流程">HTTPS 工作流程</a></li>
+          </ul>
+        </li>
+        <li><a href="#ssltls-握手過程">SSL/TLS 握手過程</a></li>
+        <li><a href="#http-和-https-的比較">HTTP 和 HTTPS 的比較</a></li>
+        <li><a href="#為什麼要使用-https">為什麼要使用 HTTPS</a>
+          <ul>
+            <li><a href="#如何把-http-升級至-https">如何把 HTTP 升級至 HTTPS</a></li>
+          </ul>
+        </li>
+        <li><a href="#總結">總結</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/lioouzzz/sleepblog.git/" >
+    &copy;  🍀🍀🍀 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
