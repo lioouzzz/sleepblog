@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/lioouzzz/sleepblog.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=lioouzzz/sleepblog.git/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>利用django開發-實現AWSS3上傳圖片 | 🍀🍀🍀</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="本文教你從註冊 AWS 到可以利用 django 開發，實現 AWSS3 上傳圖片功能!">
+    <meta name="generator" content="Hugo 0.138.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+      <meta name="author" content = "Elaine Liu">
+    
+
+    
+<link rel="stylesheet" href="/lioouzzz/sleepblog.git/ananke/css/main.min.css" >
+
+
+
+  
+    <link rel="stylesheet" href="/lioouzzz/sleepblog.git/css/custom.css">
+  
+
+    
+
+    
+      
+<link rel="shortcut icon" href="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" type="image/x-icon" />
+
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/lioouzzz/sleepblog.git/posts/awss3/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/lioouzzz/sleepblog.git/posts/awss3/">
+  <meta property="og:site_name" content="🍀🍀🍀">
+  <meta property="og:title" content="利用django開發-實現AWSS3上傳圖片">
+  <meta property="og:description" content="本文教你從註冊 AWS 到可以利用 django 開發，實現 AWSS3 上傳圖片功能!">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-20T00:00:00+00:00">
+    <meta property="article:tag" content="後端">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Django">
+    <meta property="article:tag" content="Aws">
+
+  <meta itemprop="name" content="利用django開發-實現AWSS3上傳圖片">
+  <meta itemprop="description" content="本文教你從註冊 AWS 到可以利用 django 開發，實現 AWSS3 上傳圖片功能!">
+  <meta itemprop="datePublished" content="2025-02-20T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-02-20T00:00:00+00:00">
+  <meta itemprop="wordCount" content="492">
+  <meta itemprop="keywords" content="後端,Python,Django,Aws">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="利用django開發-實現AWSS3上傳圖片">
+  <meta name="twitter:description" content="本文教你從註冊 AWS 到可以利用 django 開發，實現 AWSS3 上傳圖片功能!">
+
+	
+  <script src="/lioouzzz/sleepblog.git/js/search.js"></script>
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  
+  
+  
+  <header class="cover bg-center" style="background-image: url('http://localhost:1313/lioouzzz/sleepblog.git/images/dj.png');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns bg-white" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a
+      href="/lioouzzz/sleepblog.git/"
+      class="f3 fw2 hover-blue no-underline dark-blue dib"
+    >
+      
+      <img src="/lioouzzz/sleepblog.git/images/20241130%20%e5%80%8b%e4%ba%balogo2.png" class="w100 mw5-ns" alt="🍀🍀🍀" />
+      
+    </a>
+
+    <div class="flex-l items-center">
+      <div class="relative mr2">
+    <input type="search" 
+      class="pa2 br2 ba b--custom-blue" 
+      placeholder="搜尋..." 
+      id="search-input"
+      onkeyup="search()">
+  </div> 
+      <ul class="pl0 mr3">
+         
+        <li class="list f5 f4-ns fw4 dib mr3">
+          <a href="/lioouzzz/sleepblog.git/" class="hover-blue no-underline dark-blue">
+            首頁
+          </a>
+        </li>
+          
+        <li class="list f5 f4-ns fw4 dib mr3">
+          <a href="/lioouzzz/sleepblog.git/posts/" class="hover-blue no-underline dark-blue">
+            全部文章
+          </a>
+        </li>
+          
+        <li class="list f5 f4-ns fw4 dib mr3 dropdown">
+          <a
+            href="/lioouzzz/sleepblog.git/categories/"
+            class="hover-blue no-underline dark-blue dropdown-toggle"
+          >
+            文章分類
+          </a>
+          <ul class="dropdown-menu">
+             
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/database/">
+                database (3)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/javascripts/">
+                javascripts (5)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/python/">
+                python (8)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E5%89%8D%E7%AB%AF/">
+                前端 (1)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E5%BE%8C%E7%AB%AF/">
+                後端 (2)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E7%B6%B2%E8%B7%AF%E5%AE%89%E5%85%A8/">
+                網路安全 (1)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E8%B3%87%E5%AE%89/">
+                資安 (3)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/">
+                資料結構 (1)
+              </a>
+            </li>
+             
+          </ul>
+        </li>
+          
+        <li class="list f5 f4-ns fw4 dib mr3 dropdown">
+          <a
+            href="/lioouzzz/sleepblog.git/tags/"
+            class="hover-blue no-underline dark-blue dropdown-toggle"
+          >
+            文章標籤
+          </a>
+          <ul class="dropdown-menu">
+             
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/api/">
+                api (1)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/aws/">
+                aws (1)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/database/">
+                database (2)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/django/">
+                django (4)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/drf/">
+                drf (1)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/js/">
+                js (5)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/python/">
+                python (9)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/vite&#43;react/">
+                vite&#43;react (1)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%89%8D%E7%AB%AF/">
+                前端 (6)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/">
+                後端 (13)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E8%B3%87%E5%AE%89/">
+                資安 (1)
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/">
+                資料結構 (1)
+              </a>
+            </li>
+             
+          </ul>
+        </li>
+         
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">利用django開發-實現AWSS3上傳圖片</div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+
+
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">利用django開發-實現AWSS3上傳圖片</h1>
+      
+      <p class="tracked">
+        By <strong>Elaine Liu</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-02-20T00:00:00Z">2025年2月20日</time>
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - 3 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 492 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>本文教你從註冊 AWS 到可以利用 django 開發，實現 AWSS3 上傳圖片功能!</p>
+<p>以下連結為詳細 AWS 註冊步驟、申請 S3，請先按照影片完成步驟。
+
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/y12KO8XM6jw?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
+</p>
+<h3 id="aws-s3amazon-simple-storage-service">AWS S3（Amazon Simple Storage Service）</h3>
+<p>由 AWS 提供的物件儲存服務，在現代應用程式架構中，S3 常常扮演著儲存與分發靜態資源（如圖片、影片、文件等）的角色</p>
+<h3 id="為什麼要使用-aws-s3-服務">為什麼要使用 AWS S3 服務?</h3>
+<p>在 server 端如果有靜態檔案(css、圖片、影片)，如果直接傳給 client 端，是會非常消耗 Server 資源，所以我們通常會避免這樣做，這時後就會選擇雲端服務，雲端服務有很多選項，本文著重介紹 AWS S3。
+Server 端會把靜態檔，傳給 AWS S3。或者從 S3 擷取需要的資料，進行後續處理後再回應 client 端。</p>
+<p><strong>安全與存取控制</strong><br>
+🫗client 端不會直接存取 S3（除非是公開資源或使用預簽名 URL），而是透過 Server 端來控制權限和認證流程</p>
+<p>🫗Server 端可以生成預簽名 URL（Presigned URL），讓 client 端能在受控的時間內直接上傳或下載 S3 資料，這樣既能保護 S3 的存取安全，又能減少 Server 的負擔。</p>
+<p>🫗S3 提供高擴展性，無論是資料量或存取次數都可以輕鬆應對。Server 端可以依賴 S3 來存放用戶資料、備份或其他應用程式資源，而不必擔心儲存空間不足或維護複雜性。</p>
+<p>🫗 將大量靜態資源儲存於 S3，可以降低 server 端的負載，並利用 CDN（例如 Amazon CloudFront）快速地將資源分發到全球用戶。</p>
+<h3 id="iam">IAM</h3>
+<p><strong>身份驗證與授權管理：</strong>
+IAM 允許你建立和管理 AWS 帳號中的使用者、群組及角色，並賦予他們對 AWS 資源（例如 S3）的存取權限。這意味著每個使用者或服務都必須經過 IAM 認證，才能存取 S3 資源，從而確保只有授權的實體可以進行操作。</p>
+<p><strong>IAM 政策與 S3 存取控制：</strong>
+IAM 政策是一個基於 JSON 格式的文件，你可以使用這些政策來定義允許或拒絕某個使用者、群組或角色對 S3 進行具體操作（例如：讀取、寫入、刪除）的權限。這些身份層級的政策與 S3 自身的資源層級策略（Bucket Policies、ACLs）共同作用，決定了最終的存取權限。<br>
+<strong>跨服務和跨帳號存取委派：</strong>
+當你使用 EC2 或 Lambda 等服務時，可以透過 IAM 角色安全地授權這些服務訪問 S3，而無需在應用程式中硬編碼存取金鑰。<br>
+或是可以設計 IAM 策略和 S3 Bucket Policies，以允許來自其他 AWS 帳號的使用者或角色存取特定 S3 資源，實現跨帳號的安全資源共享。</p>
+<h3 id="aws-申請步驟">AWS 申請步驟</h3>
+<p>首先先去 AWS 官網點擊服務 ⇀ 打上 IAM⇀ 到儀錶板上點選人員，創立人員 ⇀ 填寫使用者資訊 ⇀ 許可選項填直接連接政策 ⇀ 搜尋 S3⇀ 勾選 AmazonS3FullAccess，按下下一步。</p>
+<p>選擇你剛剛的使用者 ⇀ 進入畫面之後有一個存取金鑰 ⇀ 建立存取金鑰 ⇀ 選擇本機代碼 ⇀ 下一步 ⇀ 要把金鑰資訊自己保存起來 ⇀ 完成。</p>
+<p>首先先去 AWS 官網點擊服務 ⇀ 打上 S3 ⇀ 建立 bucket(建立儲存貯體) ⇀ 輸入存儲體名稱、AWS 區域(預設雪梨) ⇀ 儲存</p>
+<p>這時如果把檔案放在 bucket 會有 access deny 的問題，這是因為我們還沒調整 bucket 的權限</p>
+<p>S3 ⇀ 儲存貯體 ⇀ 你建立的儲存貯體 ⇀ 許可 ⇀ 封鎖公有存取權 ⇀ 編輯 ⇀ 取消勾選封鎖所有公開存取權 ⇀
+勾選封鎖透過新的存取控制清單(ACL)授予的對儲存貯體和物件的公開存取權 ⇀ 勾選封鎖透過任何存取控制清單授予的儲存主體和物件公開存取權 ⇀ 按下儲存變更。</p>
+<p>往下有個儲存貯體政策 ⇀ 貼上政策程式碼</p>
+<pre tabindex="0"><code>{
+    &#34;Version&#34;: &#34;2012-10-17&#34;,
+    &#34;Statement&#34;: [
+        {
+            &#34;Effect&#34;: &#34;Allow&#34;,
+            &#34;Principal&#34;: &#34;*&#34;,
+            &#34;Action&#34;: &#34;s3:GetObject&#34;,
+            &#34;Resource&#34;: &#34;arn:aws:s3:::resudobucket/*&#34;
+            &lt;!-- 這裡填自己的儲存貯體名稱 --&gt;
+        }
+    ]
+}
+</code></pre><h4 id="django-實現-aws-圖片上傳">django 實現 aws 圖片上傳</h4>
+<p>首先下載這兩個套件，這裡使用 poetry 虛擬環境</p>
+<pre tabindex="0"><code>poetry add django-storages boto3
+</code></pre><p><code>django-storages</code><br>
+django 的擴充套件，提供統一的介面讓你可以輕鬆使用多種後端儲存服務例如 AWS S3、Google Cloud Storage、Azure Storage 等。</p>
+<p><code>boto3</code><br>
+是 AWS 的官方 Python SDK，提供了操作 AWS 各項服務(例如 S3、EC2、DynamoDB 等的)API
+提供低階且靈活的操作介面，可用於建立、配置及管理 AWS 資源。
+在使用 AWS S3 時，django-storages 往往會依賴 boto3 來進行實際的連線和操作。</p>
+<p>🐞 補充介紹 AWS SDK：<br>
+是一套由 Amazon 提供的軟體開發工具包，幫助開發者輕鬆整合和操作 AWS 提供的各種服務，以下是主要特點和用途。</p>
+<p><strong>多語言操作：</strong><br>
+AWS SDK 提供了針對多種程式語言的庫，讓使用者可以根據所使用的語言，快速上手 AWS 的 API</p>
+<p><strong>簡化 API 呼叫：</strong><br>
+SDK 封裝了許多底層細節，包括認證、請求簽署、錯誤處理和重試機制，開發者可以透過簡單的方法呼叫 AWS 服務，無需處理 HTTP 請求。</p>
+<p><strong>支援多項 AWS 服務：</strong><br>
+無論是儲存服務（S3）、計算服務（EC2、Lambda）、資料庫（DynamoDB）或其他 AWS 服務，SDK 都提供了相應的接口，讓應用程式能夠無縫對接 AWS 生態系統。</p>
+<p><strong>安全性與最佳實踐：</strong><br>
+AWS SDK 內建與 AWS IAM 等服務整合，方便設定安全性與存取權限，並遵循最佳實踐來確保應用程式的安全運行。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PY" data-lang="PY"><span style="display:flex;"><span><span style="color:#75715e">#settings.py</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>INSTALLED_APPS <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.admin&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.auth&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.contenttypes&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.sessions&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.messages&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;django.contrib.staticfiles&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;corsheaders&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;rest_framework&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;users&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;storages&#34;</span>,  <span style="color:#75715e">#加上這個</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;profiles&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;resumes&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;drf_yasg&#34;</span>,
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>STORAGES <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;default&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;BACKEND&#34;</span>: <span style="color:#e6db74">&#34;storages.backends.s3boto3.S3Boto3Storage&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;OPTIONS&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;access_key&#34;</span>: os<span style="color:#f92672">.</span>getenv(<span style="color:#e6db74">&#34;AWS_ACCESS_KEY_ID&#34;</span>),
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;secret_key&#34;</span>: os<span style="color:#f92672">.</span>getenv(<span style="color:#e6db74">&#34;AWS_SECRET_ACCESS_KEY&#34;</span>),
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;bucket_name&#34;</span>: os<span style="color:#f92672">.</span>getenv(<span style="color:#e6db74">&#34;AWS_STORAGE_BUCKET_NAME&#34;</span>),
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;region_name&#34;</span>: os<span style="color:#f92672">.</span>getenv(<span style="color:#e6db74">&#34;AWS_S3_REGION_NAME&#34;</span>), <span style="color:#75715e">#利用環境變數包起來，建立.env檔案，把這些敏感資訊放進去</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;staticfiles&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;BACKEND&#34;</span>: <span style="color:#e6db74">&#34;django.contrib.staticfiles.storage.StaticFilesStorage&#34;</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>MEDIA_URL <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>getenv(<span style="color:#e6db74">&#34;MEDIA_URL&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>AWS_STORAGE_BUCKET_NAME <span style="color:#f92672">=</span> env(<span style="color:#e6db74">&#34;AWS_STORAGE_BUCKET_NAME&#34;</span>)
+</span></span><span style="display:flex;"><span>AWS_S3_CUSTOM_DOMAIN <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>AWS_STORAGE_BUCKET_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.s3.amazonaws.com&#34;</span>
+</span></span></code></pre></div><p>在對應的 views.py，寫上<code>from rest_framework.parsers import MultiPartParser, FormParser</code><br>
+在 Django REST framework 中，解析器(Parser)負責把 HTTP 請求中的原始資料轉為 Python 原生資料結構，以便後續在程式中使用，這裡介紹兩個常用的解析器：</p>
+<p><code>MultiPartParser：</code><br>
+用途：用來處理 <code>multipart/form-data</code> 格式的請求，這種格式常見於表單中包含檔案上傳的情況<br>
+功能：解析請求中的檔案與其他欄位資料，將檔案儲存在一個特殊的檔案物件中（通常是 UploadedFile），而其他表單資料則放入一個類似字典的結構中。使你能夠同時接收文件和文字資料，適用於例如圖片上傳、附件上傳等場景。</p>
+<p><code>FormParser：</code><br>
+用來處理 <code>application/x-www-form-urlencoded</code> 格式的請求，這是一般 HTML 表單提交時的預設格式（不包含檔案上傳）。將 URL 編碼的表單資料解析為一個字典或 QueryDict。只針對純文字表單資料進行解析，不處理檔案上傳。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-PY" data-lang="PY"><span style="display:flex;"><span><span style="color:#75715e"># views.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rest_framework.decorators <span style="color:#f92672">import</span> api_view, permission_classes, parser_classes
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rest_framework.parsers <span style="color:#f92672">import</span> MultiPartParser, FormParser
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> .models <span style="color:#f92672">import</span> Resume
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> .serializers <span style="color:#f92672">import</span> ResumeSerializer
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rest_framework.response <span style="color:#f92672">import</span> Response
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rest_framework <span style="color:#f92672">import</span> status
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> django.shortcuts <span style="color:#f92672">import</span> get_object_or_404
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> rest_framework.permissions <span style="color:#f92672">import</span> IsAuthenticated
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@api_view</span>([<span style="color:#e6db74">&#34;GET&#34;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@permission_classes</span>([IsAuthenticated])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span>(request):
+</span></span><span style="display:flex;"><span>    resumes <span style="color:#f92672">=</span> Resume<span style="color:#f92672">.</span>objects<span style="color:#f92672">.</span>all()
+</span></span><span style="display:flex;"><span>    serializer <span style="color:#f92672">=</span> ResumeSerializer(resumes, many<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Response(serializer<span style="color:#f92672">.</span>data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@api_view</span>([<span style="color:#e6db74">&#34;POST&#34;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@permission_classes</span>([IsAuthenticated])
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@parser_classes</span>([MultiPartParser, FormParser])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">new</span>(request):
+</span></span><span style="display:flex;"><span>    serializer <span style="color:#f92672">=</span> ResumeSerializer(data<span style="color:#f92672">=</span>request<span style="color:#f92672">.</span>data)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> serializer<span style="color:#f92672">.</span>is_valid():
+</span></span><span style="display:flex;"><span>        serializer<span style="color:#f92672">.</span>save()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Response(serializer<span style="color:#f92672">.</span>data, status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_201_CREATED)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Response(serializer<span style="color:#f92672">.</span>errors, status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_400_BAD_REQUEST)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@api_view</span>([<span style="color:#e6db74">&#34;GET&#34;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@permission_classes</span>([IsAuthenticated])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">show</span>(request, id):
+</span></span><span style="display:flex;"><span>    resume <span style="color:#f92672">=</span> get_object_or_404(Resume, id<span style="color:#f92672">=</span>id)
+</span></span><span style="display:flex;"><span>    serializer <span style="color:#f92672">=</span> ResumeSerializer(resume)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Response(serializer<span style="color:#f92672">.</span>data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@api_view</span>([<span style="color:#e6db74">&#34;PUT&#34;</span>, <span style="color:#e6db74">&#34;PATCH&#34;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@permission_classes</span>([IsAuthenticated])
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@parser_classes</span>([MultiPartParser, FormParser])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">edit</span>(request, id):
+</span></span><span style="display:flex;"><span>    resume <span style="color:#f92672">=</span> get_object_or_404(Resume, id<span style="color:#f92672">=</span>id)
+</span></span><span style="display:flex;"><span>    partial <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>method <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;PATCH&#34;</span>
+</span></span><span style="display:flex;"><span>    serializer <span style="color:#f92672">=</span> ResumeSerializer(resume, data<span style="color:#f92672">=</span>request<span style="color:#f92672">.</span>data, partial<span style="color:#f92672">=</span>partial)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> serializer<span style="color:#f92672">.</span>is_valid():
+</span></span><span style="display:flex;"><span>        serializer<span style="color:#f92672">.</span>save()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Response(serializer<span style="color:#f92672">.</span>data, status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_200_OK)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Response(serializer<span style="color:#f92672">.</span>data, status<span style="color:#f92672">=</span>status<span style="color:#f92672">.</span>HTTP_400_BAD_REQUEST)
+</span></span></code></pre></div><p>接著在前端把標籤寫好，就完成了！</p><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">後端</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/python/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Python</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/django/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Django</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/lioouzzz/sleepblog.git/tags/aws/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Aws</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">文章目錄</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#aws-s3amazon-simple-storage-service">AWS S3（Amazon Simple Storage Service）</a></li>
+        <li><a href="#為什麼要使用-aws-s3-服務">為什麼要使用 AWS S3 服務?</a></li>
+        <li><a href="#iam">IAM</a></li>
+        <li><a href="#aws-申請步驟">AWS 申請步驟</a>
+          <ul>
+            <li><a href="#django-實現-aws-圖片上傳">django 實現 aws 圖片上傳</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/lioouzzz/sleepblog.git/" >
+    &copy;  🍀🍀🍀 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

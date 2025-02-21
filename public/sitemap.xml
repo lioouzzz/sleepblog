@@ -3,13 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/</loc>
-    <lastmod>2025-02-16T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/aws/</loc>
+    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/categories/</loc>
-    <lastmod>2025-02-16T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/django/</loc>
+    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/awss3/</loc>
+    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/</loc>
-    <lastmod>2025-02-16T00:00:00+00:00</lastmod>
+    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/python/</loc>
+    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/categories/python/</loc>
+    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/</loc>
+    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/</loc>
+    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/lioouzzz/sleepblog.git/categories/%E5%BE%8C%E7%AB%AF/</loc>
+    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250215http_https/</loc>
     <lastmod>2025-02-16T00:00:00+00:00</lastmod>
@@ -26,12 +50,6 @@
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/drf/</loc>
     <lastmod>2025-02-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/python/</loc>
-    <lastmod>2025-02-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/</loc>
-    <lastmod>2025-02-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250209-token/</loc>
     <lastmod>2025-02-09T00:00:00+00:00</lastmod>
   </url><url>
@@ -39,12 +57,6 @@
     <lastmod>2025-02-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/categories/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2025-02-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/</loc>
-    <lastmod>2025-02-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/lioouzzz/sleepblog.git/categories/%E5%BE%8C%E7%AB%AF/</loc>
     <lastmod>2025-02-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250210-resudo_membersystem/</loc>
@@ -62,9 +74,6 @@
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250203-database_normalization/20250203-database_normalization/</loc>
     <lastmod>2025-02-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/lioouzzz/sleepblog.git/categories/python/</loc>
-    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/</loc>
     <lastmod>2025-01-27T00:00:00+00:00</lastmod>
   </url><url>
@@ -73,9 +82,6 @@
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250126-closure/closure/</loc>
     <lastmod>2025-01-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/django/</loc>
-    <lastmod>2025-01-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250124-first_class_citizen/</loc>
     <lastmod>2025-01-24T00:00:00+00:00</lastmod>
@@ -133,9 +139,5 @@
   </url><url>
     <loc>http://localhost:1313/lioouzzz/sleepblog.git/posts/1119fn_note/</loc>
     <lastmod>2024-11-24T11:00:37+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/%E7%B6%B2%E5%AE%89/</loc>
-  </url><url>
-    <loc>http://localhost:1313/lioouzzz/sleepblog.git/tags/%E7%B6%B2%E8%B7%AF%E5%AE%89%E5%85%A8/</loc>
   </url>
 </urlset>
