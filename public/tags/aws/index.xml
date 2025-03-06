@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Aws on 🍀🍀🍀</title>
+    <title>AWS on 🍀🍀🍀</title>
     <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/aws/</link>
-    <description>Recent content in Aws on 🍀🍀🍀</description>
+    <description>Recent content in AWS on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 20 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>django開發-實現AWSS3上傳圖片</title>
+      <title>利用django開發-實現AWSS3上傳圖片</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/awss3/</link>
       <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/awss3/</guid>
-      <description></description>
+      <description>&lt;p&gt;本文教你從註冊 AWS 到可以利用 django 開發，實現 AWSS3 上傳圖片功能!&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
