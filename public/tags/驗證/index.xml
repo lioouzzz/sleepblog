@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>驗證 on 🍀🍀🍀</title>
+    <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/%E9%A9%97%E8%AD%89/</link>
+    <description>Recent content in 驗證 on 🍀🍀🍀</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E9%A9%97%E8%AD%89/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用django開發-實現AWSS3上傳圖片</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250818_cookie/</link>
+      <pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250818_cookie/</guid>
+      <description>&lt;p&gt;本文教你從註冊 AWS 到可以利用 django 開發，實現 AWSS3 上傳圖片功能!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

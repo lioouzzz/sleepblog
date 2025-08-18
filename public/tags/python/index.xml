@@ -27,7 +27,7 @@
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/</link>
       <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/</guid>
-      <description>&lt;h3 id=&#34;什麼是物件&#34;&gt;什麼是物件？&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;物件(Object)=狀態(State)+行為(Behavior)&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。&lt;/p&gt;</description>
+      <description>&lt;h3 id=&#34;什麼是物件&#34;&gt;什麼是物件？&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;物件(Object)=狀態(State)+行為(Behavior)&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python模組與套件</title>

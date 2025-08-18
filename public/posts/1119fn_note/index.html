@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="定義函數
 寫函數的目的是為了把一段邏輯或程式碼抽象化，並且可以重複使用。">
-    <meta name="generator" content="Hugo 0.138.0">
+    <meta name="generator" content="Hugo 0.148.2">
     
     
     
@@ -145,7 +145,7 @@
             
             <li>
               <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E5%BE%8C%E7%AB%AF/">
-                後端 (2)
+                後端 (3)
               </a>
             </li>
             
@@ -163,90 +163,6 @@
             
             <li>
               <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/">
-                資料結構 (1)
-              </a>
-            </li>
-             
-          </ul>
-        </li>
-          
-        <li class="list f5 f4-ns fw4 dib mr3 dropdown">
-          <a
-            href="/lioouzzz/sleepblog.git/tags/"
-            class="hover-blue no-underline dark-blue dropdown-toggle"
-          >
-            文章標籤
-          </a>
-          <ul class="dropdown-menu">
-             
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/api/">
-                api (1)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/aws/">
-                aws (1)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/database/">
-                database (2)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/django/">
-                django (4)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/drf/">
-                drf (1)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/js/">
-                js (5)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/python/">
-                python (9)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/vite&#43;react/">
-                vite&#43;react (1)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%89%8D%E7%AB%AF/">
-                前端 (6)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/">
-                後端 (13)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E8%B3%87%E5%AE%89/">
-                資安 (1)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/">
                 資料結構 (1)
               </a>
             </li>
@@ -482,7 +398,6 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>(<span style="color:#f92672">*</span>args,<span style="color:#f92672">**</span>kwargs):
 </span></span><span style="display:flex;"><span>    print(args,kwargs)
 </span></span></code></pre></div><p><code>args</code> 跟 <code>kwargs</code> 其實就是 <code>arguments</code> 跟 <code>keyword arguments</code> 的意思。</p>
-<!-- raw HTML omitted -->
 <h3 id="引數開箱">引數開箱</h3>
 <p>如果學過 Js 的話，可以理解成解構，把一包東西展開，在python翻譯成「解包」
 串列、字典、Tuple、集合都可以用<code>*</code>來開箱，函數中的引數也可以使用開箱喔</p>
@@ -525,8 +440,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Hello, </span><span style="color:#e6db74">{</span>someone<span style="color:#e6db74">}</span><span style="color:#e6db74">!&#34;</span>
 </span></span></code></pre></div><blockquote>
 <p>What is a Docstring?<br>
-A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition. Such a docstring becomes the <strong>doc</strong> special attribute of that object.</p>
-</blockquote>
+A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition. Such a docstring becomes the <strong>doc</strong> special attribute of that object.</p></blockquote>
 <p>簡單來說，Docstring 就是一個支援換行的多行字串，要用單引號、雙引號都可以，當它出現在函數、類別或模組裡面的第一行的時候，這個字串會變成這個物件的 <code>__doc__</code> 特殊屬性。</p>
 <p>Docstring 必須是函數或類別的第一個陳述句（Statement），這樣到時候 help() 函數或 <code>.__doc__ </code>屬性才會抓的到這段文字</p>
 <h3 id="回傳值">回傳值</h3>
@@ -593,12 +507,10 @@ Built-in：如果全域變數也沒定義，才會找內建的函數或變數</p
 </span></span></code></pre></div><p>Python 採用的是 Lexical Scope 的設計，這個 Lexical 翻成中文是「詞彙的」，Lexical Scope 的意思是指當在找東西如果找不到會往外面找，<strong>這個「外面」指的是函數定義的地方的外面</strong>。也就是說，Python 的 Scope 只跟函數定義在什麼地方有關，跟它在哪裡被執行無關。</p>
 <p>所以在上面這個範例中，雖然在呼叫 <code>hi()</code> 函數的前一行宣告了 <code>language</code> 變數，執行到 <code>hi()</code> 函數的時候因為自己沒有這個變數所以往外找，但 Python 會找當時定義 <code>hi()</code> 函數的地方的外面，所以執行之後會找到全域 Scope 的 <code>language</code> 變數而印出 <code>&quot;Python&quot; </code>字樣，而不是 <code>&quot;Ruby&quot;</code>。</p>
 <p>nonlocal 不是區域變數，不會往全域變數找</p>
-<!-- raw HTML omitted -->
 <h4 id="aa1">a=a+1</h4>
 <blockquote>
 <p>Q: What are the rules for local and global variables in Python?
-A: In Python, variables that are only referenced inside a function are implicitly global. If a variable is assigned a value anywhere within the function’s body, it’s assumed to be a local unless explicitly declared as global.</p>
-</blockquote>
+A: In Python, variables that are only referenced inside a function are implicitly global. If a variable is assigned a value anywhere within the function’s body, it’s assumed to be a local unless explicitly declared as global.</p></blockquote>
 <p>Python 透過一個很簡單的規則：如果在函數裡做賦值這件事，像是 a = 1，這個行為會被視為宣告一個區域變數 a，並且把值設定成 1，而不是取用或修改函數外層或全域變數。為什麼這樣設計？就是剛剛說的，Python 的變數並沒有明確的「宣告」設計，如果不加這條規則，以後在函數裡要宣告變數的時候，都得擔心外層是不是已經有同名的變數了，所以 Python 才定了這條規則。</p>
 <p>因此在 hi() 函數裡面的 a += 1，也就是 a = a + 1，等號左邊的 a = 表示會有一個區域變數 a，而等號右邊的 a + 1 會試著問「嘿，請問在我們這個函數裡有沒有變數 a？」，這時 Python 會跟它說有，但這個變數還沒有被賦值，所以無法使用，因此出現 UnboundLocalError 的錯誤訊息。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>

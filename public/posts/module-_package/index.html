@@ -9,7 +9,7 @@
     <meta name="description" content="什麼是模組(Module)？
 是一個python檔案，裡面會有一些函數、變數、類別。
 透過模組的設計可以讓程式碼更有組織性，也更容易維護。">
-    <meta name="generator" content="Hugo 0.138.0">
+    <meta name="generator" content="Hugo 0.148.2">
     
     
     
@@ -146,7 +146,7 @@
             
             <li>
               <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E5%BE%8C%E7%AB%AF/">
-                後端 (2)
+                後端 (3)
               </a>
             </li>
             
@@ -164,90 +164,6 @@
             
             <li>
               <a href="http://localhost:1313/lioouzzz/sleepblog.git/categories/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/">
-                資料結構 (1)
-              </a>
-            </li>
-             
-          </ul>
-        </li>
-          
-        <li class="list f5 f4-ns fw4 dib mr3 dropdown">
-          <a
-            href="/lioouzzz/sleepblog.git/tags/"
-            class="hover-blue no-underline dark-blue dropdown-toggle"
-          >
-            文章標籤
-          </a>
-          <ul class="dropdown-menu">
-             
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/api/">
-                api (1)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/aws/">
-                aws (1)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/database/">
-                database (2)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/django/">
-                django (4)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/drf/">
-                drf (1)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/js/">
-                js (5)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/python/">
-                python (9)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/vite&#43;react/">
-                vite&#43;react (1)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%89%8D%E7%AB%AF/">
-                前端 (6)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/">
-                後端 (13)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E8%B3%87%E5%AE%89/">
-                資安 (1)
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B/">
                 資料結構 (1)
               </a>
             </li>
@@ -435,8 +351,7 @@
 </span></span><span style="display:flex;"><span>[<span style="color:#e6db74">&#39;__builtins__&#39;</span>, <span style="color:#e6db74">&#39;__cached__&#39;</span>, <span style="color:#e6db74">&#39;__doc__&#39;</span>, <span style="color:#e6db74">&#39;__file__&#39;</span>, <span style="color:#e6db74">&#39;__loader__&#39;</span>, <span style="color:#e6db74">&#39;__name__&#39;</span>, <span style="color:#e6db74">&#39;__package__&#39;</span>, <span style="color:#e6db74">&#39;__spec__&#39;</span>, <span style="color:#e6db74">&#39;add&#39;</span>, <span style="color:#e6db74">&#39;sub&#39;</span>]
 </span></span></code></pre></div><p>比較大的差異在於套件有<code>__path__</code>屬性，而一般的模組沒有</p>
 <blockquote>
-<p>any module that contains a <strong>path</strong> attribute is considered a package.</p>
-</blockquote>
+<p>any module that contains a <strong>path</strong> attribute is considered a package.</p></blockquote>
 <p>也就是說，模組只要有 <code>__path__</code>屬性就可以被當作套件。</p>
 <p>那套件的程式碼應該要寫在哪？
 寫在<code>__init.py</code>

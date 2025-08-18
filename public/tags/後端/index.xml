@@ -6,8 +6,15 @@
     <description>Recent content in 後端 on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用django開發-實現AWSS3上傳圖片</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250818_cookie/</link>
+      <pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250818_cookie/</guid>
+      <description>&lt;p&gt;本文教你從註冊 AWS 到可以利用 django 開發，實現 AWSS3 上傳圖片功能!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>利用django開發-實現AWSS3上傳圖片</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/awss3/</link>
@@ -41,7 +48,7 @@
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/</link>
       <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/</guid>
-      <description>&lt;h3 id=&#34;什麼是物件&#34;&gt;什麼是物件？&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;物件(Object)=狀態(State)+行為(Behavior)&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。&lt;/p&gt;</description>
+      <description>&lt;h3 id=&#34;什麼是物件&#34;&gt;什麼是物件？&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;物件(Object)=狀態(State)+行為(Behavior)&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python模組與套件</title>

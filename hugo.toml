@@ -1,9 +1,7 @@
 baseURL = 'https://github.com/lioouzzz/sleepblog.git'
 languageCode ="en-us"
 title = '🍀🍀🍀'
-paginate = 10
 theme = 'ananke'
-paginatePath = "page" 
 
 [params]
   custom_css = ["css/custom.css"]
@@ -36,12 +34,6 @@ pagerSize = 10
   name = "首頁"
   url = "/"
   weight = 1
-
-[[menu.main]]
-  identifier = "tags"
-  name = "文章標籤"
-  url = "/tags/"
-  weight = 3
 
 
 [[menu.main]]

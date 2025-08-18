@@ -6,8 +6,22 @@
     <description>Recent content in Tags on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>後端</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/</link>
+      <pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>驗證</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/%E9%A9%97%E8%AD%89/</link>
+      <pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/tags/%E9%A9%97%E8%AD%89/</guid>
+      <description></description>
+    </item>
     <item>
       <title>AWS</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/aws/</link>
@@ -27,13 +41,6 @@
       <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/python/</link>
       <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/tags/python/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>後端</title>
-      <link>http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/</link>
-      <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/</guid>
       <description></description>
     </item>
     <item>

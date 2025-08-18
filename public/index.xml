@@ -6,8 +6,15 @@
     <description>Recent content on 🍀🍀🍀</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MAGic CooKie 🍪</title>
+      <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250818_cookie/</link>
+      <pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250818_cookie/</guid>
+      <description>&lt;p&gt;magic cookie，幸運餅乾。&lt;/p&gt;&#xA;&lt;p&gt;不知不覺轉眼已是 8 月下，&#xA;隔了好久有新文章，現在是邊上班邊學習的狀態，&#xA;還有好多的知識要補齊，&#xA;雖然當下總覺得整理資料好麻煩，不過隔段時間回來看，還是有可以學習的地方，&#xA;留下些產物總是好的 🪺&lt;/p&gt;</description>
+    </item>
     <item>
       <title>利用django開發-實現AWSS3上傳圖片</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/awss3/</link>
@@ -55,7 +62,7 @@
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/</link>
       <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250127-oop/oop_basic/</guid>
-      <description>&lt;h3 id=&#34;什麼是物件&#34;&gt;什麼是物件？&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;物件(Object)=狀態(State)+行為(Behavior)&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。&lt;/p&gt;</description>
+      <description>&lt;h3 id=&#34;什麼是物件&#34;&gt;什麼是物件？&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;物件(Object)=狀態(State)+行為(Behavior)&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;狀態就是物件的屬性(Attribute)，行為就是物件的方法(Method)，也就是經常寫在物件裡的函數。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python模組與套件</title>
