@@ -43,6 +43,14 @@ pagerSize = 10
   weight = 3
 
 [[menu.main]]
+  identifier = "tags"
+  name = "文章標籤"
+  url = "/tags/"
+  weight = 3
+
+
+
+[[menu.main]]
   identifier = "post"
   name = "全部文章"
   url = "/posts/"

@@ -6,15 +6,14 @@
     </div>
   </article>
   <div class="mw8 center">
-    <section class="ph4">
+    <section class="ph4 flex flex-wrap items-center">
       {{ range $term := .Data.Pages }}
-        <h2 class="f1">
-          <a href="{{ $term.RelPermalink }}" class="link blue-90 hover-green">
-            {{ $.Data.Singular | humanize }}: {{ $term.LinkTitle }}
-          </a>
-        </h2>
+        <a href="{{ $term.RelPermalink }}" class="link blue-90 hover-green ba bw2 br0 pv2 ph3 dib mr3 mb3">
+           {{ $term.LinkTitle }}
+        </a>
+      {{ end }}
+      {{ range $term := .Data.Pages }}
         {{ range $term.Pages }}
-          {{ .Render "summary" }}
         {{ end }}
       {{ end }}
     </section>

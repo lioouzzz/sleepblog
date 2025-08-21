@@ -9,11 +9,11 @@
     <lastBuildDate>Mon, 18 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/lioouzzz/sleepblog.git/tags/%E5%BE%8C%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>利用django開發-實現AWSS3上傳圖片</title>
+      <title>MAGic CooKie 🍪</title>
       <link>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250818_cookie/</link>
       <pubDate>Mon, 18 Aug 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/lioouzzz/sleepblog.git/posts/20250818_cookie/</guid>
-      <description>&lt;p&gt;本文教你從註冊 AWS 到可以利用 django 開發，實現 AWSS3 上傳圖片功能!&lt;/p&gt;</description>
+      <description>&lt;p&gt;magic cookie，幸運餅乾。&lt;/p&gt;&#xA;&lt;p&gt;不知不覺轉眼已是 8 月下，&#xA;隔了好久有新文章，現在是邊上班邊學習的狀態，&#xA;還有好多的知識要補齊，&#xA;雖然當下總覺得整理資料好麻煩，不過隔段時間回來看，還是有可以學習的地方，&#xA;留下些產物總是好的 🪺&lt;/p&gt;</description>
     </item>
     <item>
       <title>利用django開發-實現AWSS3上傳圖片</title>
